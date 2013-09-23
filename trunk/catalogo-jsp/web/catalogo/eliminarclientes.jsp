@@ -6,6 +6,6 @@
 <jsp:setProperty property="id" name="cliente" />
 <%
 cliente.delete();
-
+ 
 response.sendRedirect(request.getContextPath() + "/catalogo/listadocliente.jsp");
 %>
