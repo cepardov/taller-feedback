@@ -134,7 +134,7 @@ public List<Cliente>findPorNombre(String nombre){
         PreparedStatement saveCliente;
         try {
 
-            if (cliente.getRut() == null) {
+            if (cliente.getRut() != null) {
                 saveCliente = getConnection().prepareStatement(
                         "INSERT INTO APP.cliente (rut, nombre, paterno, materno, telefono , email) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
