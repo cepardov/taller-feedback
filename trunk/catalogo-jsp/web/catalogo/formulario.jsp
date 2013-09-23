@@ -6,7 +6,7 @@
 
 <jsp:setProperty property="id" name="producto" />
 
-<% Producto prod = producto.findById();%>
+<% Producto prod = new Producto();%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,7 +19,7 @@
 
 
 <form method="post" action="<%= application.getContextPath() %>/catalogo/guardar.jsp">
-    <input type="hidden" name="id" value="<%=prod.getId()%>"/>
+    <input type="hidden" name="id" value="<%=prod.getRut()%>"/>
     <table border="1">
         <tbody>
             <tr>
