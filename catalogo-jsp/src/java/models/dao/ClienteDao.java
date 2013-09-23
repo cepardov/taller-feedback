@@ -138,23 +138,23 @@ public List<Cliente>findPorNombre(String nombre){
                 saveCliente = getConnection().prepareStatement(
                         "INSERT INTO APP.cliente (rut, nombre, paterno, materno, telefono , email) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
-                saveCliente.setString(1, cliente.getRut());
-                saveCliente.setString(2, cliente.getNombre());
-                saveCliente.setString(3, cliente.getPaterno());
-                saveCliente.setString(4, cliente.getMaterno());
-                saveCliente.setInt(5, cliente.getTelefono());
-                saveCliente.setString(6, cliente.getEmail());
+                saveCliente.setString(0, cliente.getRut());
+                saveCliente.setString(1, cliente.getNombre());
+                saveCliente.setString(2, cliente.getPaterno());
+                saveCliente.setString(3, cliente.getMaterno());
+                saveCliente.setInt(4, cliente.getTelefono());
+                saveCliente.setString(5, cliente.getEmail());
                 System.out.println("INSERT INTO ....");
             } else {
                 saveCliente = getConnection().prepareStatement(
                         "UPDATE APP.productos SET rut = ?, nombre = ?, paterno = ?,"
                         + " materno = ?, telefono = ?, email = ? WHERE  rut = ?");
-                saveCliente.setString(1, cliente.getRut());
-                saveCliente.setString(2, cliente.getNombre());
-                saveCliente.setString(3, cliente.getPaterno());
-                saveCliente.setString(4, cliente.getMaterno());
-                saveCliente.setInt(5, cliente.getTelefono());
-                saveCliente.setString(6, cliente.getEmail());
+                saveCliente.setString(0, cliente.getRut());
+                saveCliente.setString(1, cliente.getNombre());
+                saveCliente.setString(2, cliente.getPaterno());
+                saveCliente.setString(3, cliente.getMaterno());
+                saveCliente.setInt(4, cliente.getTelefono());
+                saveCliente.setString(5, cliente.getEmail());
             }
 
             saveCliente.executeUpdate();

@@ -3,9 +3,9 @@
     
 <jsp:useBean id="cliente" class="models.beans.ClienteBean" scope="request"></jsp:useBean>
 
-<jsp:setProperty property="*" name="cliente" />
+<jsp:setProperty property="id" name="cliente" />
 <%
-cliente.save();
+cliente.delete();
 
 response.sendRedirect(request.getContextPath() + "/catalogo/listadocliente.jsp");
 %>
