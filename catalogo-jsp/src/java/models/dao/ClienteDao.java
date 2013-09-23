@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import models.entity.Cliente;
 
-public class Clientedao {
+public class ClienteDao {
      protected Connection getConnection() {
         return DataBaseInstance.getInstanceConnection();
     }
