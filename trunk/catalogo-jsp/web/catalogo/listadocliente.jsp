@@ -33,7 +33,7 @@
 			<td><%= cli.getMaterno() %></td>
 			<td><%= cli.getEmail() %></td>
 			<td><%= cli.getTelefono() %></td>
-			<td><a href="<%= request.getContextPath() %>/catalogo/ingresocliente.jsp?id=<%= cli.getRut()%>">
+			<td><a href="<%= request.getContextPath() %>/catalogo/ingresoclientes.jsp?id=<%= cli.getRut()%>">
 			editar</a></td>
                         <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/catalogo/eliminar.jsp?id=<%= cli.getRut()%>">
 			eliminar</a></td>
