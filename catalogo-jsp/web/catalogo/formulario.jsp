@@ -1,3 +1,4 @@
+<%@page import="models.entity.Producto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="models.beans.*, models.entity.*"%>
@@ -6,7 +7,7 @@
 
 <jsp:setProperty property="id" name="producto" />
 
-<% Producto prod = new Producto();%>
+<% Producto prod = producto.findById();%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,7 +20,7 @@
 
 
 <form method="post" action="<%= application.getContextPath() %>/catalogo/guardar.jsp">
-    <input type="hidden" name="id" value="<%=prod.getRut()%>"/>
+    <input type="hidden" name="id" value="<%=prod.getId()%>"/>
     <table border="1">
         <tbody>
             <tr>
