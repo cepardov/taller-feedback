@@ -19,7 +19,7 @@
 <h3>Formulario Clientes</h3>
 
 
-<form method="post" action="<%= application.getContextPath() %>/taller/guardarclientes.jsp">
+<form method="post" action="<%= application.getContextPath() %>/catalogo/guardarcliente.jsp">
     <input type="hidden" name="rut" value="<%=cli.getRut()%>"/>
     <table border="1">
         <tbody>
