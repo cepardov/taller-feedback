@@ -3,7 +3,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="models.beans.*,models.entity.*"%>
 
-<jsp:useBean id="cliente" class="models.beans.Clientebeans" scope="request"></jsp:useBean>
+<jsp:useBean id="cliente" class="models.beans.ClienteBean" scope="request"></jsp:useBean>
 
 <jsp:setProperty property="rut" name="cliente" />
 
