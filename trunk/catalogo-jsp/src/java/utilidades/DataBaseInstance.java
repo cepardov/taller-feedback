@@ -7,9 +7,11 @@ import java.sql.SQLException;
 public final class DataBaseInstance {
 
     private static Connection conn;
-    private static String login = "curso";
-    private static String password = "javaee";
-    private static String url = "jdbc:derby://localhost:1527/java_productos";
+//    private static String login = "curso";
+    private static String login = "root";
+//    private static String password = "javaee";
+    private static String password = null;
+    private static String url = "jdbc:derby://localhost:1527/tallermecanico";
 
     public static Connection getInstanceConnection() {
         if (!(conn instanceof Connection)) {
