@@ -24,17 +24,17 @@ public List<Cliente>findPorNombre(String nombre){
 
         try {
 
-            String query = "SELECT * FROM cliente WHERE nombre LIKE ?";
+            String query = "SELECT * FROM APP.cliente WHERE nombre LIKE ?";
             PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setString(1,"%"+nombre+"%");
             result = stmt.executeQuery();
 
             while (result.next()) {
                 Cliente cliente = new Cliente();
-                cliente.setRut(result.getString("rutcliente"));
+                cliente.setRut(result.getString("rut"));
                 cliente.setNombre(result.getString("nombre"));
-                cliente.setPaterno(result.getString("apellidop"));
-                cliente.setMaterno(result.getString("apellidom"));
+                cliente.setPaterno(result.getString("paterno"));
+                cliente.setMaterno(result.getString("materno"));
                 cliente.setTelefono(result.getInt("telefono"));
                 cliente.setEmail(result.getString("email"));
                 listaClientes.add(cliente);
@@ -62,16 +62,16 @@ public List<Cliente>findPorNombre(String nombre){
 
         try {
 
-            String query = "SELECT * FROM cliente";
+            String query = "SELECT * FROM APP.cliente";
             Statement stmt = getConnection().createStatement();
             result = stmt.executeQuery(query);
 
             while (result.next()) {
                 Cliente cliente = new Cliente();
-                cliente.setRut(result.getString("rutcliente"));
+                cliente.setRut(result.getString("rut"));
                 cliente.setNombre(result.getString("nombre"));
-                cliente.setPaterno(result.getString("apellidop"));
-                cliente.setMaterno(result.getString("apellidom"));
+                cliente.setPaterno(result.getString("paterno"));
+                cliente.setMaterno(result.getString("materno"));
                 cliente.setTelefono(result.getInt("telefono"));
                 cliente.setEmail(result.getString("email"));
                 listaClientes.add(cliente);
@@ -96,7 +96,7 @@ public List<Cliente>findPorNombre(String nombre){
 
         try {
             // Componemos la sentencia SQL para obtener los productos.
-            String query = "SELECT * FROM cliente WHERE  rutcliente = ?";
+            String query = "SELECT * FROM APP.cliente WHERE  rut = ?";
 
             // Ejecutamos la query y obtenemos el resultado.
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -110,10 +110,10 @@ public List<Cliente>findPorNombre(String nombre){
 
             // Construimos una VO para el producto.
             cliente = new Cliente();
-            cliente.setRut(result.getString("rutcliente"));
+            cliente.setRut(result.getString("rut"));
             cliente.setNombre(result.getString("nombre"));
-            cliente.setPaterno(result.getString("apellidop"));
-            cliente.setMaterno(result.getString("apellidom"));
+            cliente.setPaterno(result.getString("paterno"));
+            cliente.setMaterno(result.getString("materno"));
             cliente.setTelefono(result.getInt("telefono"));
             cliente.setEmail(result.getString("email"));
 
@@ -136,7 +136,7 @@ public List<Cliente>findPorNombre(String nombre){
 
             if (cliente.getRut() == null) {
                 saveCliente = getConnection().prepareStatement(
-                        "INSERT INTO cliente (rut, nombre, paterno, materno, telefono , email) "
+                        "INSERT INTO APP.cliente (rut, nombre, paterno, materno, telefono , email) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
                 saveCliente.setString(1, cliente.getRut());
                 saveCliente.setString(2, cliente.getNombre());
@@ -147,7 +147,7 @@ public List<Cliente>findPorNombre(String nombre){
                 System.out.println("INSERT INTO ....");
             } else {
                 saveCliente = getConnection().prepareStatement(
-                        "UPDATE productos SET rut = ?, nombre = ?, paterno = ?,"
+                        "UPDATE APP.productos SET rut = ?, nombre = ?, paterno = ?,"
                         + " materno = ?, telefono = ?, email = ? WHERE  rut = ?");
                 saveCliente.setString(1, cliente.getRut());
                 saveCliente.setString(2, cliente.getNombre());
@@ -171,7 +171,7 @@ public List<Cliente>findPorNombre(String nombre){
 
             if (cliente.getRut() != null) {
                 delCliente = getConnection().prepareStatement(
-                        "DELETE FROM cliente WHERE rutcliente = ?");
+                        "DELETE FROM APP.cliente WHERE rut = ?");
 
                 delCliente.setString(1, cliente.getRut());
                 delCliente.executeUpdate();

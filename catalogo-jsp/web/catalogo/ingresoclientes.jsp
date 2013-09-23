@@ -1,6 +1,7 @@
+<%@page import="models.entity.Cliente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
     pageEncoding="ISO-8859-1"%>
-<%@ page import="models.beans.*, com.models.entity.*"%>
+<%@ page import="models.beans.*,models.entity.*"%>
 
 <jsp:useBean id="cliente" class="models.beans.Clientebeans" scope="request"></jsp:useBean>
 
