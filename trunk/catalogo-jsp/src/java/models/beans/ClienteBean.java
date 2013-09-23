@@ -1,12 +1,12 @@
 package models.beans;
 
 import java.util.List;
-import models.dao.Clientedao;
+import models.dao.ClienteDao;
 import models.entity.Cliente;
 
-public class Clientebeans extends Cliente {
+public class ClienteBean extends Cliente {
     
-     private Clientedao clienteDao = new Clientedao();
+     private ClienteDao clienteDao = new ClienteDao();
     
     public List<Cliente> findPorNombre() {
         return clienteDao.findPorNombre(nombre);
