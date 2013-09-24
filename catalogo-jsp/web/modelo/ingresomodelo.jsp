@@ -19,21 +19,13 @@
 <h3>Formulario Producto</h3>
 
 
-<form method="post" action="<%= application.getContextPath() %>/catalogo/guardar.jsp">
-    <input type="hidden" name="id" value="<%=prod.getId()%>"/>
+<form method="post" action="<%= application.getContextPath() %>/modelo/guardarmodelo.jsp">
+    <input type="hidden" name="id" value="<%=mod.getIdmodelo()%>"/>
     <table border="1">
         <tbody>
             <tr>
                 <td><span>Nombre</span></td>
-                <td><input size="40" type="text" name="nombre" value="<%=prod.getNombre()==null?"":prod.getNombre()%>"/></td>
-            </tr>
-            <tr>
-                <td><span>Cantidad</span></td>
-                <td><input type="text" name="cantidad" value="<%=prod.getCantidad()==0?"":prod.getCantidad()%>"/></td>
-            </tr>
-            <tr>
-                <td><span>Precio</span></td>
-                <td><input type="text" name="precio" value="<%=prod.getPrecio()==0?"":prod.getPrecio()%>"/></td>
+                <td><input size="40" type="text" name="nombre" value="<%=mod.getNombre()==null?"":mod.getNombre()%>"/></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" name="guardar" value="Guardar"/></td>
