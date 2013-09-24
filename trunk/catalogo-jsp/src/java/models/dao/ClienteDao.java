@@ -95,7 +95,7 @@ public List<Cliente>findPorNombre(String nombre){
         Cliente cliente = null;
 
         try {
-            // Componemos la sentencia SQL para obtener los productos.
+            // Componemos la sentencia SQL para obtener los cliente.
             String query = "SELECT * FROM APP.cliente WHERE  rut = ?";
 
             // Ejecutamos la query y obtenemos el resultado.
