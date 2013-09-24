@@ -10,71 +10,61 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import models.entity.Cliente;
+import models.entity.Marca;
 
 public class MarcaDao {
      protected Connection getConnection() {
         return DataBaseInstance.getInstanceConnection();
     }
+    public List<Marca>findPorNombre(String nombre){
+            List<Marca> listaClientes = new ArrayList<Marca>();
+            ResultSet result = null;
 
-    
-public List<Cliente>findPorNombre(String nombre){
-        List<Cliente> listaClientes = new ArrayList<Cliente>();
-        ResultSet result = null;
+            try {
 
-        try {
+                String query = "SELECT * FROM APP.marca WHERE nombre LIKE ?";
+                PreparedStatement stmt = getConnection().prepareStatement(query);
+                stmt.setString(1,"%"+nombre+"%");
+                result = stmt.executeQuery();
 
-            String query = "SELECT * FROM APP.cliente WHERE nombre LIKE ?";
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1,"%"+nombre+"%");
-            result = stmt.executeQuery();
+                while (result.next()) {
+                    Marca marca = new Marca();
+                    marca.setId(result.getInt("idmarca"));
+                    marca.setNombre(result.getString("nombre"));
+                    
+                    listaClientes.add(marca);
+                }
 
-            while (result.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setRut(result.getString("rut"));
-                cliente.setNombre(result.getString("nombre"));
-                cliente.setPaterno(result.getString("paterno"));
-                cliente.setMaterno(result.getString("materno"));
-                cliente.setTelefono(result.getInt("telefono"));
-                cliente.setEmail(result.getString("email"));
-                listaClientes.add(cliente);
+                result.close();
+                stmt.close();
+                closeConnection();
+
+            } catch (SQLException se) {
+                System.out.println(se.toString());
+                System.err.println("Se ha producido un error de BD.");
+                System.err.println(se.getMessage());
             }
 
-            result.close();
-            stmt.close();
-            closeConnection();
+            return listaClientes;
 
-        } catch (SQLException se) {
-            System.out.println(se.toString());
-            System.err.println("Se ha producido un error de BD.");
-            System.err.println(se.getMessage());
-        }
-
-        return listaClientes;
-
-}    
+    }    
     
-    
-    
-    public List<Cliente> findAll() {
-        List<Cliente> listaClientes = new LinkedList<Cliente>();
+    public List<Marca> findAll() {
+        List<Marca> listaMarca = new LinkedList<Marca>();
         ResultSet result = null;
 
         try {
 
-            String query = "SELECT * FROM APP.cliente";
+            String query = "SELECT * FROM APP.marca";
             Statement stmt = getConnection().createStatement();
             result = stmt.executeQuery(query);
 
             while (result.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setRut(result.getString("rut"));
-                cliente.setNombre(result.getString("nombre"));
-                cliente.setPaterno(result.getString("paterno"));
-                cliente.setMaterno(result.getString("materno"));
-                cliente.setTelefono(result.getInt("telefono"));
-                cliente.setEmail(result.getString("email"));
-                listaClientes.add(cliente);
+                Marca marca = new Marca();
+                marca.setId(result.getInt("idmarca"));
+                marca.setNombre(result.getString("nombre"));
+                
+                listaMarca.add(marca);
             }
 
             result.close();
@@ -87,20 +77,20 @@ public List<Cliente>findPorNombre(String nombre){
             System.err.println(se.getMessage());
         }
 
-        return listaClientes;
+        return listaMarca;
     }
 
-    public Cliente findByRut(String clienteRut) {
+    public Marca findById(int marcaId) {
         ResultSet result = null;
-        Cliente cliente = null;
+        Marca marca = null;
 
         try {
-            // Componemos la sentencia SQL para obtener los cliente.
-            String query = "SELECT * FROM APP.cliente WHERE  rut = ?";
+            // Componemos la sentencia SQL para obtener los productos.
+            String query = "SELECT * FROM APP.marca WHERE  idmarca = ?";
 
             // Ejecutamos la query y obtenemos el resultado.
             PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1, clienteRut);
+            stmt.setInt(1, marcaId);
             result = stmt.executeQuery();
 
             // Vemos si no ha devuelto ningun resultado.
@@ -109,13 +99,10 @@ public List<Cliente>findPorNombre(String nombre){
             }
 
             // Construimos una VO para el producto.
-            cliente = new Cliente();
-            cliente.setRut(result.getString("rut"));
-            cliente.setNombre(result.getString("nombre"));
-            cliente.setPaterno(result.getString("paterno"));
-            cliente.setMaterno(result.getString("materno"));
-            cliente.setTelefono(result.getInt("telefono"));
-            cliente.setEmail(result.getString("email"));
+            marca = new Marca();
+            marca.setId(result.getInt("idmarca"));
+            marca.setNombre(result.getString("nombre"));
+            
 
             result.close();
             stmt.close();
@@ -126,26 +113,28 @@ public List<Cliente>findPorNombre(String nombre){
             System.err.println(se.getMessage());
         }
 
-        return cliente;
+        return marca;
     }
 
-    public void save(Cliente cliente) {
+    public void save(Marca marca) {
 
-        PreparedStatement saveCliente;
+        PreparedStatement saveProduct;
         try {
-            
-                saveCliente = getConnection().prepareStatement(
-                        "INSERT INTO APP.cliente VALUES (?, ?, ?, ?, ?, ?)");
-                saveCliente.setString(1, cliente.getRut());
-                saveCliente.setString(2, cliente.getNombre());
-                saveCliente.setString(3, cliente.getPaterno());
-                saveCliente.setString(4, cliente.getMaterno());
-                saveCliente.setInt(5, cliente.getTelefono());
-                saveCliente.setString(6, cliente.getEmail());
-                System.out.println("INSERT INTO ....");
-            
 
-            saveCliente.executeUpdate();
+            if (marca.getId() == 0) {
+                saveProduct = getConnection().prepareStatement(
+                        "INSERT INTO APP.marca (nombre) "
+                        + "VALUES (?)");
+                saveProduct.setString(1, marca.getNombre());
+                System.out.println("INSERT INTO ....");
+            } else {
+                saveProduct = getConnection().prepareStatement(
+                        "UPDATE APP.marca SET nombre = ? WHERE  idmarca = ?");
+                saveProduct.setString(1, marca.getNombre());
+                
+            }
+
+            saveProduct.executeUpdate();
             closeConnection();
         } catch (SQLException se) {
             System.err.println("Se ha producido un error de BD.");
@@ -153,16 +142,17 @@ public List<Cliente>findPorNombre(String nombre){
         }
     }
 
-    public void delete(Cliente cliente) {
-        PreparedStatement delCliente;
+    public void delete(Marca marca) {
+        PreparedStatement saveProduct;
         try {
 
-                delCliente = getConnection().prepareStatement(
-                        "DELETE FROM APP.cliente WHERE rut = ?");
+            if (marca.getId() > 0) {
+                saveProduct = getConnection().prepareStatement(
+                        "DELETE FROM APP.marca WHERE idmarca = ?");
 
-                delCliente.setString(1, cliente.getRut());
-                delCliente.executeUpdate();
-            
+                saveProduct.setInt(1, marca.getId());
+                saveProduct.executeUpdate();
+            }
 
 
             closeConnection();
