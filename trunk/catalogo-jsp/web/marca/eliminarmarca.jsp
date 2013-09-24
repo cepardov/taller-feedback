@@ -5,7 +5,8 @@
 
 <jsp:setProperty property="*" name="marca" />
 <%
+
 marca.delete();
 
-response.sendRedirect(request.getContextPath() + "/catalogo/listado.jsp");
+response.sendRedirect(request.getContextPath() + "/marca/listamarca.jsp");
 %>

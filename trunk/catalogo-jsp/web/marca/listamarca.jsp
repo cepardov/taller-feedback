@@ -27,9 +27,9 @@
 			<td><%= cli.getId() %></td>
 			<td><%= cli.getNombre() %></td>
 			
-			<td><a href="<%= request.getContextPath() %>/marca/ingresomarca.jsp?Rut=<%= cli.getId()%>">
+			<td><a href="<%= request.getContextPath() %>/marca/ingresomarca.jsp?id=<%= cli.getId()%>">
 			editar</a></td>
-                        <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/marca/eliminarmarca.jsp?Rut=<%= cli.getId()%>">
+                        <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/marca/eliminarmarca.jsp?id=<%= cli.getId()%>">
 			eliminar</a></td>
 		</tr>
 	<%} %>
