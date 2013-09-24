@@ -82,7 +82,36 @@ public List<Modelo>findPorNombre(String nombre){
         return listaModelos;
 
 }    
+  public List<Modelo> findAll() {
+        List<Modelo> listaModelo = new LinkedList<Modelo>();
+        ResultSet result = null;
 
+        try {
+
+            String query = "SELECT * FROM APP.modelo";
+            Statement stmt = getConnection().createStatement();
+            result = stmt.executeQuery(query);
+
+            while (result.next()) {
+                Modelo modelo = new Modelo();
+                modelo.setIdmodelo(result.getInt("idmodelo"));
+                modelo.setNombre(result.getString("nombre"));
+                
+                listaModelo.add(modelo);
+            }
+
+            result.close();
+            stmt.close();
+            closeConnection();
+
+        } catch (SQLException se) {
+            System.out.println(se.toString());
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+
+        return listaModelo;
+    }
 
     public void save(Modelo modelo) {
 
