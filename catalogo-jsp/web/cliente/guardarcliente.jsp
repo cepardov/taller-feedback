@@ -7,5 +7,5 @@
 <%
 cliente.save();
 
-response.sendRedirect(request.getContextPath() + "/catalogo/listadocliente.jsp");
+response.sendRedirect(request.getContextPath() + "/cliente/listadocliente.jsp");
 %>

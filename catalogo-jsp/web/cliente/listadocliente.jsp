@@ -14,7 +14,7 @@
 </head>
 <body>
 <h3>Listado de Clientes</h3>
-<p><a href="<%=request.getContextPath() %>/catalogo/ingresoclientes.jsp">Agregar Cliente (+)</a></p>
+<p><a href="<%=request.getContextPath() %>/cliente/ingresoclientes.jsp">Agregar Cliente (+)</a></p>
 <table>
 	<tr>
 		
@@ -33,7 +33,7 @@
 			<td><%= cli.getMaterno() %></td>
 			<td><%= cli.getEmail() %></td>
 			<td><%= cli.getTelefono() %></td>
-			<td><a href="<%= request.getContextPath() %>/catalogo/ingresoclientes.jsp?Rut=<%= cli.getRut()%>">
+			<td><a href="<%= request.getContextPath() %>/cliente/ingresoclientes.jsp?Rut=<%= cli.getRut()%>">
 			editar</a></td>
                         <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/catalogo/eliminarclientes.jsp?Rut=<%= cli.getRut()%>">
 			eliminar</a></td>
