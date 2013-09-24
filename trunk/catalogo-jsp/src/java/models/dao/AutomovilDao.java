@@ -10,71 +10,33 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import models.entity.Cliente;
+import models.entity.Automovil;
 
 public class AutomovilDao {
      protected Connection getConnection() {
         return DataBaseInstance.getInstanceConnection();
     }
-
     
-public List<Cliente>findPorNombre(String nombre){
-        List<Cliente> listaClientes = new ArrayList<Cliente>();
+    public List<Automovil> findAll() {
+        List<Automovil> listaAutomoviles = new ArrayList<Automovil>();
         ResultSet result = null;
 
         try {
 
-            String query = "SELECT * FROM APP.cliente WHERE nombre LIKE ?";
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1,"%"+nombre+"%");
-            result = stmt.executeQuery();
-
-            while (result.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setRut(result.getString("rut"));
-                cliente.setNombre(result.getString("nombre"));
-                cliente.setPaterno(result.getString("paterno"));
-                cliente.setMaterno(result.getString("materno"));
-                cliente.setTelefono(result.getInt("telefono"));
-                cliente.setEmail(result.getString("email"));
-                listaClientes.add(cliente);
-            }
-
-            result.close();
-            stmt.close();
-            closeConnection();
-
-        } catch (SQLException se) {
-            System.out.println(se.toString());
-            System.err.println("Se ha producido un error de BD.");
-            System.err.println(se.getMessage());
-        }
-
-        return listaClientes;
-
-}    
-    
-    
-    
-    public List<Cliente> findAll() {
-        List<Cliente> listaClientes = new LinkedList<Cliente>();
-        ResultSet result = null;
-
-        try {
-
-            String query = "SELECT * FROM APP.cliente";
+            String query = "SELECT * FROM APP.automovil";
             Statement stmt = getConnection().createStatement();
             result = stmt.executeQuery(query);
 
             while (result.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setRut(result.getString("rut"));
-                cliente.setNombre(result.getString("nombre"));
-                cliente.setPaterno(result.getString("paterno"));
-                cliente.setMaterno(result.getString("materno"));
-                cliente.setTelefono(result.getInt("telefono"));
-                cliente.setEmail(result.getString("email"));
-                listaClientes.add(cliente);
+                Automovil automovil = new Automovil();
+                automovil.setPatente(result.getString("patente"));
+                automovil.setRut(result.getString("rut"));
+                automovil.setColor(result.getString("color"));
+                automovil.setIdmarca(result.getInt("idmarca"));
+                automovil.setIdmodelo(result.getInt("idmodelo"));
+                automovil.setAño(result.getString("año"));
+                automovil.setCilindrada(result.getString("cilindrada"));
+                listaAutomoviles.add(automovil);
             }
 
             result.close();
@@ -87,65 +49,66 @@ public List<Cliente>findPorNombre(String nombre){
             System.err.println(se.getMessage());
         }
 
-        return listaClientes;
+        return listaAutomoviles;
     }
 
-    public Cliente findByRut(String clienteRut) {
-        ResultSet result = null;
-        Cliente cliente = null;
+//    public Cliente findByRut(String clienteRut) {
+//        ResultSet result = null;
+//        Cliente cliente = null;
+//
+//        try {
+//            // Componemos la sentencia SQL para obtener los cliente.
+//            String query = "SELECT * FROM APP.cliente WHERE  rut = ?";
+//
+//            // Ejecutamos la query y obtenemos el resultado.
+//            PreparedStatement stmt = getConnection().prepareStatement(query);
+//            stmt.setString(1, clienteRut);
+//            result = stmt.executeQuery();
+//
+//            // Vemos si no ha devuelto ningun resultado.
+//            if (!result.next()) {
+//                throw new SQLException();
+//            }
+//
+//            // Construimos una VO para el producto.
+//            cliente = new Cliente();
+//            cliente.setRut(result.getString("rut"));
+//            cliente.setNombre(result.getString("nombre"));
+//            cliente.setPaterno(result.getString("paterno"));
+//            cliente.setMaterno(result.getString("materno"));
+//            cliente.setTelefono(result.getInt("telefono"));
+//            cliente.setEmail(result.getString("email"));
+//
+//            result.close();
+//            stmt.close();
+//            closeConnection();
+//
+//        } catch (SQLException se) {
+//            System.err.println("Se ha producido un error de BD.");
+//            System.err.println(se.getMessage());
+//        }
+//
+//        return cliente;
+//    }
 
-        try {
-            // Componemos la sentencia SQL para obtener los cliente.
-            String query = "SELECT * FROM APP.cliente WHERE  rut = ?";
+    public void save(Automovil automovil) {
 
-            // Ejecutamos la query y obtenemos el resultado.
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1, clienteRut);
-            result = stmt.executeQuery();
-
-            // Vemos si no ha devuelto ningun resultado.
-            if (!result.next()) {
-                throw new SQLException();
-            }
-
-            // Construimos una VO para el producto.
-            cliente = new Cliente();
-            cliente.setRut(result.getString("rut"));
-            cliente.setNombre(result.getString("nombre"));
-            cliente.setPaterno(result.getString("paterno"));
-            cliente.setMaterno(result.getString("materno"));
-            cliente.setTelefono(result.getInt("telefono"));
-            cliente.setEmail(result.getString("email"));
-
-            result.close();
-            stmt.close();
-            closeConnection();
-
-        } catch (SQLException se) {
-            System.err.println("Se ha producido un error de BD.");
-            System.err.println(se.getMessage());
-        }
-
-        return cliente;
-    }
-
-    public void save(Cliente cliente) {
-
-        PreparedStatement saveCliente;
+        PreparedStatement saveAutomovil;
         try {
             
-                saveCliente = getConnection().prepareStatement(
-                        "INSERT INTO APP.cliente VALUES (?, ?, ?, ?, ?, ?)");
-                saveCliente.setString(1, cliente.getRut());
-                saveCliente.setString(2, cliente.getNombre());
-                saveCliente.setString(3, cliente.getPaterno());
-                saveCliente.setString(4, cliente.getMaterno());
-                saveCliente.setInt(5, cliente.getTelefono());
-                saveCliente.setString(6, cliente.getEmail());
+                saveAutomovil = getConnection().prepareStatement(
+                        "INSERT INTO APP.automovil VALUES (?, ?, ?, ?, ?, ?, ?)");
+                saveAutomovil.setString(1, automovil.getPatente());
+                saveAutomovil.setString(2, automovil.getRut());
+                saveAutomovil.setString(3, automovil.getColor());
+                saveAutomovil.setInt(4, automovil.getIdmarca());
+                saveAutomovil.setInt(5, automovil.getIdmodelo());
+                saveAutomovil.setString(6, automovil.getAño());
+                saveAutomovil.setString(6, automovil.getCilindrada());
                 System.out.println("INSERT INTO ....");
             
 
-            saveCliente.executeUpdate();
+            saveAutomovil.executeUpdate();
             closeConnection();
         } catch (SQLException se) {
             System.err.println("Se ha producido un error de BD.");
@@ -153,15 +116,15 @@ public List<Cliente>findPorNombre(String nombre){
         }
     }
 
-    public void delete(Cliente cliente) {
-        PreparedStatement delCliente;
+    public void delete(Automovil automovil) {
+        PreparedStatement delAutomovil;
         try {
 
-                delCliente = getConnection().prepareStatement(
-                        "DELETE FROM APP.cliente WHERE rut = ?");
+                delAutomovil = getConnection().prepareStatement(
+                        "DELETE FROM APP.automovil WHERE patente = ?");
 
-                delCliente.setString(1, cliente.getRut());
-                delCliente.executeUpdate();
+                delAutomovil.setString(1, automovil.getPatente());
+                delAutomovil.executeUpdate();
             
 
 
