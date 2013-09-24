@@ -9,12 +9,21 @@ package models.entity;
  * @author Luis
  */
 public class Automovil {
-    protected String rut;
-    protected String nombre;
-    protected String paterno;
-    protected String materno;
-    protected int telefono;
-    protected String email;
+  protected String patente;
+  protected String rut;
+  protected String color;
+  protected int idmarca;
+  protected int idmodelo;
+  protected String año;
+  protected String cilindrada;
+
+    public String getPatente() {
+        return patente;
+    }
+
+    public void setPatente(String patente) {
+        this.patente = patente;
+    }
 
     public String getRut() {
         return rut;
@@ -24,45 +33,46 @@ public class Automovil {
         this.rut = rut;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getColor() {
+        return color;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public String getPaterno() {
-        return paterno;
+    public int getIdmarca() {
+        return idmarca;
     }
 
-    public void setPaterno(String paterno) {
-        this.paterno = paterno;
+    public void setIdmarca(int idmarca) {
+        this.idmarca = idmarca;
     }
 
-    public String getMaterno() {
-        return materno;
+    public int getIdmodelo() {
+        return idmodelo;
     }
 
-    public void setMaterno(String materno) {
-        this.materno = materno;
+    public void setIdmodelo(int idmodelo) {
+        this.idmodelo = idmodelo;
     }
 
-    public int getTelefono() {
-        return telefono;
+    public String getAño() {
+        return año;
     }
 
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
+    public void setAño(String año) {
+        this.año = año;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCilindrada() {
+        return cilindrada;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCilindrada(String cilindrada) {
+        this.cilindrada = cilindrada;
     }
+    
     /* public String toString() {
      * StringBuffer buf = new StringBuffer();
      * buf.append("rut: ");

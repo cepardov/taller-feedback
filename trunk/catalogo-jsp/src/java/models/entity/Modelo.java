@@ -9,19 +9,16 @@ package models.entity;
  * @author Luis
  */
 public class Modelo {
-    protected String rut;
+    protected int idmodelo;
     protected String nombre;
-    protected String paterno;
-    protected String materno;
-    protected int telefono;
-    protected String email;
+    protected int idmarca;
 
-    public String getRut() {
-        return rut;
+    public int getIdmodelo() {
+        return idmodelo;
     }
 
-    public void setRut(String rut) {
-        this.rut = rut;
+    public void setIdmodelo(int idmodelo) {
+        this.idmodelo = idmodelo;
     }
 
     public String getNombre() {
@@ -32,37 +29,15 @@ public class Modelo {
         this.nombre = nombre;
     }
 
-    public String getPaterno() {
-        return paterno;
+    public int getIdmarca() {
+        return idmarca;
     }
 
-    public void setPaterno(String paterno) {
-        this.paterno = paterno;
+    public void setIdmarca(int idmarca) {
+        this.idmarca = idmarca;
     }
-
-    public String getMaterno() {
-        return materno;
-    }
-
-    public void setMaterno(String materno) {
-        this.materno = materno;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+     
+        
     /* public String toString() {
      * StringBuffer buf = new StringBuffer();
      * buf.append("rut: ");
