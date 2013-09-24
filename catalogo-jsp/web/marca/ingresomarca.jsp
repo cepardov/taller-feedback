@@ -31,6 +31,9 @@
                 <td><span>Nombre</span></td>
                 <td><input size="40" type="text" name="nombre" value="<%=marc.getNombre()==null?"":marc.getNombre()%>"/></td>
             </tr>
+            <tr>
+                <td colspan="2"><input type="submit" name="guardar" value="Guardar"/></td>
+            </tr>
             
         </tbody>
     </table>
