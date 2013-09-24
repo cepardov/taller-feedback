@@ -1,36 +1,36 @@
 package models.beans;
 
 import java.util.List;
-import models.dao.ClienteDao;
-import models.entity.Cliente;
+import models.dao.MarcaDao;
+import models.entity.Marca;
 
-public class MarcaBean extends Cliente {
+public class MarcaBean extends Marca {
     
-     private ClienteDao clienteDao = new ClienteDao();
+     private MarcaDao marcaDao = new MarcaDao();
     
-    public List<Cliente> findPorNombre() {
-        return clienteDao.findPorNombre(nombre);
+    public List<Marca> findPorNombre() {
+        return marcaDao.findPorNombre(nombre);
     }
     
-    public List<Cliente> findAll() {
-        return clienteDao.findAll();
+    public List<Marca> findAll() {
+        return marcaDao.findAll();
     }
 
-    public Cliente findByRut() {
-        Cliente cliente = null;
-        if (rut != null) {
-            cliente = clienteDao.findByRut(rut);
+    public Marca findById() {
+        Marca marca = null;
+        if (idmarca != 0) {
+            marca = marcaDao.findById(idmarca);
         } else {
-            cliente = new Cliente();
+            marca = new Marca();
         }
-        return cliente;
+        return marca;
     }
 
     public void save() {
-        clienteDao.save(this);
+       marcaDao.save(this);
     }
 
     public void delete() {
-        clienteDao.delete(this);
+        marcaDao.delete(this);
     }
 }
