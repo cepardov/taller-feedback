@@ -20,13 +20,8 @@
 
 
 <form method="post" action="<%= application.getContextPath() %>/marca/guardarmarca.jsp">
-    
+<input type="hidden" name="id" value="<%=marc.getId()%>"/>   
     <table border="1">
-        <tbody>
-             <tr>
-                <td><span>Id</span></td>
-                <td><input type="text" name="rut" value="<%=marc.getId()==0?"":marc.getId()%>"/></td>
-            </tr>
             <tr>
                 <td><span>Nombre</span></td>
                 <td><input size="40" type="text" name="nombre" value="<%=marc.getNombre()==null?"":marc.getNombre()%>"/></td>

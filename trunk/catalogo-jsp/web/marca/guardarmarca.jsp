@@ -7,5 +7,5 @@
 <%
 marca.save();
 
-response.sendRedirect(request.getContextPath() + "/marca/listadomarca.jsp");
+response.sendRedirect(request.getContextPath() + "/marca/listamarca.jsp");
 %>

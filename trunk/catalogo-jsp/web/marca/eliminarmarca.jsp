@@ -1,17 +1,11 @@
-<%-- 
-    Document   : eliminarmarca
-    Created on : 24-09-2013, 07:47:00 PM
-    Author     : Luis
---%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<jsp:useBean id="marca" class="models.beans.MarcaBean" scope="request"></jsp:useBean>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<jsp:setProperty property="*" name="marca" />
+<%
+marca.delete();
+
+response.sendRedirect(request.getContextPath() + "/catalogo/listado.jsp");
+%>
