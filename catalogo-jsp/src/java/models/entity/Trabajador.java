@@ -1,6 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @Author cepardov
+ * @Versión 0
  */
 package models.entity;
 
@@ -76,3 +76,4 @@ public class Trabajador {
      * return buf.toString();
      * }*/
 }
+//END FILE

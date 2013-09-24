@@ -1,3 +1,7 @@
+/**
+ * @Author cepardov
+ * @Versión 0
+ */
 package models.beans;
 
 import java.util.List;
@@ -34,3 +38,4 @@ public class TrabajadorBean extends Trabajador {
         trabajadorDao.delete(this);
     }
 }
+//END FILE

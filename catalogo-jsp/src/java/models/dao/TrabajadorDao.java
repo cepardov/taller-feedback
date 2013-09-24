@@ -1,3 +1,7 @@
+/**
+ * @Author cepardov
+ * @Versión 0
+ */
 package models.dao;
 
 import utilidades.DataBaseInstance;
@@ -176,3 +180,4 @@ public List<Trabajador>findPorNombre(String nombre){
         DataBaseInstance.closeConnection();
     }
 }
+//END FILE
