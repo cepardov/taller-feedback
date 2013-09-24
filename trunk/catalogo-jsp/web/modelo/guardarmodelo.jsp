@@ -7,5 +7,5 @@
 <%
 producto.save();
 
-response.sendRedirect(request.getContextPath() + "/catalogo/listado.jsp");
+response.sendRedirect(request.getContextPath() + "/modelo/listadomodelo.jsp");
 %>
