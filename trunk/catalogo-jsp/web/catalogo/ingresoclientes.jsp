@@ -20,7 +20,7 @@
 
 
 <form method="post" action="<%= application.getContextPath() %>/catalogo/guardarcliente.jsp">
-    <input type="hidden" name="rut" value="<%=cli.getRut()%>"/>
+    
     <table border="1">
         <tbody>
              <tr>
