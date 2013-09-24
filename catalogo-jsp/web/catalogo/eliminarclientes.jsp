@@ -3,7 +3,7 @@
     
 <jsp:useBean id="cliente" class="models.beans.ClienteBean" scope="request"></jsp:useBean>
 
-<jsp:setProperty property="id" name="cliente" />
+<jsp:setProperty property="*" name="cliente" />
 <%
 cliente.delete();
  
