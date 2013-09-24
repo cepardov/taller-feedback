@@ -52,44 +52,45 @@ public class AutomovilDao {
         return listaAutomoviles;
     }
 
-//    public Cliente findByRut(String clienteRut) {
-//        ResultSet result = null;
-//        Cliente cliente = null;
-//
-//        try {
-//            // Componemos la sentencia SQL para obtener los cliente.
-//            String query = "SELECT * FROM APP.cliente WHERE  rut = ?";
-//
-//            // Ejecutamos la query y obtenemos el resultado.
-//            PreparedStatement stmt = getConnection().prepareStatement(query);
-//            stmt.setString(1, clienteRut);
-//            result = stmt.executeQuery();
-//
-//            // Vemos si no ha devuelto ningun resultado.
-//            if (!result.next()) {
-//                throw new SQLException();
-//            }
-//
-//            // Construimos una VO para el producto.
-//            cliente = new Cliente();
-//            cliente.setRut(result.getString("rut"));
-//            cliente.setNombre(result.getString("nombre"));
-//            cliente.setPaterno(result.getString("paterno"));
-//            cliente.setMaterno(result.getString("materno"));
-//            cliente.setTelefono(result.getInt("telefono"));
-//            cliente.setEmail(result.getString("email"));
-//
-//            result.close();
-//            stmt.close();
-//            closeConnection();
-//
-//        } catch (SQLException se) {
-//            System.err.println("Se ha producido un error de BD.");
-//            System.err.println(se.getMessage());
-//        }
-//
-//        return cliente;
-//    }
+    public Automovil findByPatente(String patente) {
+        ResultSet result = null;
+        Automovil automovil = null;
+
+        try {
+            // Componemos la sentencia SQL para obtener los cliente.
+            String query = "SELECT * FROM APP.automovil WHERE  patente = ?";
+
+            // Ejecutamos la query y obtenemos el resultado.
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setString(1, patente);
+            result = stmt.executeQuery();
+
+            // Vemos si no ha devuelto ningun resultado.
+            if (!result.next()) {
+                throw new SQLException();
+            }
+
+            // Construimos una VO para el producto.
+            automovil = new Automovil();
+            automovil.setPatente(result.getString("patente"));
+            automovil.setRut(result.getString("rut"));
+            automovil.setColor(result.getString("color"));
+            automovil.setIdmarca(result.getInt("idmarca"));
+            automovil.setIdmodelo(result.getInt("idmodelo"));
+            automovil.setAño(result.getString("año"));
+            automovil.setCilindrada(result.getString("cilindrada"));
+
+            result.close();
+            stmt.close();
+            closeConnection();
+
+        } catch (SQLException se) {
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+
+        return automovil;
+    }
 
     public void save(Automovil automovil) {
 
@@ -104,7 +105,7 @@ public class AutomovilDao {
                 saveAutomovil.setInt(4, automovil.getIdmarca());
                 saveAutomovil.setInt(5, automovil.getIdmodelo());
                 saveAutomovil.setString(6, automovil.getAño());
-                saveAutomovil.setString(6, automovil.getCilindrada());
+                saveAutomovil.setString(7, automovil.getCilindrada());
                 System.out.println("INSERT INTO ....");
             
 
