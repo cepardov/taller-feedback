@@ -19,7 +19,7 @@
 <h3>Formulario Clientes</h3>
 
 
-<form method="post" action="<%= application.getContextPath() %>/catalogo/guardarcliente.jsp">
+<form method="post" action="<%= application.getContextPath() %>/cliente/guardarcliente.jsp">
     
     <table border="1">
         <tbody>
