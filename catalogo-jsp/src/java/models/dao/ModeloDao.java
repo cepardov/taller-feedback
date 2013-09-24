@@ -11,96 +11,24 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import models.entity.Cliente;
+import models.entity.Modelo;
 
 public class ModeloDao {
      protected Connection getConnection() {
         return DataBaseInstance.getInstanceConnection();
     }
 
-    
-public List<Cliente>findPorNombre(String nombre){
-        List<Cliente> listaClientes = new ArrayList<Cliente>();
+ public Modelo findById(int modeloid) {
         ResultSet result = null;
+        Modelo modelo = null;
 
         try {
-
-            String query = "SELECT * FROM APP.cliente WHERE nombre LIKE ?";
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1,"%"+nombre+"%");
-            result = stmt.executeQuery();
-
-            while (result.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setRut(result.getString("rut"));
-                cliente.setNombre(result.getString("nombre"));
-                cliente.setPaterno(result.getString("paterno"));
-                cliente.setMaterno(result.getString("materno"));
-                cliente.setTelefono(result.getInt("telefono"));
-                cliente.setEmail(result.getString("email"));
-                listaClientes.add(cliente);
-            }
-
-            result.close();
-            stmt.close();
-            closeConnection();
-
-        } catch (SQLException se) {
-            System.out.println(se.toString());
-            System.err.println("Se ha producido un error de BD.");
-            System.err.println(se.getMessage());
-        }
-
-        return listaClientes;
-
-}    
-    
-    
-    
-    public List<Cliente> findAll() {
-        List<Cliente> listaClientes = new LinkedList<Cliente>();
-        ResultSet result = null;
-
-        try {
-
-            String query = "SELECT * FROM APP.cliente";
-            Statement stmt = getConnection().createStatement();
-            result = stmt.executeQuery(query);
-
-            while (result.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setRut(result.getString("rut"));
-                cliente.setNombre(result.getString("nombre"));
-                cliente.setPaterno(result.getString("paterno"));
-                cliente.setMaterno(result.getString("materno"));
-                cliente.setTelefono(result.getInt("telefono"));
-                cliente.setEmail(result.getString("email"));
-                listaClientes.add(cliente);
-            }
-
-            result.close();
-            stmt.close();
-            closeConnection();
-
-        } catch (SQLException se) {
-            System.out.println(se.toString());
-            System.err.println("Se ha producido un error de BD.");
-            System.err.println(se.getMessage());
-        }
-
-        return listaClientes;
-    }
-
-    public Cliente findByRut(String clienteRut) {
-        ResultSet result = null;
-        Cliente cliente = null;
-
-        try {
-            // Componemos la sentencia SQL para obtener los cliente.
-            String query = "SELECT * FROM APP.cliente WHERE  rut = ?";
+            // Componemos la sentencia SQL para obtener los productos.
+            String query = "SELECT * FROM APP.modelo WHERE  id = ?";
 
             // Ejecutamos la query y obtenemos el resultado.
             PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1, clienteRut);
+            stmt.setInt(1, modeloid);
             result = stmt.executeQuery();
 
             // Vemos si no ha devuelto ningun resultado.
@@ -109,13 +37,8 @@ public List<Cliente>findPorNombre(String nombre){
             }
 
             // Construimos una VO para el producto.
-            cliente = new Cliente();
-            cliente.setRut(result.getString("rut"));
-            cliente.setNombre(result.getString("nombre"));
-            cliente.setPaterno(result.getString("paterno"));
-            cliente.setMaterno(result.getString("materno"));
-            cliente.setTelefono(result.getInt("telefono"));
-            cliente.setEmail(result.getString("email"));
+            modelo = new Modelo();
+            modelo.setIdmodelo(result.getInt("id"));
 
             result.close();
             stmt.close();
@@ -126,26 +49,54 @@ public List<Cliente>findPorNombre(String nombre){
             System.err.println(se.getMessage());
         }
 
-        return cliente;
+        return modelo;
     }
+     
+public List<Modelo>findPorNombre(String nombre){
+        List<Modelo> listaModelos = new ArrayList<Modelo>();
+        ResultSet result = null;
 
-    public void save(Cliente cliente) {
+        try {
 
-        PreparedStatement saveCliente;
+            String query = "SELECT * FROM APP.modelo WHERE nombre LIKE ?";
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setString(1,"%"+nombre+"%");
+            result = stmt.executeQuery();
+
+            while (result.next()) {
+                Modelo modelo = new Modelo();
+                modelo.setNombre(result.getString("nombre"));
+                listaModelos.add(modelo);
+            }
+
+            result.close();
+            stmt.close();
+            closeConnection();
+
+        } catch (SQLException se) {
+            System.out.println(se.toString());
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+
+        return listaModelos;
+
+}    
+
+
+    public void save(Modelo modelo) {
+
+        PreparedStatement saveModelo;
         try {
             
-                saveCliente = getConnection().prepareStatement(
-                        "INSERT INTO APP.cliente VALUES (?, ?, ?, ?, ?, ?)");
-                saveCliente.setString(1, cliente.getRut());
-                saveCliente.setString(2, cliente.getNombre());
-                saveCliente.setString(3, cliente.getPaterno());
-                saveCliente.setString(4, cliente.getMaterno());
-                saveCliente.setInt(5, cliente.getTelefono());
-                saveCliente.setString(6, cliente.getEmail());
+                saveModelo = getConnection().prepareStatement(
+                        "INSERT INTO APP.modelo VALUES (?, ?)");
+                saveModelo.setInt(1, modelo.getIdmodelo());
+                saveModelo.setString(2, modelo.getNombre());
                 System.out.println("INSERT INTO ....");
             
 
-            saveCliente.executeUpdate();
+            saveModelo.executeUpdate();
             closeConnection();
         } catch (SQLException se) {
             System.err.println("Se ha producido un error de BD.");
@@ -153,15 +104,15 @@ public List<Cliente>findPorNombre(String nombre){
         }
     }
 
-    public void delete(Cliente cliente) {
-        PreparedStatement delCliente;
+    public void delete(Modelo modelo) {
+        PreparedStatement delModelo;
         try {
 
-                delCliente = getConnection().prepareStatement(
-                        "DELETE FROM APP.cliente WHERE rut = ?");
+                delModelo = getConnection().prepareStatement(
+                        "DELETE FROM APP.modelo WHERE idmodelo = ?");
 
-                delCliente.setString(1, cliente.getRut());
-                delCliente.executeUpdate();
+                delModelo.setInt(1, modelo.getIdmodelo());
+                delModelo.executeUpdate();
             
 
 
