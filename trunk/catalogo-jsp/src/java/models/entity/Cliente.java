@@ -4,10 +4,6 @@
  */
 package models.entity;
 
-/**
- *
- * @author Luis
- */
 public class Cliente {
     protected String rut;
     protected String nombre;
