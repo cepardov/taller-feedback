@@ -4,7 +4,7 @@ import java.util.List;
 import models.dao.ClienteDao;
 import models.entity.Cliente;
 
-public class MarcaBean extends Cliente {
+public class AutomovilBean extends Cliente {
     
      private ClienteDao clienteDao = new ClienteDao();
     
