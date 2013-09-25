@@ -1,3 +1,7 @@
+/**
+ * @Author cepardov
+ * @Versión 0
+ */
 package models.beans;
 
 import java.util.List;
@@ -29,8 +33,13 @@ public class ClienteBean extends Cliente {
     public void save() {
         clienteDao.save(this);
     }
+    
+    public void update() {
+        clienteDao.update(this);
+    }
 
     public void delete() {
         clienteDao.delete(this);
     }
 }
+//END FILE

@@ -2,9 +2,10 @@
     pageEncoding="ISO-8859-1"%>
     
 <jsp:useBean id="cliente" class="models.beans.ClienteBean" scope="request"></jsp:useBean>
-<jsp:setProperty property="rut" name="cliente"/>
-<%
-cliente.delete();
 
-response.sendRedirect(request.getContextPath() +"/catalogo/listadocliente.jsp");
+<jsp:setProperty property="*" name="cliente" />
+<%
+cliente.update();
+
+response.sendRedirect(request.getContextPath() + "/cliente/listadocliente.jsp");
 %>
