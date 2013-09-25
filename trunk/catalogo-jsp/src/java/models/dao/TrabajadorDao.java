@@ -115,15 +115,28 @@ public List<Trabajador>findPorNombre(String nombre){
     public void save(Trabajador trabajador) {
         PreparedStatement saveTrabajador;
         try {
-            saveTrabajador = getConnection().prepareStatement(
-                    "INSERT INTO APP.trabajador VALUES (?, ?, ?, ?, ?, ?, ?)");
-            saveTrabajador.setString(1, trabajador.getRut());
-            saveTrabajador.setString(2, trabajador.getNombre());
-            saveTrabajador.setString(3, trabajador.getCargo());
-            saveTrabajador.setString(4, trabajador.getPaterno());
-            saveTrabajador.setString(5, trabajador.getMaterno());
-            saveTrabajador.setInt(6, trabajador.getTelefono());
-            saveTrabajador.setString(7, trabajador.getClave());
+            if (trabajador.getRut().isEmpty()) {
+                saveTrabajador = getConnection().prepareStatement(
+                        "INSERT INTO APP.trabajador VALUES (?, ?, ?, ?, ?, ?, ?)");
+                saveTrabajador.setString(1, trabajador.getRut());
+                saveTrabajador.setString(2, trabajador.getNombre());
+                saveTrabajador.setString(3, trabajador.getCargo());
+                saveTrabajador.setString(4, trabajador.getPaterno());
+                saveTrabajador.setString(5, trabajador.getMaterno());
+                saveTrabajador.setInt(6, trabajador.getTelefono());
+                saveTrabajador.setString(7, trabajador.getClave());
+            } else {
+                saveTrabajador = getConnection().prepareStatement(
+                     "UPDATE APP.trabajador SET nombre = ?, cargo = ?, paterno = ?, materno = ?, "
+                        + "telefono = ?, clave = ? WHERE  rut = ?");
+                saveTrabajador.setString(1, trabajador.getNombre());
+                saveTrabajador.setString(2, trabajador.getCargo());
+                saveTrabajador.setString(3, trabajador.getPaterno());
+                saveTrabajador.setString(4, trabajador.getMaterno());
+                saveTrabajador.setInt(5, trabajador.getTelefono());
+                saveTrabajador.setString(6, trabajador.getClave());
+                saveTrabajador.setString(7, trabajador.getRut());
+            }
             saveTrabajador.executeUpdate();
             closeConnection();
         } catch (SQLException se) {
