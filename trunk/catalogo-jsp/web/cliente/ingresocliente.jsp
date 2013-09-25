@@ -43,11 +43,11 @@
                 <td><span>Telefono</span></td>
                 <td><input type="text" name="telefono" value="<%=cli.getTelefono()==0?"":cli.getTelefono()%>"/></td>
             </tr>
-             <tr>
+            <tr>
                 <td><span>Email</span></td>
                 <td><input type="text" name="email" value="<%=cli.getEmail()==null?"":cli.getEmail()%>"/></td>
-             </tr>
-             <tr>
+            </tr>
+            <tr>
                 <td colspan="2"><input type="submit" name="guardar" value="Guardar"/></td>
              </tr>
         </tbody>
