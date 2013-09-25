@@ -113,9 +113,12 @@ public List<Trabajador>findPorNombre(String nombre){
     }
 
     public void save(Trabajador trabajador) {
+        String str=trabajador.getRut();
+        int entero=Integer.parseInt(str);
+        System.out.println("rut="+entero);
         PreparedStatement saveTrabajador;
         try {
-            if (trabajador.getRut().isEmpty()) {
+            if (entero > 0) {
                 saveTrabajador = getConnection().prepareStatement(
                         "INSERT INTO APP.trabajador VALUES (?, ?, ?, ?, ?, ?, ?)");
                 saveTrabajador.setString(1, trabajador.getRut());
