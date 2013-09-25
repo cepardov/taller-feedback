@@ -68,23 +68,23 @@ public class Trabajador {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
-    /* public String toString() {
-     * StringBuffer buf = new StringBuffer();
-     * buf.append("rut: ");
-     * buf.append(getRut());
-     * buf.append(" Nombre: ");
-     * buf.append(getNombre());
-     * buf.append(" Paterno: ");
-     * buf.append(getPaterno());
-     * buf.append(" Materno: ");
-     * buf.append(getMaterno());
-     * buf.append(" Cargo: ");
-     * buf.append(Integer.toString(getCargo()));
-     * buf.append(" Clave");
-     * buf.append(getClave());
-     * return buf.toString();
-     * }*/
-
-    
+//    public String toString() {
+//        StringBuffer buf = new StringBuffer();
+//        buf.append("rut: ");
+//        buf.append(getRut());
+//        buf.append(" Nombre: ");
+//        buf.append(getNombre());
+//        buf.append(" Cargo: ");
+//        buf.append(getCargo());
+//        buf.append(" Paterno: ");
+//        buf.append(getPaterno());
+//        buf.append(" Materno: ");
+//        buf.append(getMaterno());
+//        buf.append(" Telefono: ");
+//        buf.append(Integer.toString(getTelefono()));
+//        buf.append(" Clave: ");
+//        buf.append(getClave());
+//        return buf.toString();
+//    }
 }
 //END FILE
