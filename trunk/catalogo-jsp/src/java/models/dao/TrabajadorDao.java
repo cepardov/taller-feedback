@@ -33,10 +33,11 @@ public List<Trabajador>findPorNombre(String nombre){
                 Trabajador trabajador = new Trabajador();
                 trabajador.setRut(result.getString("rut"));
                 trabajador.setNombre(result.getString("nombre"));
+                trabajador.setCargo(result.getString("cargo"));
                 trabajador.setPaterno(result.getString("paterno"));
                 trabajador.setMaterno(result.getString("materno"));
                 trabajador.setTelefono(result.getInt("telefono"));
-                trabajador.setEmail(result.getString("email"));
+                trabajador.setClave(result.getString("clave"));
                 listaTrabajadors.add(trabajador);
             }
             result.close();
@@ -62,10 +63,11 @@ public List<Trabajador>findPorNombre(String nombre){
                 Trabajador trabajador = new Trabajador();
                 trabajador.setRut(result.getString("rut"));
                 trabajador.setNombre(result.getString("nombre"));
+                trabajador.setCargo(result.getString("cargo"));
                 trabajador.setPaterno(result.getString("paterno"));
                 trabajador.setMaterno(result.getString("materno"));
                 trabajador.setTelefono(result.getInt("telefono"));
-                trabajador.setEmail(result.getString("email"));
+                trabajador.setClave(result.getString("clave"));
                 listaTrabajadors.add(trabajador);
             }
             result.close();
@@ -93,10 +95,11 @@ public List<Trabajador>findPorNombre(String nombre){
             trabajador = new Trabajador();
             trabajador.setRut(result.getString("rut"));
             trabajador.setNombre(result.getString("nombre"));
+            trabajador.setCargo(result.getString("cargo"));
             trabajador.setPaterno(result.getString("paterno"));
             trabajador.setMaterno(result.getString("materno"));
             trabajador.setTelefono(result.getInt("telefono"));
-            trabajador.setEmail(result.getString("email"));
+            trabajador.setClave(result.getString("clave"));
 
             result.close();
             stmt.close();
@@ -118,7 +121,7 @@ public List<Trabajador>findPorNombre(String nombre){
             saveTrabajador.setString(3, trabajador.getPaterno());
             saveTrabajador.setString(4, trabajador.getMaterno());
             saveTrabajador.setInt(5, trabajador.getTelefono());
-            saveTrabajador.setString(6, trabajador.getEmail());
+            saveTrabajador.setString(6, trabajador.getClave());
             System.out.println("INSERT INTO ....");
             saveTrabajador.executeUpdate();
             closeConnection();
