@@ -9,8 +9,9 @@ public class Trabajador {
     protected String nombre;
     protected String paterno;
     protected String materno;
+    protected String cargo;
     protected int telefono;
-    protected String email;
+    protected String clave;
 
     public String getRut() {
         return rut;
@@ -44,6 +45,14 @@ public class Trabajador {
         this.materno = materno;
     }
 
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+    
     public int getTelefono() {
         return telefono;
     }
@@ -51,13 +60,13 @@ public class Trabajador {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-
-    public String getEmail() {
-        return email;
+    
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
     /* public String toString() {
      * StringBuffer buf = new StringBuffer();
@@ -69,11 +78,13 @@ public class Trabajador {
      * buf.append(getPaterno());
      * buf.append(" Materno: ");
      * buf.append(getMaterno());
-     * buf.append(" Telefono: ");
-     * buf.append(Integer.toString(getTelefono()));
-     * buf.append(" Email");
-     * buf.append(getEmail());
+     * buf.append(" Cargo: ");
+     * buf.append(Integer.toString(getCargo()));
+     * buf.append(" Clave");
+     * buf.append(getClave());
      * return buf.toString();
      * }*/
+
+    
 }
 //END FILE
