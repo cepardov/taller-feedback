@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import models.entity.Automovil;
 
@@ -29,7 +28,7 @@ public class AutomovilDao {
 
             while (result.next()) {
                 Automovil automovil = new Automovil();
-                automovil.setPatente(result.getString("patente"));
+                automovil.setPpu(result.getString("ppu"));
                 automovil.setRut(result.getString("rut"));
                 automovil.setColor(result.getString("color"));
                 automovil.setIdmarca(result.getInt("idmarca"));
@@ -52,17 +51,17 @@ public class AutomovilDao {
         return listaAutomoviles;
     }
 
-    public Automovil findByPatente(String patente) {
+    public Automovil findByPpu(String ppu) {
         ResultSet result = null;
         Automovil automovil = null;
 
         try {
             // Componemos la sentencia SQL para obtener los cliente.
-            String query = "SELECT * FROM APP.automovil WHERE  patente = ?";
+            String query = "SELECT * FROM APP.automovil WHERE  ppu = ?";
 
             // Ejecutamos la query y obtenemos el resultado.
             PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1, patente);
+            stmt.setString(1, ppu);
             result = stmt.executeQuery();
 
             // Vemos si no ha devuelto ningun resultado.
@@ -72,7 +71,7 @@ public class AutomovilDao {
 
             // Construimos una VO para el producto.
             automovil = new Automovil();
-            automovil.setPatente(result.getString("patente"));
+            automovil.setPpu(result.getString("ppu"));
             automovil.setRut(result.getString("rut"));
             automovil.setColor(result.getString("color"));
             automovil.setIdmarca(result.getInt("idmarca"));
@@ -93,22 +92,38 @@ public class AutomovilDao {
     }
 
     public void save(Automovil automovil) {
-
         PreparedStatement saveAutomovil;
         try {
-            
-                saveAutomovil = getConnection().prepareStatement(
-                        "INSERT INTO APP.automovil VALUES (?, ?, ?, ?, ?, ?, ?)");
-                saveAutomovil.setString(1, automovil.getPatente());
-                saveAutomovil.setString(2, automovil.getRut());
-                saveAutomovil.setString(3, automovil.getColor());
-                saveAutomovil.setInt(4, automovil.getIdmarca());
-                saveAutomovil.setInt(5, automovil.getIdmodelo());
-                saveAutomovil.setString(6, automovil.getAño());
-                saveAutomovil.setString(7, automovil.getCilindrada());
-                System.out.println("INSERT INTO ....");
-            
-
+            saveAutomovil = getConnection().prepareStatement(
+                    "INSERT INTO APP.automovil VALUES (?, ?, ?, ?, ?, ?, ?)");
+            saveAutomovil.setString(1, automovil.getPpu());
+            saveAutomovil.setString(2, automovil.getRut());
+            saveAutomovil.setString(3, automovil.getColor());
+            saveAutomovil.setInt(4, automovil.getIdmarca());
+            saveAutomovil.setInt(5, automovil.getIdmodelo());
+            saveAutomovil.setString(6, automovil.getAño());
+            saveAutomovil.setString(7, automovil.getCilindrada());
+            saveAutomovil.executeUpdate();
+            closeConnection();
+        } catch (SQLException se) {
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+    }
+    
+    public void update(Automovil automovil) {
+        PreparedStatement saveAutomovil;
+        try {
+            saveAutomovil = getConnection().prepareStatement(
+                     "UPDATE APP.automovil SET rut = ?, color = ?, idmarca = ?, idmodelo = ?, "
+                    + "año = ?, cilindrada = ? WHERE  patente = ?");
+            saveAutomovil.setString(1, automovil.getRut());
+            saveAutomovil.setString(2, automovil.getColor());
+            saveAutomovil.setInt(3, automovil.getIdmarca());
+            saveAutomovil.setInt(4, automovil.getIdmodelo());
+            saveAutomovil.setString(5, automovil.getAño());
+            saveAutomovil.setString(6, automovil.getCilindrada());
+            saveAutomovil.setString(7, automovil.getPpu());
             saveAutomovil.executeUpdate();
             closeConnection();
         } catch (SQLException se) {
@@ -122,9 +137,9 @@ public class AutomovilDao {
         try {
 
                 delAutomovil = getConnection().prepareStatement(
-                        "DELETE FROM APP.automovil WHERE patente = ?");
+                        "DELETE FROM APP.automovil WHERE ppu = ?");
 
-                delAutomovil.setString(1, automovil.getPatente());
+                delAutomovil.setString(1, automovil.getPpu());
                 delAutomovil.executeUpdate();
             
 

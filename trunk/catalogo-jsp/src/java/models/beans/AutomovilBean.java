@@ -1,36 +1,36 @@
 package models.beans;
 
 import java.util.List;
-import models.dao.ClienteDao;
-import models.entity.Cliente;
+import models.dao.AutomovilDao;
+import models.entity.Automovil;
 
-public class AutomovilBean extends Cliente {
+public class AutomovilBean extends Automovil {
     
-     private ClienteDao clienteDao = new ClienteDao();
+    private AutomovilDao automovilDao = new AutomovilDao();
     
-    public List<Cliente> findPorNombre() {
-        return clienteDao.findPorNombre(nombre);
-    }
-    
-    public List<Cliente> findAll() {
-        return clienteDao.findAll();
+    public List<Automovil> findAll() {
+        return automovilDao.findAll();
     }
 
-    public Cliente findByRut() {
-        Cliente cliente = null;
-        if (rut != null) {
-            cliente = clienteDao.findByRut(rut);
+    public Automovil findByPpu() {
+        Automovil automovil = null;
+        if (ppu != null) {
+            automovil = automovilDao.findByPpu(ppu);
         } else {
-            cliente = new Cliente();
+            automovil = new Automovil();
         }
-        return cliente;
+        return automovil;
     }
 
     public void save() {
-        clienteDao.save(this);
+        automovilDao.save(this);
+    }
+    
+    public void update() {
+        automovilDao.save(this);
     }
 
     public void delete() {
-        clienteDao.delete(this);
+        automovilDao.delete(this);
     }
 }

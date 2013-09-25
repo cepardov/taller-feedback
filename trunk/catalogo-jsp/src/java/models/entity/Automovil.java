@@ -9,7 +9,7 @@ package models.entity;
  * @author Luis
  */
 public class Automovil {
-  protected String patente;
+  protected String ppu;
   protected String rut;
   protected String color;
   protected int idmarca;
@@ -17,12 +17,12 @@ public class Automovil {
   protected String año;
   protected String cilindrada;
 
-    public String getPatente() {
-        return patente;
+    public String getPpu() {
+        return ppu;
     }
 
-    public void setPatente(String patente) {
-        this.patente = patente;
+    public void setPpu(String ppu) {
+        this.ppu = ppu;
     }
 
     public String getRut() {
