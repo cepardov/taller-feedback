@@ -6,5 +6,5 @@
 <%
 Trab.delete();
 
-response.sendRedirect(request.getContextPath() +"/trabajador/listadotrabajador.jsp");
+response.sendRedirect(request.getContextPath() + "/trabajador/listadotrabajador.jsp");
 %>
