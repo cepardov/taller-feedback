@@ -35,7 +35,7 @@
 			<td><%= trab.getCargo() %></td>
 			<td><%= trab.getTelefono() %></td>
                         <td><%= trab.getClave() %></td>
-			<td><a href="<%= request.getContextPath() %>/trabajador/ingresotrabajador.jsp?rut=<%= trab.getRut()%>">
+			<td><a href="<%= request.getContextPath() %>/trabajador/editform.jsp?rut=<%= trab.getRut()%>">
 			editar</a></td>
                         <td><a ontrabck="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/trabajador/eliminartrabajador.jsp?rut=<%= trab.getRut()%>">
 			eliminar</a></td>
