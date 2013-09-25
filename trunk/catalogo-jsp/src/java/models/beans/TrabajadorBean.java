@@ -33,6 +33,10 @@ public class TrabajadorBean extends Trabajador {
     public void save() {
         trabajadorDao.save(this);
     }
+    
+    public void update() {
+        trabajadorDao.update(this);
+    }
 
     public void delete() {
         trabajadorDao.delete(this);

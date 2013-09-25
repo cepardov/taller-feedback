@@ -113,33 +113,38 @@ public List<Trabajador>findPorNombre(String nombre){
     }
 
     public void save(Trabajador trabajador) {
-        String str=trabajador.getRut();
-        int entero=Integer.parseInt(str);
-        System.out.println("rut="+entero);
         PreparedStatement saveTrabajador;
         try {
-            if (entero > 0) {
-                saveTrabajador = getConnection().prepareStatement(
-                        "INSERT INTO APP.trabajador VALUES (?, ?, ?, ?, ?, ?, ?)");
-                saveTrabajador.setString(1, trabajador.getRut());
-                saveTrabajador.setString(2, trabajador.getNombre());
-                saveTrabajador.setString(3, trabajador.getCargo());
-                saveTrabajador.setString(4, trabajador.getPaterno());
-                saveTrabajador.setString(5, trabajador.getMaterno());
-                saveTrabajador.setInt(6, trabajador.getTelefono());
-                saveTrabajador.setString(7, trabajador.getClave());
-            } else {
-                saveTrabajador = getConnection().prepareStatement(
-                     "UPDATE APP.trabajador SET nombre = ?, cargo = ?, paterno = ?, materno = ?, "
-                        + "telefono = ?, clave = ? WHERE  rut = ?");
-                saveTrabajador.setString(1, trabajador.getNombre());
-                saveTrabajador.setString(2, trabajador.getCargo());
-                saveTrabajador.setString(3, trabajador.getPaterno());
-                saveTrabajador.setString(4, trabajador.getMaterno());
-                saveTrabajador.setInt(5, trabajador.getTelefono());
-                saveTrabajador.setString(6, trabajador.getClave());
-                saveTrabajador.setString(7, trabajador.getRut());
-            }
+            saveTrabajador = getConnection().prepareStatement(
+                    "INSERT INTO APP.trabajador VALUES (?, ?, ?, ?, ?, ?, ?)");
+            saveTrabajador.setString(1, trabajador.getRut());
+            saveTrabajador.setString(2, trabajador.getNombre());
+            saveTrabajador.setString(3, trabajador.getCargo());
+            saveTrabajador.setString(4, trabajador.getPaterno());
+            saveTrabajador.setString(5, trabajador.getMaterno());
+            saveTrabajador.setInt(6, trabajador.getTelefono());
+            saveTrabajador.setString(7, trabajador.getClave());
+            saveTrabajador.executeUpdate();
+            closeConnection();
+        } catch (SQLException se) {
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+    }
+    
+    public void update(Trabajador trabajador) {
+        PreparedStatement saveTrabajador;
+        try {
+            saveTrabajador = getConnection().prepareStatement(
+                 "UPDATE APP.trabajador SET nombre = ?, cargo = ?, paterno = ?, materno = ?, "
+                    + "telefono = ?, clave = ? WHERE  rut = ?");
+            saveTrabajador.setString(1, trabajador.getNombre());
+            saveTrabajador.setString(2, trabajador.getCargo());
+            saveTrabajador.setString(3, trabajador.getPaterno());
+            saveTrabajador.setString(4, trabajador.getMaterno());
+            saveTrabajador.setInt(5, trabajador.getTelefono());
+            saveTrabajador.setString(6, trabajador.getClave());
+            saveTrabajador.setString(7, trabajador.getRut());
             saveTrabajador.executeUpdate();
             closeConnection();
         } catch (SQLException se) {
