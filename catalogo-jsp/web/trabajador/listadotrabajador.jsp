@@ -18,7 +18,7 @@
 <table>
 	<tr>
 		
-		<th>rut</th>
+		<th>Rut</th>
 		<th>Nombre</th>
 		<th>Paterno</th>
 		<th>Materno</th>
@@ -37,7 +37,7 @@
                         <td><%= trab.getClave() %></td>
 			<td><a href="<%= request.getContextPath() %>/trabajador/ingresotrabajador.jsp?rut=<%= trab.getRut()%>">
 			editar</a></td>
-                        <td><a ontrabck="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/catalogo/eliminartrabajador.jsp?rut=<%= trab.getRut()%>">
+                        <td><a ontrabck="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/trabajador/eliminartrabajador.jsp?rut=<%= trab.getRut()%>">
 			eliminar</a></td>
 		</tr>
 	<%} %>
