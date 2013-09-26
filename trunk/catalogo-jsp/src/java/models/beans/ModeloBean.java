@@ -18,8 +18,8 @@ public class ModeloBean extends Modelo {
 
     public Modelo findById() {
         Modelo modelo = null;
-        if (idmarca != 0) {
-            modelo = modeloDao.findById(idmarca);
+        if (modelo != null) {
+            modelo = modeloDao.findById(idmodelo);
         } else {
             modelo = new Modelo();
         }

@@ -20,18 +20,19 @@
         <tbody>
         <tr>
             <td><span>Nombre</span></td>
-            <td><input size="40" type="text" name="nombre" value="nombre"/></td>
+            <td><input size="40" type="text" name="nombre" value=""/></td>
         </tr>
             
         <tr>
             <td><sapan>Marca</sapan></td>
             <jsp:useBean id="cargar" class="models.beans.MarcaBean" scope="request"/>
             <% List<Marca> listadoMarca = cargar.findAll();%>
-            <td><select name="Marcas" size="1">
+            <td><select name="marcas" size="1">
                 <% for(Marca cli : listadoMarca){ %>
-                <option>"<%= cli.getNombre() %>"</option>
+                <option marca="marca"><%= cli.getNombre() %></option>
+                <%}%>
             </select>
-            <%}%>  
+              
             </td>
             <tr>
                 <td colspan="2"><input type="submit" name="guardar" value="Guardar"/></td>

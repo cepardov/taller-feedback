@@ -19,15 +19,13 @@
 	<tr>
 		<th>#</th>
 		<th>Nombre</th>
-		<th>Precio</th>
-		<th>Cantidad</th>
-		<th>Editar</th>
-		<th>Eliminar</th>
+		<th>Marca</th>
+		
 	</tr>
 	<% for(Modelo mod : listadoModelo){ %>
 		<tr>
-			<td><%= mod.getIdmodelo() %></td>
 			<td><%= mod.getNombre() %></td>
+			<td><%= mod.getIdmarca() %></td>
 			<td><a href="<%= request.getContextPath() %>/modelo/formulario.jsp?id=<%= mod.getIdmodelo()%>">
 			editar</a></td>
                         <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/catalogo/eliminar.jsp?id=<%= mod.getIdmodelo()%>">
