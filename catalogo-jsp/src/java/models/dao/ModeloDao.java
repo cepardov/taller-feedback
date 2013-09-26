@@ -10,7 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import models.entity.Cliente;
 import models.entity.Modelo;
 
 public class ModeloDao {
@@ -119,9 +118,9 @@ public List<Modelo>findPorNombre(String nombre){
         try {
             
                 saveModelo = getConnection().prepareStatement(
-                        "INSERT INTO APP.modelo VALUES (?, ?)");
-                saveModelo.setInt(1, modelo.getIdmodelo());
-                saveModelo.setString(2, modelo.getNombre());
+                        "INSERT INTO APP.modelo VALUES ?(select id from marca where nombre like ?))");
+                saveModelo.setString(1, modelo.getNombre());
+                saveModelo.setString(2, modelo.getMarca());
                 System.out.println("INSERT INTO ....");
             
 
