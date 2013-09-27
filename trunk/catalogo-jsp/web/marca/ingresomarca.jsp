@@ -19,7 +19,7 @@
 <h3>Formulario Marca</h3>
 
 
-<form method="post" action="<%= application.getContextPath() %>/marca/guardarmarca.jsp">
+<form method="post" action="<%= application.getContextPath() %>+/marca/guardarmarca.jsp">
 <input type="hidden" name="id" value="<%=marc.getId()%>"/>   
     <table border="1">
             <tr>

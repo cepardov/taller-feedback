@@ -1,38 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%-- 
+    Document   : guardarmodelo
+    Created on : 26-09-2013, 11:23:28 PM
+    Author     : Luis
+--%>
+<%@page import="models.entity.Modelo"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Modelo</title>
+        <title>Guardar Modelo</title>
     </head>
     <body>
-        <h1>Datos Modelo</h1>
-        <%
-            
-            String nombrein="", marcain="";
-                      
-            if(request.getParameter("nombre")!=null){
-                    nombrein=request.getParameter("nombre");
-                            }
-            if(request.getParameter("marca")!=null){
-                    marcain=request.getParameter("marca");
-                            }
-            
-        %>
-        <jsp:useBean id="modelo1" class="models.entity.Modelo" scope="page"/>
-        <jsp:setProperty name="Modelo1" property="nombre" value="<%=nombrein%>"/>
-        <jsp:setProperty name="Modelo1" property="marca" value="<%=marcain%>"/>
-        
-               
-        <form action="confirmarmodelo.jsp" method="post">    
+        <form method="post" action="<%= application.getContextPath() %>/modelo/confirmarmodelo.jsp" scope="request">
+            <%
+               String nombrein="", marcain="";
+               if(request.getParameter("nombre")!=null){
+                        nombrein=request.getParameter("nombre");
+               }
+               if(request.getParameter("marcas")!=null){
+                        marcain=request.getParameter("marcas");
+               }
+            %>
+            <jsp:useBean id="modelo1" class="models.entity.Modelo"/>
+            <jsp:setProperty name="modelo1" property="nombre" value="<%=nombrein%>"/>
+            <jsp:setProperty name="modelo1" property="marca" value="<%=marcain%>"/>
+
             <table>
-                <tr><td>Nombre de modelo</td><td><jsp:getProperty name="Modelo1" property="nombre"/></tr>
-                <tr><td>Marca</td><td><jsp:getProperty name="Modelo1" property="marca"/></tr>
-                
-                <input type="submit" value="Confimar"/>
-            </table> 
+                <tr><td>Nombre modelo:</td><td><jsp:getProperty name="modelo1" property="nombre"/></td></tr>
+                <tr><td>Marca:</td><td><jsp:getProperty name="modelo1" property="marca"/></td></tr>
+            </table>
+            <input type="submit" value="Confirmar"/>
         </form>
         
     </body>
-</html>  
+</html>
