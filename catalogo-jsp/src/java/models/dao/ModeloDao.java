@@ -87,7 +87,7 @@ public List<Modelo>findPorNombre(String nombre){
 
         try {
 
-            String query = "SELECT * FROM APP.modelo";
+            String query = "SELECT idmodelo,nombre,marca FROM APP.modelo (select nombre.marca form marca where idmarca= ";
             Statement stmt = getConnection().createStatement();
             result = stmt.executeQuery(query);
 
@@ -95,6 +95,7 @@ public List<Modelo>findPorNombre(String nombre){
                 Modelo modelo = new Modelo();
                 modelo.setIdmodelo(result.getInt("idmodelo"));
                 modelo.setNombre(result.getString("nombre"));
+                modelo.setNombre(result.getString("marcab"));
                 
                 listaModelo.add(modelo);
             }
@@ -118,7 +119,7 @@ public List<Modelo>findPorNombre(String nombre){
         try {
             
                 saveModelo = getConnection().prepareStatement(
-                        "INSERT INTO APP.modelo VALUES ?(select id from marca where nombre like ?))");
+                        "INSERT INTO APP.modelo (nombre,idmarca) VALUES (?,(select idmarca from app.marca where nombre=?))");
                 saveModelo.setString(1, modelo.getNombre());
                 saveModelo.setString(2, modelo.getMarca());
                 System.out.println("INSERT INTO ....");

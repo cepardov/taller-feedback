@@ -14,10 +14,9 @@
 </head>
 <body>
 <h3>Listado de Modelos</h3>
-<p><a href="<%=request.getContextPath() %>/modelo/ingresomodelo.jsp">Agregar Producto (+)</a></p>
+<p><a href="<%=request.getContextPath() %>/modelo/ingresomodelo.jsp">Agregar Modelo (+)</a></p>
 <table>
 	<tr>
-		<th>#</th>
 		<th>Nombre</th>
 		<th>Marca</th>
 		
@@ -25,10 +24,10 @@
 	<% for(Modelo mod : listadoModelo){ %>
 		<tr>
 			<td><%= mod.getNombre() %></td>
-			<td><%= mod.getIdmarca() %></td>
-			<td><a href="<%= request.getContextPath() %>/modelo/formulario.jsp?id=<%= mod.getIdmodelo()%>">
+			<td><%= mod.getMarca() %></td>
+			<td><a href="<%= request.getContextPath() %>/modelo/ingresomodelo.jsp?id=<%= mod.getIdmodelo()%>">
 			editar</a></td>
-                        <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/catalogo/eliminar.jsp?id=<%= mod.getIdmodelo()%>">
+                        <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/modelo/eliminarmodelo.jsp?id=<%= mod.getIdmodelo()%>">
 			eliminar</a></td>
 		</tr>
 	<%} %>
