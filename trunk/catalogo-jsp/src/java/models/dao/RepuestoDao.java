@@ -58,20 +58,20 @@ public class RepuestoDao {
         Repuesto repuesto = null;
 
         try {
-            // Componemos la sentencia SQL para obtener los productos.
+           
             String query = "SELECT * FROM APP.repuesto WHERE  idrepuesto = ?";
 
-            // Ejecutamos la query y obtenemos el resultado.
+            
             PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1, idrepuesto);
             result = stmt.executeQuery();
 
-            // Vemos si no ha devuelto ningun resultado.
+      
             if (!result.next()) {
                 throw new SQLException();
             }
 
-            // Construimos una VO para el producto.
+            
                 repuesto = new Repuesto();
                 repuesto.setIdrepuesto(result.getInt("idrepuesto"));
                 repuesto.setNombre(result.getString("nombre"));
