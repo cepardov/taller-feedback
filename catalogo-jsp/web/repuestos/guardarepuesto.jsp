@@ -4,14 +4,14 @@
     Author     : adolf
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<jsp:useBean id="repuesto" class="models.beans.RepuestoBean" scope="request"></jsp:useBean>
+
+<jsp:setProperty property="*" name="repuesto" />
+<%
+repuesto.save();
+
+response.sendRedirect(request.getContextPath() + "/repuestos/listadorepuesto.jsp");
+%>
