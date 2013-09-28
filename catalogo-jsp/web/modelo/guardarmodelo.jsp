@@ -34,11 +34,7 @@
 
             response.sendRedirect(request.getContextPath() + "/modelo/listadomodelo.jsp");
             %>
-            <table>
-                <tr><td>Nombre modelo:</td><td><jsp:getProperty name="modelo1" property="nombre"/></td></tr>
-                <tr><td>Marca:</td><td><jsp:getProperty name="modelo1" property="marca"/></td></tr>
-            </table>
-            <input type="submit" value="Confirmar"/>
+            
         </form>
         
     </body>
