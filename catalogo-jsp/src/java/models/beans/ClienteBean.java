@@ -12,8 +12,9 @@ public class ClienteBean extends Cliente {
     
      private ClienteDao clienteDao = new ClienteDao();
     
-    public List<Cliente> findPorNombre() {
-        return clienteDao.findPorNombre(nombre);
+    public String findrutNombre() {
+        clienteDao.findPorNombre(rut);
+        return rut;
     }
     
     public List<Cliente> findAll() {
