@@ -24,7 +24,7 @@
 		<tr>
 			<td><%= marc.getId() %></td>
 			<td><%= marc.getNombre() %></td>
-			<td><a href="<%= request.getContextPath() %>/marca/editform.jsp?id=<%= marc.getId()%>">
+			<td><a href="<%= request.getContextPath() %>/marca/ingresarmarca.jsp?id=<%= marc.getId()%>">
 			editar</a></td>
                         <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/marca/eliminarmarca.jsp?id=<%= marc.getId()%>">
 			eliminar</a></td>

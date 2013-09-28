@@ -1,12 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author adolf
- */
 package models.dao;
 
 import java.sql.*;
@@ -59,9 +50,7 @@ public class RepuestoDao {
 
         try {
            
-            String query = "SELECT * FROM APP.repuesto WHERE  idrepuesto = ?";
-
-            
+            String query = "SELECT * FROM APP.repuesto WHERE  idrepuesto = ?";          
             PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1, idrepuesto);
             result = stmt.executeQuery();
@@ -122,17 +111,12 @@ public class RepuestoDao {
     public void delete(Repuesto repuesto) {
         PreparedStatement saveProduct;
         try {
-
-            if (repuesto.getIdrepuesto() > 0) {
                 saveProduct = getConnection().prepareStatement(
                         "DELETE FROM APP.repuesto WHERE idrepuesto = ?");
 
                 saveProduct.setInt(1, repuesto.getIdrepuesto());
                 saveProduct.executeUpdate();
-            }
-
-
-            closeConnection();
+                closeConnection();
         } catch (SQLException se) {
             System.err.println("Se ha producido un error de BD.");
             System.err.println(se.getMessage());

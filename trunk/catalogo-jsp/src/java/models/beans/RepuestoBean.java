@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package models.beans;
 
-/**
- *
- * @author adolf
- */
 import java.util.List;
 import models.dao.RepuestoDao;
 import models.entity.Repuesto;
