@@ -34,9 +34,9 @@
 			<td><%= rep.getNombre() %></td>
                         <td><%= rep.getDescripcion() %></td>
 			
-			<td><a href="<%= request.getContextPath() %>/repuesto/editform.jsp?id=<%= rep.getIdrepuesto()%>">
+			<td><a href="<%= request.getContextPath() %>/repuestos/ingresorepuesto.jsp?id=<%= rep.getIdrepuesto()%>">
 			editar</a></td>
-                        <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/repuesto/eliminarepuesto.jsp?id=<%= rep.getIdrepuesto()%>">
+                        <td><a onclick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/repuestos/eliminarepuesto.jsp?id=<%= rep.getIdrepuesto()%>">
 			eliminar</a></td>
 		</tr>
 	<%} %>

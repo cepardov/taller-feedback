@@ -29,10 +29,6 @@ public class MarcaBean extends Marca {
     public void save() {
        marcaDao.save(this);
     }
-    
-      public void update() {
-        marcaDao.update(this);
-    }
 
     public void delete() {
         marcaDao.delete(this);

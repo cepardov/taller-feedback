@@ -14,19 +14,13 @@
 <jsp:setProperty name="cliente" property="rut" value="<%=rutin%>"/>
 <%
     if(cliente.findrutNombre()!=null){
-       rutin= cliente.findrutNombre();
+       if(rutin == cliente.findrutNombre()){
+           response.sendRedirect(request.getContextPath()+"/cliente/ingresocliente.jsp");
+       }else{
+           response.sendRedirect(request.getContextPath()+"/cliente/ingresocliente.jsp");
+       }
+       
     }
     
 %>
 
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>

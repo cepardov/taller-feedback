@@ -1,17 +1,11 @@
-<%-- 
-    Document   : eliminarepuesto
-    Created on : 25-09-2013, 06:09:27 PM
-    Author     : adolf
---%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<jsp:useBean id="repuesto" class="models.beans.RepuestoBean" scope="request"></jsp:useBean>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<jsp:setProperty property="*" name="repuesto" />
+<%
+repuesto.delete();
+
+response.sendRedirect(request.getContextPath() + "/repuestos/listadorepuesto.jsp");
+%>
