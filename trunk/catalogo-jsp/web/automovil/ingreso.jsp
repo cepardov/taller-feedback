@@ -1,13 +1,11 @@
-<%@page import="models.entity.Automovil"%>
+<%@page import="models.entity.Cliente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="models.beans.*,models.entity.*"%>
 
-<jsp:useBean id="automovil" class="models.beans.AutomovilBean" scope="request"></jsp:useBean>
+<jsp:useBean id="cliente" class="models.beans.ClienteBean" scope="request"></jsp:useBean>
 
-<jsp:setProperty property="rut" name="automovil" />
-
-<% Automovil auto = automovil.findByRut();%>
+<% Cliente cli = cliente.findByRut();%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,32 +22,33 @@
     <table border="1">
         <tbody>
              <tr>
-                <td><span>Rut</span></td>
-                <td><input type="text" name="rut" value="<%=auto.getRut()==null?"":auto.getRut()%>"/></td>
+                <td><span>Patente</span></td>
+                <td><input type="text" name="rut" value=""/></td>
             </tr>
             <tr>
-                <td><span>Nombre</span></td>
-                <td><input size="40" type="text" name="nombre" value="<%=auto.getNombre()==null?"":auto.getNombre()%>"/></td>
+                <td><span>Cliente Rut</span></td>
+                <td><input size="40" type="text" name="rut" value=""/></td>
+                <td><a href="<%= application.getContextPath() %>/automovil/buscarcliente.jsp" value="rut""">Buscar Cliente</a>></td>
             </tr>
             <tr>
-                <td><span>Apellido Paterno</span></td>
-                <td><input type="text" name="paterno" value="<%=auto.getPaterno()==null?"":auto.getPaterno()%>"/></td>
+                <td><span>Color</span></td>
+                <td><input type="text" name="paterno" value=""/></td>
             </tr>
             <tr>
-                <td><span>Apellido Materno</span></td>
-                <td><input type="text" name="materno" value="<%=auto.getMaterno()==null?"":auto.getMaterno()%>"/></td>
+                <td><span>marca</span></td>
+                <td><input type="text" name="materno" value=""/></td>
             </tr>
              <tr>
-                <td><span>Telefono</span></td>
-                <td><input type="text" name="telefono" value="<%=auto.getTelefono()==0?"":auto.getTelefono()%>"/></td>
+                <td><span>modelo</span></td>
+                <td><input type="text" name="telefono" value=""/></td>
             </tr>
             <tr>
-                <td><span>Cargo</span></td>
-                <td><input type="text" name="cargo" value="<%=auto.getCargo()==null?"":auto.getCargo()%>"/></td>
+                <td><span>año</span></td>
+                <td><input type="text" name="cargo" value=""/></td>
             </tr>
             <tr>
-                <td><span>Clave</span></td>
-                <td><input type="text" name="clave" value="<%=auto.getClave()==null?"":auto.getClave()%>"/></td>
+                <td><span>Cilindrada</span></td>
+                <td><input type="text" name="clave" value=""/></td>
             </tr>
              <tr>
              <tr>
