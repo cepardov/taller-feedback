@@ -11,7 +11,7 @@ package models.entity;
 public class Modelo {
     protected int idmodelo;
     protected String nombre;
-    protected String marca;
+    protected int marca;
 
     public int getIdmodelo() {
         return idmodelo;
@@ -29,11 +29,11 @@ public class Modelo {
         this.nombre = nombre;
     }
 
-    public String getMarca() {
+    public int getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
+    public void setMarca(int marca) {
         this.marca = marca;
     }
      

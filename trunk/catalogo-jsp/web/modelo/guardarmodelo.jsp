@@ -4,7 +4,10 @@
     Author     : Luis
 --%>
 <%@page import="models.entity.Modelo"%>
+<%@page import="models.beans.ModeloBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="modelo1" class="models.beans.ModeloBean" scope="request"></jsp:useBean>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,15 +17,16 @@
     <body>
         <form method="post" action="<%= application.getContextPath() %>/modelo/confirmarmodelo.jsp" scope="request">
             <%
-               String nombrein="", marcain="";
+               String nombrein="";
+               int marcain=0;
                if(request.getParameter("nombre")!=null){
                         nombrein=request.getParameter("nombre");
                }
                if(request.getParameter("marcas")!=null){
-                        marcain=request.getParameter("marcas");
+                        marcain=Integer.parseInt(request.getParameter("marcas"));
                }
             %>
-            <jsp:useBean id="modelo1" class="models.entity.Modelo"/>
+            
             <jsp:setProperty name="modelo1" property="nombre" value="<%=nombrein%>"/>
             <jsp:setProperty name="modelo1" property="marca" value="<%=marcain%>"/>
 

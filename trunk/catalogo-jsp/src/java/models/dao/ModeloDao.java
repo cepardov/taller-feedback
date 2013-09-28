@@ -37,7 +37,7 @@ public class ModeloDao {
 
             // Construimos una VO para el producto.
             modelo = new Modelo();
-            modelo.setIdmodelo(result.getInt("id"));
+            modelo.setIdmodelo(result.getInt("idmodelo"));
 
             result.close();
             stmt.close();
@@ -87,7 +87,7 @@ public List<Modelo>findPorNombre(String nombre){
 
         try {
 
-            String query = "SELECT idmodelo,nombre,marca FROM APP.modelo (select nombre.marca form marca where idmarca= ";
+            String query = "SELECT * FROM APP.modelo";
             Statement stmt = getConnection().createStatement();
             result = stmt.executeQuery(query);
 
@@ -95,7 +95,7 @@ public List<Modelo>findPorNombre(String nombre){
                 Modelo modelo = new Modelo();
                 modelo.setIdmodelo(result.getInt("idmodelo"));
                 modelo.setNombre(result.getString("nombre"));
-                modelo.setNombre(result.getString("marcab"));
+                modelo.setMarca(result.getInt("idmarca"));
                 
                 listaModelo.add(modelo);
             }
@@ -119,9 +119,9 @@ public List<Modelo>findPorNombre(String nombre){
         try {
             
                 saveModelo = getConnection().prepareStatement(
-                        "INSERT INTO APP.modelo (nombre,idmarca) VALUES (?,(select idmarca from app.marca where nombre=?))");
+                        "INSERT INTO APP.modelo VALUES (?,?)");
                 saveModelo.setString(1, modelo.getNombre());
-                saveModelo.setString(2, modelo.getMarca());
+                saveModelo.setInt(2, modelo.getMarca());
                 System.out.println("INSERT INTO ....");
             
 
@@ -142,9 +142,7 @@ public List<Modelo>findPorNombre(String nombre){
 
                 delModelo.setInt(1, modelo.getIdmodelo());
                 delModelo.executeUpdate();
-            
-
-
+          
             closeConnection();
         } catch (SQLException se) {
             System.err.println("Se ha producido un error de BD.");

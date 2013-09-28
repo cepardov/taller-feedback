@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-   <%@ page import="java.util.List,models.beans.*, models.entity.*"%>
+<%@ page import="java.util.List,models.beans.*, models.entity.*"%>
 
 <jsp:useBean id="modelo" class="models.beans.ModeloBean" scope="request"></jsp:useBean>
 
@@ -17,12 +16,14 @@
 <p><a href="<%=request.getContextPath() %>/modelo/ingresomodelo.jsp">Agregar Modelo (+)</a></p>
 <table>
 	<tr>
+                <th>Id</th>
 		<th>Nombre</th>
 		<th>Marca</th>
 		
 	</tr>
 	<% for(Modelo mod : listadoModelo){ %>
 		<tr>
+                        <td><%= mod.getIdmodelo() %></td>
 			<td><%= mod.getNombre() %></td>
 			<td><%= mod.getMarca() %></td>
 			<td><a href="<%= request.getContextPath() %>/modelo/ingresomodelo.jsp?id=<%= mod.getIdmodelo()%>">
