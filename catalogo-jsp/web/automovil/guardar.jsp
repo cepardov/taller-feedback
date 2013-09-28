@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<jsp:useBean id="trabajador" class="models.beans.TrabajadorBean" scope="request"></jsp:useBean>
+<jsp:useBean id="automovil" class="models.beans.AutomovilBean" scope="request"></jsp:useBean>
 
-<jsp:setProperty property="*" name="trabajador" />
+<jsp:setProperty property="*" name="automovil" />
 <%
-trabajador.save();
+automovil.save();
 
-response.sendRedirect(request.getContextPath() + "/trabajador/listadotrabajador.jsp");
+response.sendRedirect(request.getContextPath() + "/automovil/lista.jsp");
 %>

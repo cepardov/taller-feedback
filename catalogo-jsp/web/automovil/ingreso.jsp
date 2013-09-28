@@ -17,7 +17,7 @@
 <h3>Formulario Automovils</h3>
 
 
-<form method="post" action="<%= application.getContextPath() %>/automovil/guardarautomovil.jsp">
+<form method="post" action="<%= application.getContextPath() %>/automovil/guardar.jsp">
     
     <table border="1">
         <tbody>
