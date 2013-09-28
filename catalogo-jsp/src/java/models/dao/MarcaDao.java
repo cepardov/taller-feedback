@@ -17,7 +17,7 @@ public class MarcaDao {
         return DataBaseInstance.getInstanceConnection();
     }
     public List<Marca>findPorNombre(String nombre){
-            List<Marca> listaClientes = new ArrayList<Marca>();
+            List<Marca> listaMarcas = new ArrayList<Marca>();
             ResultSet result = null;
 
             try {
@@ -32,7 +32,7 @@ public class MarcaDao {
                     marca.setId(result.getInt("idmarca"));
                     marca.setNombre(result.getString("nombre"));
                     
-                    listaClientes.add(marca);
+                    listaMarcas.add(marca);
                 }
 
                 result.close();
@@ -45,7 +45,7 @@ public class MarcaDao {
                 System.err.println(se.getMessage());
             }
 
-            return listaClientes;
+            return listaMarcas;
 
     }    
     
@@ -135,6 +135,21 @@ public class MarcaDao {
             }
 
             saveProduct.executeUpdate();
+            closeConnection();
+        } catch (SQLException se) {
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+    }
+    
+    public void update(Marca marca) {
+        PreparedStatement saveMarca;
+        try {
+            saveMarca = getConnection().prepareStatement(
+                 "UPDATE APP.marca SET nombre = ? WHERE  idmarca = ?");
+            saveMarca.setString(1, marca.getNombre());
+            saveMarca.setInt(2, marca.getId());
+            saveMarca.executeUpdate();
             closeConnection();
         } catch (SQLException se) {
             System.err.println("Se ha producido un error de BD.");
