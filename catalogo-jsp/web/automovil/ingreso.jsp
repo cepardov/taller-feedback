@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <td><span>Cliente Rut</span></td>
-                <td><input size="40" type="text" name="rut" value=""/></td>
+                <td><input size="40" type="text" name="rut" value="<%=cli.getNombre()%>"/></td>
                 <td><a href="<%= application.getContextPath() %>/automovil/buscarcliente.jsp" value="rut" method="get">Buscar Cliente</a>></td>
             </tr>
             <tr>

@@ -16,7 +16,7 @@
 <h3>Formulario Modelo</h3>
 
 
-<form method="post" action="../modelo/guardarmodelo.jsp">
+<form method="post" action="<%= request.getContextPath() %>/modelo/guardarmodelo.jsp" scope="request">
     <table border="1">
         <tbody>
         <tr>
