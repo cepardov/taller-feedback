@@ -15,7 +15,7 @@
         <title>Guardar Modelo</title>
     </head>
     <body>
-        <form method="post" action="<%= application.getContextPath() %>/modelo/confirmarmodelo.jsp" scope="request">
+        <form method="post" action="<%= application.getContextPath() %>/modelo/listadomodelo.jsp" scope="request">
             <%
                String nombrein="";
                int marcain=0;
@@ -29,7 +29,11 @@
             
             <jsp:setProperty name="modelo1" property="nombre" value="<%=nombrein%>"/>
             <jsp:setProperty name="modelo1" property="marca" value="<%=marcain%>"/>
+            <%
+            modelo1.save();
 
+            response.sendRedirect(request.getContextPath() + "/modelo/listadomodelo.jsp");
+            %>
             <table>
                 <tr><td>Nombre modelo:</td><td><jsp:getProperty name="modelo1" property="nombre"/></td></tr>
                 <tr><td>Marca:</td><td><jsp:getProperty name="modelo1" property="marca"/></td></tr>
