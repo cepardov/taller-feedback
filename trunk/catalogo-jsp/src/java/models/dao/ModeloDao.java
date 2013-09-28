@@ -119,10 +119,10 @@ public List<Modelo>findPorNombre(String nombre){
         try {
             
                 saveModelo = getConnection().prepareStatement(
-                        "INSERT INTO APP.modelo (nombre,idmarca) VALUES (?,?)");
+                        "INSERT INTO APP.modelo (nombre, idmarca) VALUES (?, ?)");
                 saveModelo.setString(1, modelo.getNombre());
                 saveModelo.setInt(2, modelo.getMarca());
-                System.out.println("INSERT INTO ....");
+                System.out.println("INSERT INTO ...."+ modelo.getNombre()+" "+ modelo.getMarca());
             
 
             saveModelo.executeUpdate();

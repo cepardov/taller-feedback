@@ -29,7 +29,7 @@
            
             <td><select id="marcas" name="marcas" size="1">
                 <% for(Marca cli : listadoMarca){ %>
-                <option value="<%= cli.getId() %>"> <%= cli.getNombre() %></option>
+                <option value="<%= cli.getId() %>"><%= cli.getNombre() %></option>
                 <%}%>
             </select>
               
