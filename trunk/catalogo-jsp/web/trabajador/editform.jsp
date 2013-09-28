@@ -23,9 +23,9 @@
     
     <table border="1">
         <tbody>
-             <tr>
+            <tr>
                 <td><span>Rut</span></td>
-                <td><input type="text" name="rut" value="<%=trab.getRut()==null?"":trab.getRut()%>"/></td>
+                <td><input type="text" name="rut" value="<%=trab.getRut()==null?"":trab.getRut()%>" readonly/></td>
             </tr>
             <tr>
                 <td><span>Nombre</span></td>
