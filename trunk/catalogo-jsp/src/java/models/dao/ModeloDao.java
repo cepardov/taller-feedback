@@ -23,7 +23,7 @@ public class ModeloDao {
 
         try {
             // Componemos la sentencia SQL para obtener los productos.
-            String query = "SELECT * FROM APP.modelo WHERE  id = ?";
+            String query = "SELECT * FROM APP.modelo WHERE  idmodelo = ?";
 
             // Ejecutamos la query y obtenemos el resultado.
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -119,7 +119,7 @@ public List<Modelo>findPorNombre(String nombre){
         try {
             
                 saveModelo = getConnection().prepareStatement(
-                        "INSERT INTO APP.modelo VALUES (?,?)");
+                        "INSERT INTO APP.modelo (nombre,idmarca) VALUES (?,?)");
                 saveModelo.setString(1, modelo.getNombre());
                 saveModelo.setInt(2, modelo.getMarca());
                 System.out.println("INSERT INTO ....");
