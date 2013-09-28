@@ -3,10 +3,9 @@
     
 <jsp:useBean id="marca" class="models.beans.MarcaBean" scope="request"></jsp:useBean>
 
-<jsp:setProperty property="*" name="marca" />
+<jsp:setProperty property="id" name="marca" />
 <%
-
 marca.delete();
 
-response.sendRedirect(request.getContextPath() + "/marca/listamarca.jsp");
+response.sendRedirect(request.getContextPath() + "/marca/listadomarca.jsp");
 %>

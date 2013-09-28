@@ -5,7 +5,7 @@
 
 <jsp:setProperty property="*" name="marca" />
 <%
-marca.save();
+marca.update();
 
 response.sendRedirect(request.getContextPath() + "/marca/listadomarca.jsp");
 %>

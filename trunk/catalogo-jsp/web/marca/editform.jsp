@@ -13,23 +13,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Formulario Marca</title>
+<title>Formulario Edición Marcas</title>
 </head>
 <body>
-<h3>Formulario Marca</h3>
+<h3>Formulario Edición Marcas</h3>
 
 
-<form method="post" action="<%= application.getContextPath() %>+/marca/guardarmarca.jsp">
-<input type="hidden" name="id" value="<%=marc.getId()%>"/>   
+<form method="post" action="<%= application.getContextPath() %>/marca/updatemarca.jsp">
+    
     <table border="1">
-            <tr>
+        <tbody>
                 <td><span>Nombre</span></td>
                 <td><input size="40" type="text" name="nombre" value="<%=marc.getNombre()==null?"":marc.getNombre()%>"/></td>
             </tr>
-            <tr>
+             <tr>
                 <td colspan="2"><input type="submit" name="guardar" value="Guardar"/></td>
-            </tr>
-            
+             </tr>
         </tbody>
     </table>
 </form>
