@@ -11,10 +11,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Seleccionar cliente</title>
+<title>Ingreso de automovil</title>
 </head>
 <body>
-<h3>Formulario de seleccion</h3>
+<h3>Formulario de ingreso de automovil</h3>
 
     
     <table border="1">
@@ -40,24 +40,25 @@
             </tr>
             <tr>
                 <td><span>marca</span></td>
-                 <td><select id="marcas" name="marcas" size="1">
+                <td><select id="marcas" name="marca" size="1">
+                <option>Seleccionar...</option>
                 <% for(Marca cli : listadoMarca){ %>
-                <option value="<%= cli.getId() %>"><%= cli.getNombre() %></option>
+                <option action="<%=request.getContextPath() %>/automovil/ingreso_1.jsp?marcas=<%= cli.getId() %>"><%= cli.getNombre() %></option>
                 <%}%>
             </select>
             </td>
             </tr>
              <tr>
                 <td><span>modelo</span></td>
-                <td><input type="text" name="modelo" value=""/></td>
+                <td><input type="text" readonly="readonly" name="año" value="Seleccionar marca"/></td>
             </tr>
             <tr>
                 <td><span>año</span></td>
-                <td><input type="text" name="año" value=""/></td>
+                <td><input type="text" readonly="readonly" name="año" value="Seleccionar marca"/></td>
             </tr>
             <tr>
                 <td><span>Cilindrada</span></td>
-                <td><input type="text" name="cilindrada" value=""/></td>
+                <td><input type="text" readonly="readonly" name="año" value="Seleccionar marca"/></td>
             </tr>
              <tr>
              <tr>

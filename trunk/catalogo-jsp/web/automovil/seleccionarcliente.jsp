@@ -10,10 +10,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listado de Clientes</title>
+<title>Seleccion de Clientes</title>
 </head>
 <body>
-<h3>Listado de Clientes</h3>
+<h3>Listado de seleccion de Clientes</h3>
 <p><a href="<%=request.getContextPath() %>/cliente/ingresocliente.jsp">Agregar Cliente (+)</a></p>
 <table>
 	<tr>
