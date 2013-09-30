@@ -28,13 +28,13 @@ public class AutomovilDao {
 
             while (result.next()) {
                 Automovil automovil = new Automovil();
-                automovil.setPpu(result.getString("ppu"));
+                automovil.setPpu(result.getString("patente"));
                 automovil.setRut(result.getString("rut"));
                 automovil.setColor(result.getString("color"));
                 automovil.setIdmarca(result.getInt("idmarca"));
                 automovil.setIdmodelo(result.getInt("idmodelo"));
-                automovil.setAño(result.getString("año"));
-                automovil.setCilindrada(result.getString("cilindrada"));
+                automovil.setAño(result.getInt("año"));
+                automovil.setCilindrada(result.getInt("cilindrada"));
                 listaAutomoviles.add(automovil);
             }
 
@@ -71,13 +71,13 @@ public class AutomovilDao {
 
             // Construimos una VO para el producto.
             automovil = new Automovil();
-            automovil.setPpu(result.getString("ppu"));
+            automovil.setPpu(result.getString("patente"));
             automovil.setRut(result.getString("rut"));
             automovil.setColor(result.getString("color"));
             automovil.setIdmarca(result.getInt("idmarca"));
             automovil.setIdmodelo(result.getInt("idmodelo"));
-            automovil.setAño(result.getString("año"));
-            automovil.setCilindrada(result.getString("cilindrada"));
+            automovil.setAño(result.getInt("año"));
+            automovil.setCilindrada(result.getInt("cilindrada"));
 
             result.close();
             stmt.close();
@@ -101,8 +101,8 @@ public class AutomovilDao {
             saveAutomovil.setString(3, automovil.getColor());
             saveAutomovil.setInt(4, automovil.getIdmarca());
             saveAutomovil.setInt(5, automovil.getIdmodelo());
-            saveAutomovil.setString(6, automovil.getAño());
-            saveAutomovil.setString(7, automovil.getCilindrada());
+            saveAutomovil.setInt(6, automovil.getAño());
+            saveAutomovil.setInt(7, automovil.getCilindrada());
             saveAutomovil.executeUpdate();
             closeConnection();
         } catch (SQLException se) {
@@ -121,8 +121,8 @@ public class AutomovilDao {
             saveAutomovil.setString(2, automovil.getColor());
             saveAutomovil.setInt(3, automovil.getIdmarca());
             saveAutomovil.setInt(4, automovil.getIdmodelo());
-            saveAutomovil.setString(5, automovil.getAño());
-            saveAutomovil.setString(6, automovil.getCilindrada());
+            saveAutomovil.setInt(5, automovil.getAño());
+            saveAutomovil.setInt(6, automovil.getCilindrada());
             saveAutomovil.setString(7, automovil.getPpu());
             saveAutomovil.executeUpdate();
             closeConnection();
