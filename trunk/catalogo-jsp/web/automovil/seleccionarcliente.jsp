@@ -34,7 +34,7 @@
 			<td><%= cli.getTelefono() %></td>
                         <td><%= cli.getEmail() %></td>
 			
-                        <td><a ontrabck="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/automovil/ingreso.jsp?rut=<%= cli.getRut()%>">
+                        <td><a href="<%= request.getContextPath() %>/automovil/ingreso.jsp?rut=<%=cli.getRut()%>">
 			Seleccionar</a></td>
 		</tr>
 	<%} %>
