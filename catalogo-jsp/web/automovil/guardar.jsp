@@ -26,7 +26,7 @@
                     if(request.getParameter("año")!=null){
                         añoin=Integer.parseInt(request.getParameter("año"));
                        }
-                    if(request.getParameter("cilidrada")!=null){
+                    if(request.getParameter("cilindrada")!=null){
                         cilindradain=Integer.parseInt(request.getParameter("cilindrada"));
                        }
                     
