@@ -20,59 +20,59 @@
                     if(request.getParameter("patente")!=null){
                         patentein=request.getParameter("patente");
                        }
-                    if(request.getParameter("rut")!=null){
-                        rutin=request.getParameter("rut");
+                    if(request.getParameter("rutcliente")!=null){
+                        rutin=request.getParameter("rutcliente");
                        }
                     if(request.getParameter("color")!=null){
                         colorin=request.getParameter("color");
                        }
-                    if(request.getParameter("marcas")!=null){
-                        marcain=request.getParameter("marcas");
+                    if(request.getParameter("marca")!=null){
+                        marcain=request.getParameter("marca");
                        }
                 %>
-    
-    <table border="1">
-        <tbody>
-             <tr>
-                <td><span>Patente</span></td>
-                <td><input type="text" name="patente" value="<%=patentein%>"/></td>
-            </tr>
-            <tr>
-                
-                <td><span>Cliente Rut</span></td>
-                <td><input size="40" type="text" name="rutcliente" value="<%=rutin%>"/></td>
-            </tr>
-            
-            <tr>
-                <td><span>Color</span></td>
-                <td><input type="text" name="color" value=""/></td>
-            </tr>
-            <tr>
-                <td><span>marca</span></td>
-                <td><input type="text" name="modelo" value="<%=marcain%>"/></td> 
-            </tr>
-             <tr>
-                <td><span>modelo</span></td>
-                <td><select id="marcas" name="marcas" size="1">
-                    <% for(Modelo cli : listadoModelo){ %>
-                    <option value="<%= cli.getIdmodelo() %>"><%= cli.getNombre() %></option>
-                    <%}%>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td><span>año</span></td>
-                <td><input type="text" name="año" value=""/></td>
-            </tr>
-            <tr>
-                <td><span>Cilindrada</span></td>
-                <td><input type="text" name="cilindrada" value=""/></td>
-            </tr>
-             <tr>
-             <tr>
-                <td colspan="2"><input type="submit" name="guardar" value="Guardar"/></td>
-             </tr>
-        </tbody>
-    </table>
+     <form action="<%= request.getContextPath() %>/automovil/guardar.jsp" method="post">
+        <table border="1">
+            <tbody>
+                 <tr>
+                    <td><span>Patente</span></td>
+                    <td><input type="text" name="patente" value="<%=patentein%>"/></td>
+                </tr>
+                <tr>
+
+                    <td><span>Cliente Rut</span></td>
+                    <td><input size="40" type="text" name="rutcliente" value="<%=rutin%>"/></td>
+                </tr>
+
+                <tr>
+                    <td><span>Color</span></td>
+                    <td><input type="text" name="color" value="<%=colorin%>"/></td>
+                </tr>
+                <tr>
+                    <td><span>marca</span></td>
+                    <td><input type="text" name="marca" value="<%=marcain%>"/></td> 
+                </tr>
+                 <tr>
+                    <td><span>modelo</span></td>
+                    <td><select id="modelos" name="modelos" size="1">
+                        <% for(Modelo cli : listadoModelo){ %>
+                        <option value="<%=cli.getIdmodelo()%>"><%=cli.getNombre()%></option>
+                        <%}%>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>año</span></td>
+                    <td><input type="text" name="año" value=""/></td>
+                </tr>
+                <tr>
+                    <td><span>Cilindrada</span></td>
+                    <td><input type="text" name="cilindrada" value=""/></td>
+                </tr>
+                 <tr>
+                 <tr>
+                    <td colspan="2"><input type="submit" name="guardar" value="Guardar"/></td>
+                 </tr>
+            </tbody>
+        </table>
 </body>
 </html>

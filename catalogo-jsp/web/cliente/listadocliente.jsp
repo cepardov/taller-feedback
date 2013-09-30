@@ -33,10 +33,13 @@
 			<td><%= cli.getMaterno() %></td>
 			<td><%= cli.getTelefono() %></td>
                         <td><%= cli.getEmail() %></td>
+                        <td><a href="<%= request.getContextPath() %>/automovil/ingreso.jsp?rut=<%=cli.getRut()%>">
+			Seleccionar</a></td>
 			<td><a href="<%= request.getContextPath() %>/cliente/editform.jsp?rut=<%= cli.getRut()%>">
 			editar</a></td>
                         <td><a ontrabck="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/cliente/eliminarcliente.jsp?rut=<%= cli.getRut()%>">
 			eliminar</a></td>
+                        
 		</tr>
 	<%} %>
 </table>

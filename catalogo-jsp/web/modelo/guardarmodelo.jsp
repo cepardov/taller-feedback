@@ -32,7 +32,7 @@
             <%
             modelo1.save();
 
-            response.sendRedirect(request.getContextPath() + "/modelo/listadomodelo.jsp");
+            response.sendRedirect(request.getContextPath() + "/automovil/lista.jsp");
             %>
             
         </form>

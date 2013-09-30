@@ -14,8 +14,8 @@ public class Automovil {
   protected String color;
   protected int idmarca;
   protected int idmodelo;
-  protected String año;
-  protected String cilindrada;
+  protected int año;
+  protected int cilindrada;
 
     public String getPpu() {
         return ppu;
@@ -57,19 +57,19 @@ public class Automovil {
         this.idmodelo = idmodelo;
     }
 
-    public String getAño() {
+    public int getAño() {
         return año;
     }
 
-    public void setAño(String año) {
+    public void setAño(int año) {
         this.año = año;
     }
 
-    public String getCilindrada() {
+    public int getCilindrada() {
         return cilindrada;
     }
 
-    public void setCilindrada(String cilindrada) {
+    public void setCilindrada(int cilindrada) {
         this.cilindrada = cilindrada;
     }
     

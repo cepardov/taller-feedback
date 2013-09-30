@@ -14,7 +14,7 @@
 </head>
 <body>
 <h3>Listado de Automovils</h3>
-<p><a href="<%=request.getContextPath() %>/automovil/ingreso.jsp">Agregar Automovil (+)</a></p>
+<p><a href="<%=request.getContextPath() %>/cliente/listadocliente.jsp">Agregar Automovil (+)</a></p>
 <table>
 	<tr>
 		
@@ -35,6 +35,8 @@
 			<td><%= auto.getIdmodelo() %></td>
 			<td><%= auto.getAño() %></td>
                         <td><%= auto.getCilindrada() %></td>
+                        <td><a href="<%= request.getContextPath() %>/fichaauto/recepcion.jsp">
+			Seleccionar</a></td>
 			<td><a href="<%= request.getContextPath() %>/automovil/editform.jsp?rut=<%= auto.getRut()%>">
 			editar</a></td>
                         <td><a onautock="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/automovil/eliminarautomovil.jsp?rut=<%= auto.getRut()%>">

@@ -16,7 +16,7 @@
 <body>
 <h3>Formulario de ingreso de automovil</h3>
 
-    
+    <form name="cargas" method="post" action="<%= request.getContextPath() %>/automovil/ingreso_1.jsp">
     <table border="1">
         <tbody>
              <tr>
@@ -31,7 +31,7 @@
                        }
                 %>
                 <td><span>Cliente Rut</span></td>
-                <td><input size="40" type="text" name="rutcliente" value="<%=rutin%>"/></td>
+                <td><input size="40" type="text" name="rutcliente" readonly="readonly" value="<%=rutin%>"/></td>
             </tr>
             
             <tr>
@@ -39,16 +39,16 @@
                 <td><input type="text" name="color" value=""/></td>
             </tr>
             <tr>
-                <td><span>marca</span></td>
-                <td><select id="marcas" name="marca" size="1">
-                <option>Seleccionar...</option>
-                <% for(Marca cli : listadoMarca){ %>
-                <option action="<%=request.getContextPath() %>/automovil/ingreso_1.jsp?marcas=<%= cli.getId() %>"><%= cli.getNombre() %></option>
-                <%}%>
-            </select>
-            </td>
+                    <td><span>marca</span></td>
+                    <td>
+                        <select onchange="document.cargas.submit();" name="marca" size="1">
+                        <option>Seleccionar...</option>
+                        <% for(Marca cli : listadoMarca){ %>
+                        <option value="<%= cli.getId() %>"><%= cli.getNombre() %></option>
+                        <%}%>
+                    </select></td>   
             </tr>
-             <tr>
+            <tr>
                 <td><span>modelo</span></td>
                 <td><input type="text" readonly="readonly" name="año" value="Seleccionar marca"/></td>
             </tr>
@@ -60,11 +60,9 @@
                 <td><span>Cilindrada</span></td>
                 <td><input type="text" readonly="readonly" name="año" value="Seleccionar marca"/></td>
             </tr>
-             <tr>
-             <tr>
-                <td colspan="2"><input type="submit" name="guardar" value="Guardar"/></td>
-             </tr>
-        </tbody>
+             
+         </tbody>
     </table>
+    </form>
 </body>
 </html>
