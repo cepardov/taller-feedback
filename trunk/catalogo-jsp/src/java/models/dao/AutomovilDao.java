@@ -137,7 +137,7 @@ public class AutomovilDao {
         try {
 
                 delAutomovil = getConnection().prepareStatement(
-                        "DELETE FROM APP.automovil WHERE ppu = ?");
+                        "DELETE FROM APP.automovil WHERE patente = ?");
 
                 delAutomovil.setString(1, automovil.getPpu());
                 delAutomovil.executeUpdate();
