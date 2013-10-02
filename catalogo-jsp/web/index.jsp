@@ -23,21 +23,19 @@
             <table><tr>
                 <tr>
                 <td><span>Usuario (rut)</span></td>
-                <td><input size=40 type="text" name="nombre" value=""/></td>
-                <jsp:setProperty property="rut" name="trabajador" value="" />
-                </tr>
-                <tr>
-                    <td><span>Cargo</span></td>
-                    <td><select name="cargo" zize="1">
-                        <option value="admin">Administrador</option>
-                        <option value="recepcion">Recepción</option>
-                        <option value="jefemecanico">Jefe mecánico</option>
-                        <option value="mecanico">mecánico</option>
-                    </select></td>
-                </tr>            
+                <td><input size=40 type="text" name="rut" value=""/></td>
+                </tr>           
                 <tr>
                     <td><span>Clave</span></td>
-                    <td><input size=40 type="password" name="password" value=""/></td>
+                    <td><input size=40 type="password" name="pass" value=""/></td>
+                </tr>
+                <% String errorin="";
+                if(request.getParameter("sc")!=null){
+                errorin=request.getParameter("sc");
+                }
+                %>
+                <tr>
+                    <td><span name="err"><%=errorin%></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" name="ingresar" value="Ingresar"/></td>

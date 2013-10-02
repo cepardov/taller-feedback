@@ -46,7 +46,13 @@
             </tr>
             <tr>
                 <td><span>Cargo</span></td>
-                <td><input type="text" name="cargo" value="<%=trab.getCargo()==null?"":trab.getCargo()%>"/></td>
+                <td><select id="cargo" name="cargo">
+                        <option value="1">Recepcionista</option>
+                        <option value="2">Jefe mecánicos</option>
+                        <option value="3">Mecánico</option>
+                        <option value="4">Administrador</option>
+                        
+                    </select></td>
             </tr>
             <tr>
                 <td><span>Clave</span></td>

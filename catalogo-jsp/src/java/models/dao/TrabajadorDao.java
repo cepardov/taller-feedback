@@ -106,6 +106,7 @@ public List<Trabajador>findPorNombre(String nombre){
             stmt.close();
             closeConnection();
         } catch (SQLException se) {
+            trabajador.setRut("");
             System.err.println("Se ha producido un error de BD.");
             System.err.println(se.getMessage());
         }
