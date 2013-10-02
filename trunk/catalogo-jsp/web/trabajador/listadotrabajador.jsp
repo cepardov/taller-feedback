@@ -10,10 +10,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listado de Trabajadors</title>
+<title>Listado de Trabajadores</title>
 </head>
 <body>
-<h3>Listado de Trabajadors</h3>
+<h3>Listado de Trabajadores</h3>
 <p><a href="<%=request.getContextPath() %>/trabajador/ingresotrabajador.jsp">Agregar Trabajador (+)</a></p>
 <table>
 	<tr>
@@ -37,7 +37,7 @@
                         <td><%= trab.getClave() %></td>
 			<td><a href="<%= request.getContextPath() %>/trabajador/editform.jsp?rut=<%= trab.getRut()%>">
 			editar</a></td>
-                        <td><a ontrabck="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/trabajador/eliminartrabajador.jsp?rut=<%= trab.getRut()%>">
+                        <td><a onclick="return confirm('Esta seguro de eliminar el campo seleccionado?');" href="<%= request.getContextPath() %>/trabajador/eliminartrabajador.jsp?rut=<%= trab.getRut()%>">
 			eliminar</a></td>
 		</tr>
 	<%} %>
