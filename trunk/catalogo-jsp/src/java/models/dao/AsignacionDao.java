@@ -114,7 +114,7 @@ public class AsignacionDao {
                 saveAsignacion.setString(2, asignacion.getRutTrab());
                 saveAsignacion.setString(3, asignacion.getFecha());
                 saveAsignacion.setString(4, asignacion.getHora());
-                saveAsignacion.setInt(1, asignacion.getIdasignacion());
+                saveAsignacion.setInt(5, asignacion.getIdasignacion());
                 
             }
 
@@ -160,7 +160,7 @@ public class AsignacionDao {
                 upAsignacion.setString(2, asignacion.getRutTrab());
                 upAsignacion.setString(3, asignacion.getFecha());
                 upAsignacion.setString(4, asignacion.getHora());
-                upAsignacion.setInt(1, asignacion.getIdasignacion());
+                upAsignacion.setInt(5, asignacion.getIdasignacion());
                 
         } catch (SQLException se){
         System.err.println("ERROR DE BASE DE DATOS - QUE WEA HACES");
