@@ -5,7 +5,7 @@
 
 <jsp:setProperty property="*" name="repuesto" />
 <%
-repuesto.update();
+repuesto.save();
 
 response.sendRedirect(request.getContextPath() + "/repuesto/listadorepuesto.jsp");
 %>
