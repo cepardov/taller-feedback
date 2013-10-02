@@ -27,15 +27,15 @@
 
 
 <form method="post" action="<%= application.getContextPath() %>/repuestos/guardarepuesto.jsp">
-<input type="hidden" name="id" value="<%=rep.getIdrepuesto()%>"/>   
+    <input type="hidden" name="id" value="<%=rep.getIdrepuesto()%>"</> 
     <table border="1">
             <tr>
                 <td><span>Nombre</span></td>
-                <td><input size="40" type="text" name="nombre" value="<%=rep.getNombre()==null?"":rep.getNombre()%>"/></td>
+                <td><input size="20" type="text" name="nombre" value="<%=rep.getNombre()==null?"":rep.getNombre()%>"/></td>
             </tr>
             <tr>
                 <td><span>Descripcion</span></td>
-                <td><input size="200" type="text" name="descripcion" value="<%=rep.getDescripcion()==null?"":rep.getDescripcion()%>"/></td>
+                <td><input size="20" type="text" name="descripcion" value="<%=rep.getDescripcion()==null?"":rep.getDescripcion()%>"/></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" name="guardar" value="Guardar"/></td>
