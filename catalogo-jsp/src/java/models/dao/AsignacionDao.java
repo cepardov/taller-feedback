@@ -13,7 +13,7 @@ import utilidades.DataBaseInstance;
 
 /**
  *
- * @author Lab
+ * @author adolf
  */
 public class AsignacionDao {
     
@@ -61,15 +61,32 @@ public class AsignacionDao {
      ResultSet result = null;
      Asignacion asignacion = null;
      
+     try{
+      String query ="SELECT * FROM APP.asignaciontrabajo WHERE idasignacion = ?";
+      PreparedStatement stmt = getConnection().prepareStatement(query);
+      stmt.setInt(1, idasignacion);
+      result = stmt.executeQuery();
      
-     
+      if (!result.next()) {
+                throw new SQLException();
+            }
+      asignacion = new Asignacion();
+      asignacion.setIdasignacion(result.getInt("idasignacion"));
+      
+      result.close();
+      stmt.close();
+      closeConnection();
+      
+     }
+     catch(SQLException se)
+     {
+         System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+     };
      
      
      return asignacion;
      }
-     
-     
-     
      
      
      public void save(Asignacion asignacion)
@@ -117,7 +134,7 @@ public class AsignacionDao {
         PreparedStatement deAsignacion;
         try {
             deAsignacion = getConnection().prepareStatement(
-                    "DELETE FROM APP.trabajador WHERE rut = ?");
+                    "DELETE FROM APP.asignaciontrabajo WHERE idasignacion = ?");
             deAsignacion.setInt(1, asignacion.getIdasignacion());
             deAsignacion.executeUpdate();
             closeConnection();
@@ -125,11 +142,31 @@ public class AsignacionDao {
             System.err.println("Se ha producido un error de BD.");
             System.err.println(se.getMessage());
         }
+        
+        
     }
      
      
      
-     
+     public void update(Asignacion asignacion)
+        {
+        PreparedStatement upAsignacion;
+        
+        try {
+             upAsignacion = getConnection().prepareStatement(
+                        "UPDATE APP.asignaciontrabajo SET idficha = ?,  rut_trabajador = ?  fecha = ? hora = ? WHERE  idasignacion = ?");
+                
+                upAsignacion.setInt(1, asignacion.getIdficha());
+                upAsignacion.setString(2, asignacion.getRutTrab());
+                upAsignacion.setString(3, asignacion.getFecha());
+                upAsignacion.setString(4, asignacion.getHora());
+                upAsignacion.setInt(1, asignacion.getIdasignacion());
+                
+        } catch (SQLException se){
+        System.err.println("ERROR DE BASE DE DATOS - QUE WEA HACES");
+        System.err.println(se);
+        }
+        }
      
      
      
