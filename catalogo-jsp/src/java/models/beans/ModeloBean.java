@@ -9,8 +9,8 @@ public class ModeloBean extends Modelo {
      private ModeloDao modeloDao = new ModeloDao();
      
     
-    public List<Modelo> findPorNombre() {
-        return modeloDao.findPorNombre(nombre);
+    public List<Modelo> findPorMarca() {
+        return modeloDao.findPorMarca(marca);
     }
     
  public List<Modelo> findAll() {

@@ -4,8 +4,6 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="models.beans.*,models.entity.*"%>
 
-<jsp:useBean id="cargar" class="models.beans.ModeloBean" scope="request"></jsp:useBean>
-<% List<Modelo> listadoModelo = cargar.findAll();%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,7 +14,8 @@
 <body>
 <h3>Formulario de ingreso de automovil</h3>
                 <%
-                    String patentein="",rutin="",colorin="",marcain="" ;
+                    String patentein="",rutin="",colorin="";
+                    int marcain=0;
                     if(request.getParameter("patente")!=null){
                         patentein=request.getParameter("patente");
                        }
@@ -27,9 +26,13 @@
                         colorin=request.getParameter("color");
                        }
                     if(request.getParameter("marca")!=null){
-                        marcain=request.getParameter("marca");
+                        marcain=Integer.parseInt(request.getParameter("marca"));
                        }
                 %>
+                
+<jsp:useBean id="cargar" class="models.beans.ModeloBean" scope="request"></jsp:useBean>
+<jsp:setProperty name="cargar" property="marca" value="<%=marcain%>"/>
+<% List<Modelo> listadoModelo = cargar.findPorMarca();%>
      <form action="<%= request.getContextPath() %>/automovil/guardar.jsp" method="post">
         <table border="1">
             <tbody>

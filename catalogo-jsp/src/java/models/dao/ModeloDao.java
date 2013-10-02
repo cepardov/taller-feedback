@@ -50,21 +50,23 @@ public class ModeloDao {
 
         return modelo;
     }
-     
-public List<Modelo>findPorNombre(String nombre){
+
+public List<Modelo>findPorMarca(Integer idmarca){
         List<Modelo> listaModelos = new ArrayList<Modelo>();
         ResultSet result = null;
 
         try {
 
-            String query = "SELECT * FROM APP.modelo WHERE nombre LIKE ?";
+            String query = "SELECT idmodelo, nombre, idmarca FROM APP.modelo WHERE idmarca=?";
             PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1,"%"+nombre+"%");
+            stmt.setInt(1,idmarca);
             result = stmt.executeQuery();
 
             while (result.next()) {
                 Modelo modelo = new Modelo();
+                modelo.setIdmodelo(result.getInt("idmodelo"));
                 modelo.setNombre(result.getString("nombre"));
+                modelo.setMarca(result.getInt("idmarca"));
                 listaModelos.add(modelo);
             }
 
