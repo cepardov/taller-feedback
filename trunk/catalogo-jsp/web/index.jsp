@@ -6,6 +6,8 @@
 
 <%@page import="models.entity.Trabajador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="trabajador" class="models.beans.TrabajadorBean" scope="request"></jsp:useBean>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,7 +23,8 @@
             <table><tr>
                 <tr>
                 <td><span>Usuario (rut)</span></td>
-                <td><input size=40 type="text" name="rut" value=""/></td>
+                <td><input size=40 type="text" name="nombre" value=""/></td>
+                <jsp:setProperty property="rut" name="trabajador" value="" />
                 </tr>
                 <tr>
                     <td><span>Cargo</span></td>
