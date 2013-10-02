@@ -108,6 +108,25 @@ public class RepuestoDao {
         }
     }
 
+    public void update(Repuesto repuesto)
+            
+    {
+    PreparedStatement updateRepuesto;
+    
+    try{
+        updateRepuesto = getConnection().prepareStatement(
+                "UPDATE APP.repuesto SET nombre = ?,  descripcion = ? WHERE  idrepuesto = ?");
+        updateRepuesto.setString(1, repuesto.getNombre());
+                updateRepuesto.setString(2, repuesto.getDescripcion());
+                updateRepuesto.setInt(3, repuesto.getIdrepuesto());
+    }
+    catch(SQLException se){
+    System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());}
+    }
+    
+    
+    
     public void delete(Repuesto repuesto) {
         PreparedStatement saveProduct;
         try {

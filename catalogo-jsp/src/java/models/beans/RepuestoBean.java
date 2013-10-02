@@ -27,7 +27,10 @@ public class RepuestoBean extends Repuesto {
     public void save() {
        repuestoDao.save(this);
     }
-
+public void update(){
+repuestoDao.update(this);
+}
+    
     public void delete() {
         repuestoDao.delete(this);
     }
