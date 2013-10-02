@@ -13,10 +13,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Formulario Trabajadors</title>
+<title>Formulario edición Trabajadores</title>
 </head>
 <body>
-<h3>Formulario Trabajadors</h3>
+<h3>Editar Trabajadores</h3>
+<h5>Solo editar los campos editables...</h5>
 
 
 <form method="post" action="<%= application.getContextPath() %>/trabajador/updatetrabajador.jsp">

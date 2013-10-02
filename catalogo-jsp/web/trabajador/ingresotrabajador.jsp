@@ -13,10 +13,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Formulario Trabajadors</title>
+<title>Formulario ingreso Trabajadores</title>
 </head>
 <body>
-<h3>Formulario Trabajadors</h3>
+<h3>Formulario Trabajadores</h3>
+<h5>Todos los campos son obligatorios solo debe especificar los datos solicitados.</h5>
 
 
 <form method="post" action="<%= application.getContextPath() %>/trabajador/guardartrabajador.jsp">
