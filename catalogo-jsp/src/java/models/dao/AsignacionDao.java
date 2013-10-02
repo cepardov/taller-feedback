@@ -56,6 +56,7 @@ public class AsignacionDao {
          return vistasignacion;
      }
      
+     @SuppressWarnings("empty-statement")
      public Asignacion findById(int idasignacion)
      {
      ResultSet result = null;
@@ -78,8 +79,7 @@ public class AsignacionDao {
       closeConnection();
       
      }
-     catch(SQLException se)
-     {
+     catch(SQLException se){
          System.err.println("Se ha producido un error de BD.");
             System.err.println(se.getMessage());
      };

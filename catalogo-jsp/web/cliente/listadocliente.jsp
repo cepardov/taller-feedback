@@ -19,7 +19,9 @@
 	<tr>
 		
 		<th>Rut</th>
-		<th>Nombre</th>
+
+                
+              <th>Nombre</th>
 		<th>Paterno</th>
 		<th>Materno</th>
 		<th>Telefono</th>
