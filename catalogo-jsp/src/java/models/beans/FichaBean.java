@@ -8,19 +8,19 @@ public class FichaBean extends Ficha {
     
      private FichaDao fichaDao = new FichaDao();
     
-//    public String findrutNombre() {
-//        fichaDao.findPorNombre(rut);
-//        return rut;
-//    }
+    public String findId() {
+        fichaDao.findById(patente);
+        return patente;
+    }
     
-//    public List<Ficha> findAll() {
-//        return fichaDao.findAll();
-//    }
+    public List<Ficha> findAll() {
+        return fichaDao.findAll();
+    }
 
-//    public Ficha findByRut() {
+//    public Ficha findbypatente() {
 //        Ficha ficha = null;
-//        if (rut != null) {
-//            ficha = fichaDao.findByRut(rut);
+//        if (patente != null) {
+//            ficha = fichaDao.findPorId();
 //        } else {
 //            ficha = new Ficha();
 //        }

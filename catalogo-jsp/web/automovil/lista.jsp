@@ -10,10 +10,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listado de Automovils</title>
+<title>Listado de Automoviles</title>
 </head>
 <body>
-<h3>Listado de Automovils</h3>
+<h3>Listado de Automoviles</h3>
 <p><a href="<%=request.getContextPath() %>/cliente/listadocliente.jsp">Agregar Automovil (+)</a></p>
 <table>
 	<tr>
@@ -35,11 +35,11 @@
 			<td><%= auto.getIdmodelo() %></td>
 			<td><%= auto.getAño() %></td>
                         <td><%= auto.getCilindrada() %></td>
-                        <td><a href="<%= request.getContextPath() %>/fichaauto/recepcion.jsp">
+                        <td><a href="<%= request.getContextPath() %>/fichaauto/recepcion.jsp?patente=<%= auto.getPpu() %>&rut=<%= auto.getRut() %>">
 			Seleccionar</a></td>
-			<td><a href="<%= request.getContextPath() %>/automovil/editform.jsp?rut=<%= auto.getRut()%>">
+			<td><a href="<%= request.getContextPath() %>/automovil/editar.jsp?ppu=<%= auto.getPpu()%>">
 			editar</a></td>
-                        <td><a onautock="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/automovil/eliminarautomovil.jsp?rut=<%= auto.getRut()%>">
+                        <td><a onautock="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/automovil/eliminar.jsp?ppu=<%= auto.getPpu()%>">
 			eliminar</a></td>
 		</tr>
 	<%} %>

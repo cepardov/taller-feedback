@@ -22,92 +22,95 @@ public class FichaDao {
         return DataBaseInstance.getInstanceConnection();
     }
     
-//public List<Ficha>findPorNombre(String nombre){
-//        List<Ficha> listaFichas = new ArrayList<Ficha>();
-//        ResultSet result = null;
-//        try {
-//            String query = "SELECT * FROM APP.ficha WHERE nombre LIKE ?";
-//            PreparedStatement stmt = getConnection().prepareStatement(query);
-//            stmt.setString(1,"%"+nombre+"%");
-//            result = stmt.executeQuery();
-//            while (result.next()) {
-//                Ficha ficha = new Ficha();
-//                ficha.setRut(result.getString("rut"));
-//                ficha.setNombre(result.getString("nombre"));
-//                ficha.setPaterno(result.getString("paterno"));
-//                ficha.setMaterno(result.getString("materno"));
-//                ficha.setTelefono(result.getInt("telefono"));
-//                ficha.setEmail(result.getString("email"));
-//                listaFichas.add(ficha);
-//            }
-//            result.close();
-//            stmt.close();
-//            closeConnection();
-//        } catch (SQLException se) {
-//            System.out.println(se.toString());
-//            System.err.println("Se ha producido un error de BD.");
-//            System.err.println(se.getMessage());
-//        }
-//        return listaFichas;
-//}    
+public List<Ficha>findPorPatente(String patente){
+        List<Ficha> listaFichas = new ArrayList<Ficha>();
+        ResultSet result = null;
+        try {
+            String query = "SELECT * FROM APP.cliente WHERE patente LIKE ?";
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setString(1,"%"+patente+"%");
+            result = stmt.executeQuery();
+            while (result.next()) {
+                Ficha ficha = new Ficha();
+                ficha.setIdficha(result.getInt("idficha"));
+                ficha.setPatente(result.getString("patente"));
+                ficha.setTipo(result.getString("tipo"));
+                ficha.setFecharecep(result.getString("fecharecep"));
+                ficha.setFechaentrega(result.getString("fechaentrega"));
+                ficha.setObservaciones(result.getString("observaciones"));
+                ficha.setEstado(result.getString("estado"));
+                listaFichas.add(ficha);
+            }
+            result.close();
+            stmt.close();
+            closeConnection();
+        } catch (SQLException se) {
+            System.out.println(se.toString());
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+        return listaFichas;
+}    
     
 
-//    public List<Ficha> findAll() {
-//        List<Ficha> listaFichas = new LinkedList<Ficha>();
-//        ResultSet result = null;
-//        try {
-//            String query = "SELECT * FROM APP.ficha";
-//            Statement stmt = getConnection().createStatement();
-//            result = stmt.executeQuery(query);
-//            while (result.next()) {
-//                Ficha ficha = new Ficha();
-//                ficha.setRut(result.getString("rut"));
-//                ficha.setNombre(result.getString("nombre"));
-//                ficha.setPaterno(result.getString("paterno"));
-//                ficha.setMaterno(result.getString("materno"));
-//                ficha.setTelefono(result.getInt("telefono"));
-//                ficha.setEmail(result.getString("email"));
-//                listaFichas.add(ficha);
-//            }
-//            result.close();
-//            stmt.close();
-//            closeConnection();
-//        } catch (SQLException se) {
-//            System.out.println(se.toString());
-//            System.err.println("Se ha producido un error de BD.");
-//            System.err.println(se.getMessage());
-//        }
-//        return listaFichas;
-//    }
+    public List<Ficha> findAll() {
+        List<Ficha> listaFichas = new LinkedList<Ficha>();
+        ResultSet result = null;
+        try {
+            String query = "SELECT * FROM APP.ficha";
+            Statement stmt = getConnection().createStatement();
+            result = stmt.executeQuery(query);
+            while (result.next()) {
+                Ficha ficha = new Ficha();
+                ficha.setIdficha(result.getInt("idficha"));
+                ficha.setPatente(result.getString("patente"));
+                ficha.setTipo(result.getString("tipo"));
+                ficha.setFecharecep(result.getString("fecharecep"));
+                ficha.setFechaentrega(result.getString("fechaentrega"));
+                ficha.setObservaciones(result.getString("observaciones"));
+                ficha.setEstado(result.getString("estado"));
+                listaFichas.add(ficha);
+            }
+            result.close();
+            stmt.close();
+            closeConnection();
+        } catch (SQLException se) {
+            System.out.println(se.toString());
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+        return listaFichas;
+    }
 
-//    public Ficha findByRut(String fichaRut) {
-//        ResultSet result = null;
-//        Ficha ficha = null;
-//        try {
-//            String query = "SELECT * FROM APP.ficha WHERE  rut = ?";
-//            PreparedStatement stmt = getConnection().prepareStatement(query);
-//            stmt.setString(1, fichaRut);
-//            result = stmt.executeQuery();
-//            if (!result.next()) {
-//                throw new SQLException();
-//            }
-//            ficha = new Ficha();
-//            ficha.setRut(result.getString("rut"));
-//            ficha.setNombre(result.getString("nombre"));
-//            ficha.setPaterno(result.getString("paterno"));
-//            ficha.setMaterno(result.getString("materno"));
-//            ficha.setTelefono(result.getInt("telefono"));
-//            ficha.setEmail(result.getString("email"));
-//
-//            result.close();
-//            stmt.close();
-//            closeConnection();
-//        } catch (SQLException se) {
-//            System.err.println("Se ha producido un error de BD.");
-//            System.err.println(se.getMessage());
-//        }
-//        return ficha;
-//    }
+    public Ficha findById(String id) {
+        ResultSet result = null;
+        Ficha ficha = null;
+        try {
+            String query = "SELECT * FROM APP.ficha WHERE  patente = ?";
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setString(1, id);
+            result = stmt.executeQuery();
+            if (!result.next()) {
+                throw new SQLException();
+            }
+            ficha = new Ficha();
+            ficha.setIdficha(result.getInt("idficha"));
+            ficha.setPatente(result.getString("patente"));
+            ficha.setTipo(result.getString("tipo"));
+            ficha.setFecharecep(result.getString("fecharecep"));
+            ficha.setFechaentrega(result.getString("fechaentrega"));
+            ficha.setObservaciones(result.getString("observaciones"));
+            ficha.setEstado(result.getString("estado"));
+
+            result.close();
+            stmt.close();
+            closeConnection();
+        } catch (SQLException se) {
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+        return ficha;
+    }
 
     public void save(Ficha ficha) {
         PreparedStatement saveFicha;
