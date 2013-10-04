@@ -17,8 +17,7 @@
         //error="usuario o contraseña incorrecta";
         Trabajador trab = trabajador.findByRut();
         if(trab.getRut().equals(null)){
-        int sc=1;
-        response.sendError(sc, request.getContextPath()+ "/index.jsp");
+         response.sendRedirect(request.getContextPath()+ "/index.jsp");
         }else{
             if(rutin.equals(trab.getRut())&&passin.equals(trab.getClave())){
                 if(trab.getCargo().equals("1")){
@@ -33,7 +32,7 @@
             };
         }
     }catch(NullPointerException ex){     
-       response.sendRedirect(request.getContextPath()+ "/error.jsp");
+       response.sendRedirect(request.getContextPath()+ "/Index.jsp");
     };
 %>    
 
