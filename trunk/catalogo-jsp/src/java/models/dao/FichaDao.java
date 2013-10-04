@@ -1,8 +1,3 @@
-/**
- * @Author cepardov
- * @Versión 0
- * @Detalle 
- */
 package models.dao;
 
 import utilidades.DataBaseInstance;
@@ -39,6 +34,7 @@ public List<Ficha>findPorPatente(String patente){
                 ficha.setFechaentrega(result.getString("fechaentrega"));
                 ficha.setObservaciones(result.getString("observaciones"));
                 ficha.setEstado(result.getString("estado"));
+                ficha.setDescripcion(result.getString("descripcion"));
                 listaFichas.add(ficha);
             }
             result.close();
@@ -69,6 +65,7 @@ public List<Ficha>findPorPatente(String patente){
                 ficha.setFechaentrega(result.getString("fechaentrega"));
                 ficha.setObservaciones(result.getString("observaciones"));
                 ficha.setEstado(result.getString("estado"));
+                ficha.setDescripcion("descripcion");
                 listaFichas.add(ficha);
             }
             result.close();
@@ -101,6 +98,7 @@ public List<Ficha>findPorPatente(String patente){
             ficha.setFechaentrega(result.getString("fechaentrega"));
             ficha.setObservaciones(result.getString("observaciones"));
             ficha.setEstado(result.getString("estado"));
+            ficha.setDescripcion(result.getString("descripcion"));
 
             result.close();
             stmt.close();
@@ -116,13 +114,14 @@ public List<Ficha>findPorPatente(String patente){
         PreparedStatement saveFicha;
         try {
             saveFicha = getConnection().prepareStatement(
-                    "INSERT INTO APP.ficha VALUES (?, ?, ?, ?, ?, ?)");
+                    "INSERT INTO APP.ficha VALUES (?, ?, ?, ?, ?, ?, ?)");
             saveFicha.setString(1, ficha.getPatente());
             saveFicha.setString(2, ficha.getTipo());
             saveFicha.setString(3, ficha.getFecharecep());
             saveFicha.setString(4, ficha.getFechaentrega());
             saveFicha.setString(5, ficha.getObservaciones());
             saveFicha.setString(6, ficha.getEstado());
+            saveFicha.setString(7, ficha.getDescripcion());
             saveFicha.executeUpdate();
             closeConnection();
         } catch (SQLException se) {
@@ -136,13 +135,14 @@ public List<Ficha>findPorPatente(String patente){
         try {
             saveFicha = getConnection().prepareStatement(
                  "UPDATE APP.ficha SET patente = ?, tipo = ?, fecharecep = ?, "
-                    + "fechaentrega = ?, observaciones = ?, estado = ? WHERE  idficha = ?");
+                    + "fechaentrega = ?, observaciones = ?, estado = ?, descripcion = ? WHERE  idficha = ?");
             saveFicha.setString(1, ficha.getPatente());
             saveFicha.setString(2, ficha.getTipo());
             saveFicha.setString(3, ficha.getFecharecep());
             saveFicha.setString(4, ficha.getFechaentrega());
             saveFicha.setString(5, ficha.getObservaciones());
             saveFicha.setString(6, ficha.getEstado());
+            saveFicha.setString(7, ficha.getDescripcion());
             saveFicha.setInt(7, ficha.getIdficha());
             saveFicha.executeUpdate();
             closeConnection();
