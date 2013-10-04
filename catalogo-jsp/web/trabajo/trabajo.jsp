@@ -13,14 +13,14 @@
 <title>Listado de Trabajoes</title>
 </head>
 <body>
-<h3>Listado de Trabajoes</h3>
+<h3>Listado de Trabajos en proceso</h3>
 <table>
 	<tr>
 		
-		<th>idtrabajo|</th>
-		<th>idrepuesto|</th>
-		<th>idasignacion|</th>
-		<th>observaciones</th>
+		<th>Numero de Trabajo |</th>
+		<th>Repuesto |</th>
+		<th>Asignacion |</th>
+		<th> Observaciones</th>
 	</tr>
 	<% for(Trabajo trab : listadoTrabajos){ %>
         <tr>
