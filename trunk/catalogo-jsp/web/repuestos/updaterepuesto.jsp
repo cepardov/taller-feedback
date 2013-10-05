@@ -7,5 +7,5 @@
 <%
 repuesto.save();
 
-response.sendRedirect(request.getContextPath() + "/repuesto/listadorepuesto.jsp");
+response.sendRedirect(request.getContextPath() + "/repuestos/listadorepuesto.jsp");
 %>
