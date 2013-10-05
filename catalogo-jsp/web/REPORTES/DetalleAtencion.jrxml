@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetalleAtencion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="11a4114b-bc79-4797-af5d-6128acefd450">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="340"/>
+	<parameter name="RUT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PATENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     CLIENTE."RUT" AS CLIENTE_RUT,
+     CLIENTE."NOMBRE" AS CLIENTE_NOMBRE,
+     CLIENTE."TELEFONO" AS CLIENTE_TELEFONO,
+     CLIENTE."EMAIL" AS CLIENTE_EMAIL,
+     CLIENTE."PATERNO" AS CLIENTE_PATERNO,
+     CLIENTE."MATERNO" AS CLIENTE_MATERNO,
+     AUTOMOVIL."RUT" AS AUTOMOVIL_RUT,
+     AUTOMOVIL."COLOR" AS AUTOMOVIL_COLOR,
+     AUTOMOVIL."AÑO" AS AUTOMOVIL_AÑO,
+     AUTOMOVIL."CILINDRADA" AS AUTOMOVIL_CILINDRADA,
+     FICHAAUTO."IDFICHA" AS FICHAAUTO_IDFICHA,
+     FICHAAUTO."TIPO" AS FICHAAUTO_TIPO,
+     FICHAAUTO."FECHARECEP" AS FICHAAUTO_FECHARECEP,
+     FICHAAUTO."FECHAENTREGA" AS FICHAAUTO_FECHAENTREGA,
+     AUTOMOVIL."PATENTE" AS AUTOMOVIL_PATENTE,
+     MARCA."NOMBRE" AS MARCA_NOMBRE,
+     MODELO."NOMBRE" AS MODELO_NOMBRE,
+     REPUESTO."NOMBRE" AS REPUESTO_NOMBRE,
+     TRABAJADOR."NOMBRE" AS TRABAJADOR_NOMBRE,
+     TRABAJADOR."RUT" AS TRABAJADOR_RUT,
+     TRABAJADOR."PATERNO" AS TRABAJADOR_PATERNO,
+     TRABAJADOR."MATERNO" AS TRABAJADOR_MATERNO,
+     TRABAJO."IDTRABAJO" AS TRABAJO_IDTRABAJO,
+     TRABAJO."IDREPUESTO" AS TRABAJO_IDREPUESTO,
+     TRABAJO."IDASIGNACION" AS TRABAJO_IDASIGNACION,
+     FICHAAUTO."OBSERVACIONES" AS FICHAAUTO_OBSERVACIONES,
+     REPUESTO."IDREPUESTO" AS REPUESTO_IDREPUESTO,
+     TRABAJO."OBSERVACIONES" AS TRABAJO_OBSERVACIONES,
+     REPUESTO."DESCRIPCION" AS REPUESTO_DESCRIPCION
+FROM
+     "APP"."CLIENTE" CLIENTE INNER JOIN "APP"."AUTOMOVIL" AUTOMOVIL ON CLIENTE."RUT" = AUTOMOVIL."RUT"
+     INNER JOIN "APP"."FICHAAUTO" FICHAAUTO ON AUTOMOVIL."PATENTE" = FICHAAUTO."PATENTE"
+     INNER JOIN "APP"."MARCA" MARCA ON AUTOMOVIL."IDMARCA" = MARCA."IDMARCA"
+     INNER JOIN "APP"."MODELO" MODELO ON AUTOMOVIL."IDMODELO" = MODELO."IDMODELO"
+     AND MARCA."IDMARCA" = MODELO."IDMARCA",
+     "APP"."REPUESTO" REPUESTO INNER JOIN "APP"."TRABAJO" TRABAJO ON REPUESTO."IDREPUESTO" = TRABAJO."IDREPUESTO",
+     "APP"."TRABAJADOR" TRABAJADOR
+WHERE
+     CLIENTE."RUT" = $P{RUT}
+ AND FICHAAUTO."FECHARECEP" = $P{FECHA}
+ AND FICHAAUTO."PATENTE" = $P{PATENTE}]]>
+	</queryString>
+	<field name="CLIENTE_RUT" class="java.lang.String"/>
+	<field name="CLIENTE_NOMBRE" class="java.lang.String"/>
+	<field name="CLIENTE_TELEFONO" class="java.lang.Integer"/>
+	<field name="CLIENTE_EMAIL" class="java.lang.String"/>
+	<field name="CLIENTE_PATERNO" class="java.lang.String"/>
+	<field name="CLIENTE_MATERNO" class="java.lang.String"/>
+	<field name="AUTOMOVIL_RUT" class="java.lang.String"/>
+	<field name="AUTOMOVIL_COLOR" class="java.lang.String"/>
+	<field name="AUTOMOVIL_AÑO" class="java.lang.Integer"/>
+	<field name="AUTOMOVIL_CILINDRADA" class="java.lang.Integer"/>
+	<field name="FICHAAUTO_IDFICHA" class="java.lang.Integer"/>
+	<field name="FICHAAUTO_TIPO" class="java.lang.String"/>
+	<field name="FICHAAUTO_FECHARECEP" class="java.lang.String"/>
+	<field name="FICHAAUTO_FECHAENTREGA" class="java.lang.String"/>
+	<field name="AUTOMOVIL_PATENTE" class="java.lang.String"/>
+	<field name="MARCA_NOMBRE" class="java.lang.String"/>
+	<field name="MODELO_NOMBRE" class="java.lang.String"/>
+	<field name="REPUESTO_NOMBRE" class="java.lang.String"/>
+	<field name="TRABAJADOR_NOMBRE" class="java.lang.String"/>
+	<field name="TRABAJADOR_RUT" class="java.lang.String"/>
+	<field name="TRABAJADOR_PATERNO" class="java.lang.String"/>
+	<field name="TRABAJADOR_MATERNO" class="java.lang.String"/>
+	<field name="TRABAJO_IDTRABAJO" class="java.lang.Integer"/>
+	<field name="TRABAJO_IDREPUESTO" class="java.lang.Integer"/>
+	<field name="TRABAJO_IDASIGNACION" class="java.lang.Integer"/>
+	<field name="FICHAAUTO_OBSERVACIONES" class="java.lang.String"/>
+	<field name="REPUESTO_IDREPUESTO" class="java.lang.Integer"/>
+	<field name="TRABAJO_OBSERVACIONES" class="java.lang.String"/>
+	<field name="REPUESTO_DESCRIPCION" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="342353f7-1aeb-43e5-b84f-bb6eb5503b6e" x="0" y="0" width="572" height="77"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="3fa8a043-74d2-419d-ae60-3807c79420ed" x="209" y="0" width="165" height="24"/>
+				<textElement>
+					<font size="17" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Detalle Atención]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="212ae399-3ba8-4619-9cbc-bea15112c42e" x="108" y="34" width="100" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Taller R.R.H]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="af817865-074a-4b3d-9c85-7507f732de9b" x="389" y="34" width="100" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Puerto Montt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="14723393-d2be-400e-9b9b-1d25bb012d69" x="399" y="54" width="100" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[fono:3453443]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b6771d54-68e0-40ea-bc42-84fde7b28653" x="75" y="54" width="121" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[eltaller@rrh.com]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="c0dd1dbe-9d56-4b18-81c0-9ba2b791144e" x="68" y="24" width="427" height="1"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="563" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="3e45101a-6fda-412d-9f7c-7b1eb44f2b5b" x="20" y="313" width="175" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1b10e63d-1e15-4a97-afc9-051f919e596e" x="19" y="15" width="156" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="067f7723-fe24-40b3-b12a-6afd42939b7c" x="19" y="103" width="156" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="9312774c-46d1-4200-9c3d-fb174dbac32a" x="20" y="313" width="176" height="20"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Datos de la Reparación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a7b50d91-b1cd-41f0-8cd4-5c174697f326" x="37" y="103" width="142" height="20"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Detalles Atención]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="54c7a1a7-dffe-4273-ba0d-8c3e34f2201b" x="37" y="15" width="137" height="22"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Datos del Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6af61e4d-6184-4d93-9a65-2bcbfeb06453" x="20" y="51" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[NOMBRE :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2d1a8414-aa66-4f06-9947-ef7f3b5725ba" x="20" y="71" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[TELEFONO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c24a2aed-f6e1-4f78-b328-b397dd48dd27" x="248" y="71" width="51" height="20"/>
+				<textElement/>
+				<text><![CDATA[EMAIL :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f17a073a-a99c-4ed2-94d9-d81f53989646" x="19" y="136" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[PATENTE :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3da8b677-67d3-4210-9a80-8f69fc6fce75" x="19" y="156" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[COLOR :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b4f4d491-feb0-4034-8ca8-5440ee5e6a0b" x="19" y="176" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[AÑO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b375dc2e-1ea6-4a38-b3d0-991daf0b4a22" x="219" y="136" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[CILINDRADA :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="94c46b3f-487c-4e6d-93f6-5c21465666d4" x="219" y="156" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[MARCA :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bca5c2f1-79f4-45e4-a9b8-efe2c3b2c09f" x="219" y="176" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[MODELO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e1a83d9a-1e1a-495f-a141-864bfb57ab49" x="423" y="136" width="53" height="20"/>
+				<textElement/>
+				<text><![CDATA[TIPO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d94d7c28-a709-425b-932f-4b3de308018b" x="20" y="351" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[NUMERO FICHA :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="38cc425f-7a37-4fef-a362-1a18c2dc8d41" x="20" y="371" width="125" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA RECEPCCIÓN :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4aca844a-17e4-4e27-91a1-d064c3708374" x="20" y="391" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA ENTREGA :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ff6d6e19-29d1-4b4f-bd33-a9f4d6efb96d" x="20" y="196" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[REPUESTO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5f912a27-6e59-43bc-8fd7-451380cf6957" x="19" y="411" width="126" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[OBSERVACIONES :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="6dbecd95-0031-47d0-9033-f418ec86b34c" x="20" y="225" width="156" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="4f760c1d-ec7d-47e9-9495-306cf3fb05b8" x="22" y="225" width="157" height="20"/>
+				<textElement>
+					<font size="13" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Mecánico Encargado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a1849e09-8ac8-46e5-9eff-c41d06be2749" x="20" y="257" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[RUT :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="579ded8b-0dc1-4879-8a5d-d0b1cd662079" x="19" y="277" width="101" height="20"/>
+				<textElement/>
+				<text><![CDATA[NOMBRE :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e3eff9b4-f3c9-4e69-becf-4b30cdda3eaa" x="423" y="176" width="76" height="20"/>
+				<textElement/>
+				<text><![CDATA[ID REPUESTO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="270b8668-b1bb-41dc-b070-fbbef8a7df88" x="248" y="51" width="35" height="20"/>
+				<textElement/>
+				<text><![CDATA[RUT :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4724817a-8b8e-443a-a312-dbd3f2e49219" x="19" y="502" width="141" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DESCRIPCIÓN REPUESTO]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="27f49b31-020d-4989-9e7b-956c8b38d397" x="176" y="28" width="396" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="c1bf0974-93e3-4c2d-9949-8a00a0f37be8" x="175" y="114" width="397" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="51901cb9-8deb-48a1-89cb-1534c72d77ec" x="195" y="323" width="377" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="f695c801-ad6c-4b77-a67a-561020db4e7a" x="176" y="235" width="396" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="50c18772-b930-4f79-b89f-b060af3c2a93" x="1" y="4" width="571" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="70da3023-7305-4822-8fdd-35597977e607" x="2" y="561" width="571" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="670bde6a-c21c-49b2-84b5-6d0034b90e2a" x="2" y="556" width="571" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="ca9ff852-93c4-437b-a196-d76983451b03" x="572" y="4" width="2" height="552"/>
+			</line>
+			<line>
+				<reportElement uuid="d2d14193-a968-4b63-b54b-5d18e636b16f" x="1" y="4" width="2" height="552"/>
+			</line>
+			<textField>
+				<reportElement uuid="4dedadfb-69ca-4050-abab-abb043f5f59a" x="299" y="51" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CLIENTE_RUT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3a23c74b-b7d3-4e39-855d-57e166acdf6b" x="119" y="51" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CLIENTE_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8946eae3-944e-4c73-bd63-1ffe8d733852" x="120" y="136" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{AUTOMOVIL_PATENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8a26c3e7-6380-44cd-bba7-f876c00529c9" x="145" y="411" width="427" height="48"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_OBSERVACIONES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9c95f61d-fe9c-4f5d-998f-c29254897175" x="145" y="371" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_FECHARECEP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8ec92249-3a47-48f1-93de-37d47b915bd5" x="120" y="351" width="125" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_IDFICHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f21f4aa4-2408-4e05-b35b-f982319a3cc4" x="120" y="257" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TRABAJADOR_RUT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2b81efa3-23c2-4f47-b95c-a3f4f01234da" x="120" y="277" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TRABAJADOR_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9261c2ed-6200-486f-b7d9-172a61c2253f" x="299" y="71" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CLIENTE_EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f5901215-d277-490c-bb27-4ca44c8ad810" x="120" y="71" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CLIENTE_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d8f1c2de-00be-4805-8aa3-3b20ebd51484" x="120" y="156" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{AUTOMOVIL_COLOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ac537471-0d46-42af-8582-c31df1134f15" x="120" y="176" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{AUTOMOVIL_AÑO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b25bd07d-3464-4d06-9c35-5305d082ea83" x="120" y="196" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{REPUESTO_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a28702ef-e762-42ab-85c0-e1faafc774fa" x="419" y="196" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{REPUESTO_IDREPUESTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="337682db-0b61-47e6-8ec0-2c8158bb6d79" x="422" y="156" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_TIPO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4cb67347-438b-4eaf-985f-06973f2a7acb" x="322" y="156" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{MARCA_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="92687516-1539-4fb2-aa05-901a6d1fcf4b" x="319" y="176" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{MODELO_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f7d0f9d6-52de-47d9-8944-4ecb0b8b6459" x="322" y="136" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{AUTOMOVIL_CILINDRADA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dea207ad-5873-4c4f-beb4-d9b1da54149f" x="160" y="502" width="412" height="54"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{REPUESTO_DESCRIPCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7fd8f4e5-d624-4d1b-ba90-a9aacf53d028" x="148" y="459" width="424" height="43"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TRABAJO_OBSERVACIONES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="82a34f50-9105-4dbf-873d-a13e6d026dd1" x="145" y="391" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_FECHAENTREGA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

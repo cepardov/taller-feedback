@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Mecanico" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1d567c10-fa43-4736-b918-efa3f363b2bc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TIPO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[=Reparacion
+]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     FICHAAUTO."IDFICHA" AS FICHAAUTO_IDFICHA,
+     FICHAAUTO."PATENTE" AS FICHAAUTO_PATENTE,
+     FICHAAUTO."TIPO" AS FICHAAUTO_TIPO,
+     FICHAAUTO."FECHARECEP" AS FICHAAUTO_FECHARECEP,
+     FICHAAUTO."FECHAENTREGA" AS FICHAAUTO_FECHAENTREGA,
+     FICHAAUTO."OBSERVACIONES" AS FICHAAUTO_OBSERVACIONES,
+     FICHAAUTO."ESTADO" AS FICHAAUTO_ESTADO,
+     CLIENTE."RUT" AS CLIENTE_RUT,
+     CLIENTE."NOMBRE" AS CLIENTE_NOMBRE,
+     CLIENTE."PATERNO" AS CLIENTE_PATERNO,
+     CLIENTE."MATERNO" AS CLIENTE_MATERNO,
+     CLIENTE."TELEFONO" AS CLIENTE_TELEFONO,
+     CLIENTE."EMAIL" AS CLIENTE_EMAIL,
+     REPUESTO."IDREPUESTO" AS REPUESTO_IDREPUESTO,
+     REPUESTO."NOMBRE" AS REPUESTO_NOMBRE,
+     REPUESTO."DESCRIPCION" AS REPUESTO_DESCRIPCION
+FROM
+     "APP"."FICHAAUTO" FICHAAUTO,
+     "APP"."CLIENTE" CLIENTE,
+     "APP"."REPUESTO" REPUESTO
+WHERE FICHAAUTO."TIPO" = $P{TIPO}
+]]>
+	</queryString>
+	<field name="FICHAAUTO_IDFICHA" class="java.lang.Integer"/>
+	<field name="FICHAAUTO_PATENTE" class="java.lang.String"/>
+	<field name="FICHAAUTO_TIPO" class="java.lang.String"/>
+	<field name="FICHAAUTO_FECHARECEP" class="java.lang.String"/>
+	<field name="FICHAAUTO_FECHAENTREGA" class="java.lang.String"/>
+	<field name="FICHAAUTO_OBSERVACIONES" class="java.lang.String"/>
+	<field name="FICHAAUTO_ESTADO" class="java.lang.String"/>
+	<field name="CLIENTE_RUT" class="java.lang.String"/>
+	<field name="CLIENTE_NOMBRE" class="java.lang.String"/>
+	<field name="CLIENTE_PATERNO" class="java.lang.String"/>
+	<field name="CLIENTE_MATERNO" class="java.lang.String"/>
+	<field name="CLIENTE_TELEFONO" class="java.lang.Integer"/>
+	<field name="CLIENTE_EMAIL" class="java.lang.String"/>
+	<field name="REPUESTO_IDREPUESTO" class="java.lang.Integer"/>
+	<field name="REPUESTO_NOMBRE" class="java.lang.String"/>
+	<field name="REPUESTO_DESCRIPCION" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="4403c6b2-b8d3-455e-9c0b-ffb801816c94" x="0" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[FICHAAUTO_IDFICHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d81d069a-5ddd-40d0-9919-14fa0b2a2973" x="200" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[CLIENTE_RUT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9fc99aae-112f-4fcc-9378-ca4067eda467" x="100" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[FICHAAUTO_TIPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b01c7c2f-24b9-456b-acb1-6d01c3ea0941" x="300" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[CLIENTE_NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d964cf2-c2fb-4ddc-9e70-1b0ce3a0b55d" x="400" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[CLIENTE_TELEFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="255c465e-64dd-461c-bf84-dc95db7c0c81" x="500" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[REPUESTO_NOMBRE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="65" splitType="Stretch">
+			<textField>
+				<reportElement uuid="fa791059-ec28-4b65-a2b0-7095bd7bea2b" x="0" y="11" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_IDFICHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4a943505-0fd4-4bcd-9b69-55245df8b9b8" x="200" y="11" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CLIENTE_RUT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="200c4cb7-5679-487d-997f-2120ea38151d" x="100" y="11" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_TIPO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f4d29cdf-5134-46fa-8573-efff49149a48" x="300" y="11" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CLIENTE_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="66ee1cbf-bdd7-4714-801d-c11b3718ab63" x="400" y="11" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CLIENTE_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f8ce230b-5c85-4be9-b1a3-e86d77d10069" x="500" y="11" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{REPUESTO_NOMBRE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="6" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>
