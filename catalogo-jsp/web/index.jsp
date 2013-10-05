@@ -16,32 +16,30 @@
         <title align="center">Taller mecánico</title>
     </head>
     <body>
-        
+        <%
+        String err1in="";
+        if(request.getParameter("err1")!=null){
+        err1in="Usuario y/o Contraseña son incorrectos.";
+        }
+        %>
            
         <h1>Taller Mecánico "RRH"</h1>
         <form method="post" action="<%= application.getContextPath() %>/verificar.jsp">
             <table><tr>
                 <tr>
                 <td><span>Usuario (rut)</span></td>
+                <label id="error"><%=err1in%></label>
                 <td><input size=40 type="text" name="rut" value=""/></td>
                 </tr>           
                 <tr>
                     <td><span>Clave</span></td>
+                <label></label>
                     <td><input size=40 type="password" name="pass" value=""/></td>
-                </tr>
-                <% String errorin="";
-                if(request.getParameter("sc")!=null){
-                errorin=request.getParameter("sc");
-                }
-                %>
-                <tr>
-                    <td><span name="err"><%=errorin%></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" name="ingresar" value="Ingresar"/></td>
                 </tr>       
             </table>
-         </form>
-            
+         </form>  
     </body>
 </html>
