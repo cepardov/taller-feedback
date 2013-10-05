@@ -18,7 +18,7 @@
 	<tr>
 		
 		<th>Numero de Trabajo |</th>
-		<th>Repuesto |</th>
+		<th>Trabajo |</th>
 		<th>Asignacion |</th>
 		<th> Observaciones</th>
 	</tr>
@@ -28,6 +28,7 @@
                 <td><%= trab.getIdrepuesto() %></td>
                 <td><%= trab.getIdasignacion() %></td>
                 <td><%= trab.getObservaciones() %></td>
+                <td><button name="button" onclick=location.href="<%= request.getContextPath() %>/trabajo/observaciones.jsp?idtrabajo=<%= trab.getIdtrabajo() %>">Editar/Agregar Observación</button></td>
         </tr>
 	<%} %>
 </table>
