@@ -22,6 +22,32 @@ public class TrabajoDao {
         return DataBaseInstance.getInstanceConnection();
     }
 
+    public Trabajo findById(int idtrabajo) {
+        ResultSet result = null;
+        Trabajo trabajo = null;
+        try {
+            String query = "SELECT * FROM APP.trabajo WHERE  idtrabajo = ?";
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setInt(1, idtrabajo);
+            result = stmt.executeQuery();
+            if (!result.next()) {
+                throw new SQLException();
+            }
+            trabajo = new Trabajo();
+            trabajo.setIdtrabajo(result.getInt("idtrabajo"));
+            trabajo.setIdrepuesto(result.getInt("idrepuesto"));
+            trabajo.setIdasignacion(result.getInt("idasignacion"));
+            trabajo.setObservaciones(result.getString("observaciones"));
+            result.close();
+            stmt.close();
+            closeConnection();
+        } catch (SQLException se) {
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+        return trabajo;
+    }
+     
     public List<Trabajo> findAll() {
         List<Trabajo> listaTrabajos = new LinkedList<Trabajo>();
         ResultSet result = null;
@@ -48,6 +74,24 @@ public class TrabajoDao {
         return listaTrabajos;
     }
 
+    
+    public void update(Trabajo trabajo) {
+        PreparedStatement saveTrabajo;
+        try {
+            saveTrabajo = getConnection().prepareStatement(
+                 "UPDATE APP.trabajo SET idrepuesto = ?, idasignacion = ?, observaciones = ? WHERE  idtrabajo = ?");
+            saveTrabajo.setInt(1, trabajo.getIdrepuesto());
+            saveTrabajo.setInt(2, trabajo.getIdasignacion());
+            saveTrabajo.setString(3, trabajo.getObservaciones());
+            saveTrabajo.setInt(4, trabajo.getIdtrabajo());
+            saveTrabajo.executeUpdate();
+            closeConnection();
+        } catch (SQLException se) {
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+    }
+    
     protected void closeConnection() {
         DataBaseInstance.closeConnection();
     }
