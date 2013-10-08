@@ -20,7 +20,7 @@
 <body>
 <h3>Listado de Repuestos</h3>
 
-<p><a href="<%=request.getContextPath()%>/Reportes/ReporteRepuesto.jsp">Imprimir Listado(+)</a></p>
+<p><a href="<%=request.getContextPath()%>/REPORTES/ReporteRepuesto.jsp">Imprimir Listado(+)</a></p>
 <p><a href="<%=request.getContextPath()%>/repuestos/ingresorepuesto.jsp">Agregar Repuesto (+)</a></p>
 <table>
 	<tr>

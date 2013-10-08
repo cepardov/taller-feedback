@@ -15,6 +15,9 @@
 <body>
 <h3>Listado de Clientes</h3>
 <p><a href="<%=request.getContextPath() %>/cliente/ingresocliente.jsp">Agregar Cliente (+)</a></p>
+<p><a href="<%=request.getContextPath()%>/REPORTES/IngresoReporteCliente.jsp">Reporte Cliente(+)</a></p>
+<p><a href="<%=request.getContextPath()%>/REPORTES/IngresoReporteDetalle.jsp">Reporte Atencion(+)</a></p>
+
 <table>
 	<tr>
 		

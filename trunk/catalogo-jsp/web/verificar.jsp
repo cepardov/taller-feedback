@@ -18,7 +18,7 @@
                 }else if(trab.getCargo().equals("3")){
                     response.sendRedirect(request.getContextPath() + "/trabajo/trabajo.jsp");
                 }else if(trab.getCargo().equals("4")){
-                    response.sendRedirect(request.getContextPath() + "/reportes.jsp");
+                    response.sendRedirect(request.getContextPath() + "/REPORTES/ReportesMain.jsp");
                 }else{
                 };
             }else{
