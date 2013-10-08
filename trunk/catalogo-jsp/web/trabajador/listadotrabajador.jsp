@@ -15,7 +15,6 @@
 <body>
 <h3>Listado de Trabajadores</h3>
 <p><a href="<%=request.getContextPath() %>/trabajador/ingresotrabajador.jsp">Agregar Trabajador (+)</a></p>
-<p><a href="<%=request.getContextPath()%>/REPORTES/IngresoReporteMecanico.jsp">Reporte Mecanico(+)</a></p>
 <table>
 	<tr>
 		

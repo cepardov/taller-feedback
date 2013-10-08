@@ -14,7 +14,7 @@
 </head>
 <body>
 <h3>Listado de Automoviles</h3>
-<p><a href="<%=request.getContextPath() %>/cliente/listadocliente.jsp">Agregar Automovil (+)</a></p>
+<p><a href="<%=request.getContextPath() %>/automovil/ingreso.jsp">Agregar Automovil (+)</a></p>
 <table>
 	<tr>
 		
