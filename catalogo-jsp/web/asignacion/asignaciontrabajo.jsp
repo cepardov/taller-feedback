@@ -14,6 +14,7 @@
     </head>
     <body>
         <h1>Listado Trabajos Pendientes</h1>
+        <p><a href="<%=request.getContextPath()%>/REPORTES/IngresoReporteV.jsp">Ver Vehiculos por Estado(+)</a></p>
         <table>
             <tr>
                 <th>Numero Asignacion</th>
