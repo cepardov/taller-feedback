@@ -1,9 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package models.dao;
 
+package models.dao;
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -28,7 +24,7 @@ public class AsignacionDao {
 
         try {
 
-            String query = "SELECT * FROM APP.asignaciontrabajo";
+            String query = "select * from APP.ASIGNACIONTRABAJO";
             Statement stmt = getConnection().createStatement();
             result = stmt.executeQuery(query);
 
@@ -36,7 +32,7 @@ public class AsignacionDao {
                 Asignacion asignacion = new Asignacion();
                 asignacion.setIdasignacion(result.getInt("idasignacion"));
                 asignacion.setIdficha(result.getInt("idficha"));
-                asignacion.setRutTrab(result.getString("rut_trabajador"));
+                asignacion.setRutTrab(result.getString("rut"));
                 asignacion.setFecha(result.getString("fecha"));
                 asignacion.setHora(result.getString("hora"));
                 vistasignacion.add(asignacion);
@@ -97,7 +93,7 @@ public class AsignacionDao {
      try{
       if (asignacion.getIdasignacion()== 0) {
                 saveAsignacion = getConnection().prepareStatement(
-                        "INSERT INTO APP.asignaciontrabajo (idasignacion ,idficha,rut_trabajador,fecha,hora) "
+                        "INSERT INTO APP.asignaciontrabajo (idasignacion ,idficha,rut,fecha,hora) "
                         + "VALUES (?, ?, ?, ?, ?)");
                 saveAsignacion.setInt(1, asignacion.getIdasignacion());
                 saveAsignacion.setInt(2, asignacion.getIdficha());
@@ -108,7 +104,7 @@ public class AsignacionDao {
                 System.out.println("INSERT INTO ....");
             } else {
                 saveAsignacion = getConnection().prepareStatement(
-                        "UPDATE APP.asignaciontrabajo SET idficha = ?,  rut_trabajador = ?  fecha = ? hora = ? WHERE  idasignacion = ?");
+                        "UPDATE APP.asignaciontrabajo SET idficha = ?,  rut = ?  fecha = ? hora = ? WHERE  idasignacion = ?");
                 
                 saveAsignacion.setInt(1, asignacion.getIdficha());
                 saveAsignacion.setString(2, asignacion.getRutTrab());
@@ -154,7 +150,7 @@ public class AsignacionDao {
         
         try {
              upAsignacion = getConnection().prepareStatement(
-                        "UPDATE APP.asignaciontrabajo SET idficha = ?,  rut_trabajador = ?  fecha = ? hora = ? WHERE  idasignacion = ?");
+                        "UPDATE APP.asignaciontrabajo SET idficha = ?,  rut = ?  fecha = ? hora = ? WHERE  idasignacion = ?");
                 
                 upAsignacion.setInt(1, asignacion.getIdficha());
                 upAsignacion.setString(2, asignacion.getRutTrab());
