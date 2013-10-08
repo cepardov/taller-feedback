@@ -7,7 +7,7 @@
 <% 
 DataBaseInstance conexion=new DataBaseInstance();
 
-File reportFile = new File(application.getRealPath("REPORTES/report2.jasper"));
+File reportFile = new File(application.getRealPath("ReportesJasper/report2.jasper"));
 
 Map parameters = new HashMap();
 
