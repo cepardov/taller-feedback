@@ -13,7 +13,7 @@
 DataBaseInstance conexion=new DataBaseInstance();
 File reportFile = new File(application.getRealPath("ReportesJasper/EstadoVehiculos.jasper"));
 Map parameters = new HashMap();
-String estado=request.getParameter("txttipo");
+String estado=request.getParameter("estado");
 parameters.put("TIPO",estado); 
 byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath (), parameters, conexion.getInstanceConnection()); 
 response.setContentType("application/pdf");
