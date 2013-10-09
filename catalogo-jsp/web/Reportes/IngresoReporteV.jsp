@@ -17,15 +17,14 @@
         <tr>
           <td colspan="2" align="center"><strong>Reporte Estado Vehículo </strong></td>
         </tr>
-        <tr>
-          <td width="168">Ingrese Estado (Mantención/Reparación)</td>
-          <td width="415"><label for="txtidcliente"></label>
-          <input type="text" name="txttipo" id="txtidcliente"></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
+         <tr>
+             <td><select name="estado">
+            <option>Mantencion</option>
+            <option>Reparacion</option>
+                 </select><td>
           <td><input type="submit" name="button" id="button" value="Generar Reporte"></td>
         </tr>
+        
       </table>
     </form>
     </body>
