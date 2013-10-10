@@ -14,14 +14,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Formulario Edición Clientes</title>
+<link href="../index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Formulario Edición Clientes</h3>
+<h1>Formulario Edición Clientes</h1>
 
-
+<div id="contenido">
 <form method="post" action="<%= application.getContextPath() %>/cliente/updatecliente.jsp">
     
-    <table border="1">
+    <table>
         <tbody>
              <tr>
                 <td><span>Rut</span></td>
@@ -53,5 +54,6 @@
         </tbody>
     </table>
 </form>
+</div>
 </body>
 </html>

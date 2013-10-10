@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="models.beans.*,models.entity.*"%>
-<link href="../index.css" rel="stylesheet"/>
+
 <jsp:useBean id="auto" class="models.beans.AutomovilBean" scope="request"></jsp:useBean>
 
 <jsp:setProperty property="rut" name="trabajador" />
@@ -14,14 +14,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Formulario Trabajadors</title>
+<link href="../index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Formulario Trabajadors</h3>
+<h1>Formulario Trabajadors</h1>
 
 
-<form method="post" action="<%= application.getContextPath() %>/trabajador/updatetrabajador.jsp">
+<form id="tablaautomovil" method="post" action="<%= application.getContextPath() %>/trabajador/updatetrabajador.jsp">
     
-    <table border="1">
+    <table>
         <tbody>
              <tr>
                 <td><span>Rut</span></td>

@@ -27,3 +27,17 @@ footer{
 #error{
     color: #ff0000;
 }
+#ayuda{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+}
+
+menu{
+    padding-left: 30%;
+}
+#tablaautomovil{
+    border: 1px solid #7d7a7a;
+}
+#contenido{
+    padding-left: 25%;
+}

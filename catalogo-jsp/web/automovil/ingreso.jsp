@@ -3,7 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="models.beans.*,models.entity.*"%>
-<link href="../index.css" rel="stylesheet"/>
 
 <jsp:useBean id="cargar" class="models.beans.MarcaBean" scope="request"></jsp:useBean>
 <% List<Marca> listadoMarca = cargar.findAll();%>
@@ -13,12 +12,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ingreso de automovil</title>
+<link href="../index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Formulario de ingreso de automovil</h3>
-
+<h1>Formulario de ingreso de automovil</h1>
+<div id="contenido">
     <form name="cargas" method="post" action="<%= request.getContextPath() %>/automovil/ingreso_1.jsp">
-    <table border="1">
+    <table>
         <tbody>
              <tr>
                 <td><span>Patente</span></td>
@@ -65,5 +65,6 @@
          </tbody>
     </table>
     </form>
+</div>
 </body>
 </html>

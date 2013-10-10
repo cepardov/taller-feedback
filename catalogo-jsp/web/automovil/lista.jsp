@@ -11,7 +11,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listado de Automoviles</title>
 <link href='http://fonts.googleapis.com/css?family=Ubuntu|Roboto:400,300' rel='stylesheet' type='text/css'>
-        <link href="index.css" rel="stylesheet"/>
+        <link href="../index.css" rel="stylesheet"/>
+        <link href="../forms.css" rel="stylesheet"/>
 </head>
 <body>
 <h1>Listado de Automoviles</h1>
@@ -39,9 +40,7 @@
                         <td><%= auto.getCilindrada() %></td>
                         <td><a href="<%= request.getContextPath() %>/fichaauto/recepcion.jsp?patente=<%= auto.getPpu() %>&rut=<%= auto.getRut() %>">
 			Seleccionar</a></td>
-			<td><a href="<%= request.getContextPath() %>/automovil/editar.jsp?ppu=<%= auto.getPpu()%>">
-			editar</a></td>
-                        <td><a onautock="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/automovil/eliminar.jsp?ppu=<%= auto.getPpu()%>">
+                        <td><a onClick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/automovil/eliminar.jsp?ppu=<%= auto.getPpu()%>">
 			eliminar</a></td>
 		</tr>
 	<%} %>
