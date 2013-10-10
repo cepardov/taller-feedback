@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-   <%@ page import="java.util.List,models.beans.*, models.entity.*"%>
-
+ <%@ page import="java.util.List,models.beans.*, models.entity.*"%>
+<link href="../index.css" rel="stylesheet"/>
 <jsp:useBean id="automovil" class="models.beans.AutomovilBean" scope="request"></jsp:useBean>
 
 <% List<Automovil> listadoAutomovils = automovil.findAll();%>
@@ -17,7 +16,7 @@
 <body>
 <h1>Listado de Automoviles</h1>
 <div id="contenido">
-<p><a href="<%=request.getContextPath() %>/automovil/ingreso.jsp">Agregar Automovil (+)</a></p>
+<p><a href="<%=request.getContextPath() %>/cliente/listadocliente.jsp">Agregar Automovil (+)</a></p>
 <table id="listado">
 	<tr>
 		

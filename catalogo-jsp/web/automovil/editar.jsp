@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="models.beans.*,models.entity.*"%>
-
+<link href="../index.css" rel="stylesheet"/>
 <jsp:useBean id="auto" class="models.beans.AutomovilBean" scope="request"></jsp:useBean>
 
 <jsp:setProperty property="rut" name="trabajador" />
