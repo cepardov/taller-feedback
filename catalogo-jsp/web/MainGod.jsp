@@ -1,9 +1,3 @@
-<%-- 
-    Document   : MainGod
-    Created on : 09-10-2013, 11:02:11 PM
-    Author     : lancaster
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

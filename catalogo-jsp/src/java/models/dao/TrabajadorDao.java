@@ -1,10 +1,4 @@
-/**
- * @Author cepardov
- * @Versión 0
- * @Detalle 
- */
 package models.dao;
-
 import utilidades.DataBaseInstance;
 import static utilidades.DataBaseInstance.closeConnection;
 import java.sql.Connection;
@@ -51,7 +45,6 @@ public List<Trabajador>findMecanico(){
         return listaTrabajadors;
 }    
     
-
     public List<Trabajador> findAll() {
         List<Trabajador> listaTrabajadors = new LinkedList<Trabajador>();
         ResultSet result = null;
@@ -171,4 +164,3 @@ public List<Trabajador>findMecanico(){
         DataBaseInstance.closeConnection();
     }
 }
-//END FILE

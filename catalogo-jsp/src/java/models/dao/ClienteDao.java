@@ -1,10 +1,4 @@
-/**
- * @Author cepardov
- * @Versión 0
- * @Detalle 
- */
 package models.dao;
-
 import utilidades.DataBaseInstance;
 import static utilidades.DataBaseInstance.closeConnection;
 import java.sql.Connection;
@@ -51,7 +45,6 @@ public List<Cliente>findPorNombre(String nombre){
         return listaClientes;
 }    
     
-
     public List<Cliente> findAll() {
         List<Cliente> listaClientes = new LinkedList<Cliente>();
         ResultSet result = null;
@@ -166,4 +159,3 @@ public List<Cliente>findPorNombre(String nombre){
         DataBaseInstance.closeConnection();
     }
 }
-//END FILE

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 01-07-2010, 03:44:42 PM
-    Author     : cepardov, adolf, pablosantana
---%>
-
 <%@page import="models.entity.Trabajador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="trabajador" class="models.beans.TrabajadorBean" scope="request"></jsp:useBean>

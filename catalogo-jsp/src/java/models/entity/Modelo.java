@@ -1,14 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package models.entity;
 
-/**
- *
- * @author Luis
- */
 public class Modelo {
+    
     protected int idmodelo;
     protected String nombre;
     protected int marca;
@@ -36,22 +29,4 @@ public class Modelo {
     public void setMarca(int marca) {
         this.marca = marca;
     }
-     
-        
-    /* public String toString() {
-     * StringBuffer buf = new StringBuffer();
-     * buf.append("rut: ");
-     * buf.append(getRut());
-     * buf.append(" Nombre: ");
-     * buf.append(getNombre());
-     * buf.append(" Paterno: ");
-     * buf.append(getPaterno());
-     * buf.append(" Materno: ");
-     * buf.append(getMaterno());
-     * buf.append(" Telefono: ");
-     * buf.append(Integer.toString(getTelefono()));
-     * buf.append(" Email");
-     * buf.append(getEmail());
-     * return buf.toString();
-     * }*/
 }

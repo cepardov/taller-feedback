@@ -1,5 +1,4 @@
 package models.dao;
-
 import utilidades.DataBaseInstance;
 import static utilidades.DataBaseInstance.closeConnection;
 import java.sql.Connection;
@@ -142,8 +141,6 @@ public class AutomovilDao {
                 delAutomovil.setString(1, automovil.getPpu());
                 delAutomovil.executeUpdate();
             
-
-
             closeConnection();
         } catch (SQLException se) {
             System.err.println("Se ha producido un error de BD.");

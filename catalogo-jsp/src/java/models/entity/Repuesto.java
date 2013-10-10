@@ -1,14 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package models.entity;
 
-/**
- *
- * @author adolf
- */
 public class Repuesto {
+    
     protected int idrepuesto;
     protected String nombre;
     protected String descripcion;
@@ -36,7 +29,4 @@ public class Repuesto {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    
-    
 }

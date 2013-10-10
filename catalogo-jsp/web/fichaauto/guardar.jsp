@@ -1,9 +1,3 @@
-<%-- 
-    Document   : guardar
-    Created on : 30-09-2013, 07:28:06 PM
-    Author     : Luis
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%

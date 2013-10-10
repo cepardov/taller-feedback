@@ -1,5 +1,4 @@
 package models.beans;
-
 import java.util.List;
 import models.dao.TrabajoDao;
 import models.entity.Trabajo;
@@ -27,4 +26,3 @@ public class TrabajoBean extends Trabajo {
     }
 
 }
-//END FILE

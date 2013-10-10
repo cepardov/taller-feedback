@@ -1,9 +1,3 @@
-<%-- 
-    Document   : REPORTECODIGO
-    Created on : 26/09/2013, 03:34:13 PM
-    Author     : Unknown
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="net.sf.jasperreports.engine.*" %> 
 <%@ page import="java.util.*" %> 
