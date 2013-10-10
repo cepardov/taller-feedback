@@ -14,6 +14,7 @@
 </head>
 <body>
 <h1>Formulario de ingreso de automovil</h1>
+<div id="contenido">
                 <%
                     String patentein="",rutin="",colorin="";
                     int marcain=0;
@@ -34,8 +35,8 @@
 <jsp:useBean id="cargar" class="models.beans.ModeloBean" scope="request"></jsp:useBean>
 <jsp:setProperty name="cargar" property="marca" value="<%=marcain%>"/>
 <% List<Modelo> listadoModelo = cargar.findPorMarca();%>
-     <form id="tablaautomovil" action="<%= request.getContextPath() %>/automovil/guardar.jsp" method="post">
-        <table border="1">
+     <form action="<%= request.getContextPath() %>/automovil/guardar.jsp" method="post">
+        <table>
             <tbody>
                  <tr>
                     <td><span>Patente</span></td>
@@ -78,5 +79,7 @@
                  </tr>
             </tbody>
         </table>
+     </form>
+</div>
 </body>
 </html>

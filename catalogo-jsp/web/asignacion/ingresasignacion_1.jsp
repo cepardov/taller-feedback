@@ -14,9 +14,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Asignacion de trabajo</title>
+        <link href="../index.css" rel="stylesheet"/>
+        <link href="../form.css" rel="stylesheet"/>
     </head>
     <body>
         <h1>Formulario de designacion de trabajos</h1>
+        <div id="contenido">
         <form name="select" method="post" action="<%= request.getContextPath() %>/asignacion/seleccionarmecanico.jsp">
             <table border="1">
                 <tr>
@@ -51,6 +54,7 @@
             <% }%>
             </table>
         </form>
+        </div>
     </body>
 </html>
 

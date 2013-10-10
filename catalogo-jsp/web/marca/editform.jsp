@@ -14,14 +14,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Formulario Edición Marcas</title>
+<link href="../index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Formulario Edición Marcas</h3>
+<h1>Formulario Edición Marcas</h1>
 
-
+<div id="contenido">
 <form method="post" action="<%= application.getContextPath() %>/marca/updatemarca.jsp">
     
-    <table border="1">
+    <table>
         <tbody>
                 <td><span>Nombre</span></td>
                 <td><input size="40" type="text" name="nombre" value="<%=marc.getNombre()==null?"":marc.getNombre()%>"/></td>
@@ -32,5 +33,6 @@
         </tbody>
     </table>
 </form>
+</div>
 </body>
 </html>

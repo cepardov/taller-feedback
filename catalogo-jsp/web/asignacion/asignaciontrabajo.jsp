@@ -10,6 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Asignacion Trabajos Reparacion</title>
+        <link href="../index.css" rel="stylesheet"/>
+        <link href="../forms.css" rel="stylesheet"/>
     </head>
     <body>
         <h1>Listado Trabajos Pendientes</h1>
@@ -33,5 +35,6 @@
             </tr>
             <% } %>
         </table>
+        </div>
     </body>
 </html>

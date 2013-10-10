@@ -11,9 +11,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listado de Marcas</title>
+<link href="../index.css" rel="stylesheet"/>
+        <link href="../forms.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Listado de Marcas</h3>
+<h1>Listado de Marcas</h1>
+<div id="contenido">
 <p><a href="<%=request.getContextPath() %>/marca/ingresarmarca.jsp">Agregar Marca (+)</a></p>
 <table>
 	<tr>
@@ -31,5 +34,6 @@
 		</tr>
 	<%} %>
 </table>
+</div>
 </body>
 </html>

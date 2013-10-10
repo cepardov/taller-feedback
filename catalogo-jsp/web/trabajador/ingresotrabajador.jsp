@@ -14,9 +14,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Formulario ingreso Trabajadores</title>
+<link href="../index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Formulario Trabajadores</h3>
+<h1>Formulario Trabajadores</h1>
+<div id="contenido">
 <h5>Todos los campos son obligatorios solo debe especificar los datos solicitados.</h5>
 
 
@@ -65,5 +67,6 @@
         </tbody>
     </table>
 </form>
+</div>
 </body>
 </html>
