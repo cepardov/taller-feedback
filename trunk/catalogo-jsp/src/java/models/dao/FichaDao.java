@@ -140,7 +140,7 @@ public List<Ficha>findporfecha(String fecha){
         PreparedStatement saveFicha;
         try {
             saveFicha = getConnection().prepareStatement(
-                    "INSERT INTO APP.fichaauto VALUES (?, ?, ?, ?, ?, ?, ?)");
+                    "insert into APP.FICHAAUTO(patente,tipo,fecharecep,fechaentrega,observaciones, estado,descripcion) values(?, ?, ?, ?, ?, ?, ?)");
             saveFicha.setString(1, ficha.getPatente());
             saveFicha.setString(2, ficha.getTipo());
             saveFicha.setString(3, ficha.getFecharecep());
@@ -155,6 +155,7 @@ public List<Ficha>findporfecha(String fecha){
             System.err.println(se.getMessage());
         }
     }
+
     
     public void update(Ficha ficha) {
         PreparedStatement saveFicha;
