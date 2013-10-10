@@ -3,6 +3,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu|Roboto:400,300' rel='stylesheet' type='text/css'>
+        <link href="index.css" rel="stylesheet"/>
         <title>Area Mecanicos</title>
     </head>
     <body>
