@@ -11,12 +11,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listado de Clientes</title>
+<link href="../index.css" rel="stylesheet"/>
+<link href="../forms.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Listado de Clientes</h3>
-<p><a href="<%=request.getContextPath() %>/cliente/ingresocliente.jsp">Agregar Cliente (+)</a></p>
-<p><a href="<%=request.getContextPath()%>/reportes/IngresoReporteCliente.jsp">Reporte Cliente(+)</a></p>
-<p><a href="<%=request.getContextPath()%>/reportes/IngresoReporteDetalle.jsp">Reporte Atencion(+)</a></p>
+<h1>Listado de Clientes</h1>
+<div id="contenido">
+<p><a href="<%=request.getContextPath() %>/cliente/ingresocliente.jsp">Agregar Cliente (+)</a>|<a href="<%=request.getContextPath()%>/reportes/IngresoReporteCliente.jsp">Reporte Cliente(+)</a>|<a href="<%=request.getContextPath()%>/reportes/IngresoReporteDetalle.jsp">Reporte Atencion(+)</a></p>
 
 <table>
 	<tr>
@@ -42,11 +43,12 @@
 			Seleccionar</a></td>
 			<td><a href="<%= request.getContextPath() %>/cliente/editform.jsp?rut=<%= cli.getRut()%>">
 			editar</a></td>
-                        <td><a ontrabck="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/cliente/eliminarcliente.jsp?rut=<%= cli.getRut()%>">
+                        <td><a onClick="return confirm('Esta seguro?');" href="<%= request.getContextPath() %>/cliente/eliminarcliente.jsp?rut=<%= cli.getRut()%>">
 			eliminar</a></td>
                         
 		</tr>
 	<%} %>
 </table>
+</div>
 </body>
 </html>

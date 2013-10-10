@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="models.beans.*,models.entity.*"%>
-<link href="../index.css" rel="stylesheet"/>
+
 <jsp:useBean id="cliente" class="models.beans.ClienteBean" scope="request"></jsp:useBean>
 
 <jsp:setProperty property="rut" name="cliente" />
@@ -14,11 +14,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Formulario Clientes</title>
+<link href="../index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Formulario Clientes</h3>
+<h1>Formulario Clientes</h1>
 
-
+<div id="contenido">
 <form method="post" action="<%= application.getContextPath() %>/cliente/guardarcliente.jsp">
     
     <table border="1">
@@ -53,5 +54,6 @@
         </tbody>
     </table>
 </form>
+</div>
 </body>
 </html>

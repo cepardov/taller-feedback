@@ -8,12 +8,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Recepción Vehículo - Feedback</title>
         <link href='http://fonts.googleapis.com/css?family=Ubuntu|Roboto:400,300' rel='stylesheet' type='text/css'>
-        <link href="index.css" rel="stylesheet"/>
+        <link href="../index.css" rel="stylesheet"/>
     </head>
     <body>
         <h1>Pagina de recepcion de automovil</h1>
+        <div id="contenido">
         <form method="post" action="<%= application.getContextPath() %>/fichaauto/guardar.jsp">
-            <div id="contenido">
             <p><label id="ayuda">1.- Seleccione un vehiculo primero</label></p>
             <p><a href="<%= request.getContextPath() %>/automovil/lista.jsp">Selecionar automovil</a></p>
             <p><label id="ayuda">2.- Rellene el formulario</label></p>
@@ -81,6 +81,6 @@
                 </table>
                 <br><input type="submit" name="guardar" value="Guardar"/>
                 </form>
-            </div>
+                </div>
     </body>
 </html>

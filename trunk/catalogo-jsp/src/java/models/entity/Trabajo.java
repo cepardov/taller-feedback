@@ -6,6 +6,7 @@ public class Trabajo {
     protected int idasignacion;
     protected String observaciones;
     protected String rut;
+    
     public int getIdtrabajo() {
         return idtrabajo;
     }

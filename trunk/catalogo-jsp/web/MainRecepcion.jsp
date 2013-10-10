@@ -6,11 +6,14 @@
         <link href='http://fonts.googleapis.com/css?family=Ubuntu|Roboto:400,300' rel='stylesheet' type='text/css'>
         <link href="index.css" rel="stylesheet"/>
         <title>Area Recepción</title>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu|Roboto:400,300' rel='stylesheet' type='text/css'>
+        <link href="index.css" rel="stylesheet"/>
     </head>
     <body>
-    <center>
-        <h3>Bienvenido al Sistema</h3>
-        <a href="fichaauto/recepcion.jsp">Ir a Recepción</a><br>
+        <h1>Bienvenido al Sistema</h1>
+        <menu>
+        <h3>Crear una recepcion nueva</h3>
+        <p><a href="fichaauto/recepcion.jsp">Ir a Recepción</a></p>
         <h3>Detalle Atención</h3>
         <a href="reportes/IngresoReporteDetalle.jsp">Imprimir Detalle</a><br>
     </center>

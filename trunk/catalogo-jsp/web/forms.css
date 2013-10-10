@@ -1,0 +1,15 @@
+html,
+/* 
+    Document   : forms
+    Created on : 10-oct-2013, 15:58:37
+    Author     : cepardov
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+form, td, th, tr{
+    border: 1px solid #7d7a7a;
+}

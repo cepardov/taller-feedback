@@ -10,9 +10,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ingreso de automovil</title>
+<link href="../index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Formulario de ingreso de automovil</h3>
+<h1>Formulario de ingreso de automovil</h1>
                 <%
                     String patentein="",rutin="",colorin="";
                     int marcain=0;
@@ -33,7 +34,7 @@
 <jsp:useBean id="cargar" class="models.beans.ModeloBean" scope="request"></jsp:useBean>
 <jsp:setProperty name="cargar" property="marca" value="<%=marcain%>"/>
 <% List<Modelo> listadoModelo = cargar.findPorMarca();%>
-     <form action="<%= request.getContextPath() %>/automovil/guardar.jsp" method="post">
+     <form id="tablaautomovil" action="<%= request.getContextPath() %>/automovil/guardar.jsp" method="post">
         <table border="1">
             <tbody>
                  <tr>
