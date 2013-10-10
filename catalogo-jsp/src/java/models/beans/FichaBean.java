@@ -20,6 +20,9 @@ public class FichaBean extends Ficha {
         return fichaDao.findporfecha(fecharecep);
     }
 
+     public List<Ficha> findPorrut() {
+        return fichaDao.findRut(rut);
+    }
     public void save() {
         fichaDao.save(this);
     }

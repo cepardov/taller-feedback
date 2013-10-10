@@ -16,6 +16,33 @@ public class FichaDao {
         return DataBaseInstance.getInstanceConnection();
     }
     
+     public List<Ficha> findRut(String rut) {
+        List<Ficha> listaFichas = new LinkedList<Ficha>();
+        ResultSet result = null;
+        try {
+            String query = "select f.TIPO,f.OBSERVACIONES,f.ESTADO, f.DESCRIPCION from app.FICHAAUTO f where idficha=(select a.IDFICHA from app.ASIGNACIONTRABAJO a where rut=?)";
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setString(1, rut);
+            result = stmt.executeQuery();
+            if (!result.next()) {
+                throw new SQLException();
+            }
+            Ficha trabajo = new Ficha();
+            trabajo = new Ficha();
+            trabajo.setTipo(result.getString("tipo"));
+            trabajo.setObservaciones(result.getString("observaciones"));
+            trabajo.setEstado(result.getString("estado"));
+            trabajo.setDescripcion(result.getString("descripcion"));
+            result.close();
+            stmt.close();
+            closeConnection();
+        } catch (SQLException se) {
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+        return listaFichas;
+    }
+     
 public List<Ficha>findporfecha(String fecha){
         List<Ficha> listaFichas = new ArrayList<Ficha>();
         ResultSet result = null;

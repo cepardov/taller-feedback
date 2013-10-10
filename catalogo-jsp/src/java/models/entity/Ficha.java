@@ -10,6 +10,7 @@ public class Ficha {
     protected String observaciones;
     protected String estado;
     protected String descripcion;
+    protected String rut;
 
     public int getIdficha() {
         return idficha;
@@ -74,4 +75,13 @@ public class Ficha {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public String getRut() {
+        return rut;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+    
 }

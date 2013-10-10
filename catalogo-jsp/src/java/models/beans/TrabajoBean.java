@@ -10,16 +10,10 @@ public class TrabajoBean extends Trabajo {
     public List<Trabajo> findAll() {
         return trabajoDao.findAll();
     }
-    
-    public Trabajo findById() {
-        Trabajo trabajo = null;
-        if (idtrabajo != 0) {
-            trabajo = trabajoDao.findById(idtrabajo);
-        } else {
-            trabajo = new Trabajo();
-        }
-        return trabajo;
+     public List<Trabajo> findfecha() {
+        return trabajoDao.findRut(rut);
     }
+    
     
     public void update() {
         trabajoDao.update(this);
