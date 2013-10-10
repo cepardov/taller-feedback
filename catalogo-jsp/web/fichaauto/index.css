@@ -27,3 +27,13 @@ footer{
 #error{
     color: #ff0000;
 }
+#ayuda{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+}
+form{
+    padding-left: 20%
+}
+#listado{
+    padding-left: 20%
+}
