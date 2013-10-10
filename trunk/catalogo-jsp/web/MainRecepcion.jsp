@@ -9,12 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Area Recepción</title>
     </head>
     <body>
+    <center>
         <h1>Bienvenido al Sistema</h1>
-        <h3>Ir a </h3>
-        <h3>Ir a </h3>
-        <h3>Ir a Reportes</h3>
+        <a href="fichaauto/recepcion.jsp">Ir a Recepción</a><br>
+        <h3>Detalle Atención</h3>
+        <a href="reportes/IngresoReporteDetalle.jsp">Imprimir Detalle</a><br>
+    </center>    <!--Lista recepciones-->
     </body>
 </html>

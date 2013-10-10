@@ -12,13 +12,13 @@
        
         if(rutin.equals(trab.getRut())&&passin.equals(trab.getClave())){
                 if(trab.getCargo().equals("1")){
-                    response.sendRedirect(request.getContextPath() + "/fichaauto/recepcion.jsp");
+                    response.sendRedirect(request.getContextPath() + "/MainRecepcion.jsp");
                 }else if(trab.getCargo().equals("2")){
-                    response.sendRedirect(request.getContextPath() + "/asignacion/asignaciontrabajo.jsp");
+                    response.sendRedirect(request.getContextPath() + "/MainJefe.jsp");
                 }else if(trab.getCargo().equals("3")){
-                    response.sendRedirect(request.getContextPath() + "/trabajo/trabajo.jsp");
+                    response.sendRedirect(request.getContextPath() + "/MainMecanico.jsp");
                 }else if(trab.getCargo().equals("4")){
-                    response.sendRedirect(request.getContextPath() + "/reportes/ReportesMain.jsp");
+                    response.sendRedirect(request.getContextPath() + "/MainGod.jsp");
                 }else{
                 };
             }else{
