@@ -9,7 +9,7 @@
     </head>
     <body>
     <center>
-        <h3>Bienvenido al Sistema</h3>
+        <h1>Bienvenido al Sistema</h1>
         <a href="MainJefe.jsp">Modo Jefe Mecanicos</a><br>
         <a href="MainMecanico.jsp">Modo Mecanico</a><br>
         <a href="MainRecepcion.jsp">Modo Recepcion</a><br>

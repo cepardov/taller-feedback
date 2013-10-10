@@ -12,7 +12,7 @@
     <body>
         <h1>Bienvenido al Sistema</h1>
         <menu>
-        <h3>Crear una recepcion nueva</h3>
+        <h1>Crear una recepcion nueva</h1>
         <p><a href="fichaauto/recepcion.jsp">Ir a Recepción</a></p>
         <h3>Detalle Atención</h3>
         <a href="reportes/IngresoReporteDetalle.jsp">Imprimir Detalle</a><br>

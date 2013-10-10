@@ -9,7 +9,7 @@
     </head>
     <body>
     <center>
-        <h3>Bienvenido al Sistema</h3>
+        <h1>Bienvenido al Sistema</h1>
         <a href="asignacion/ingresasignacion.jsp">Asignar Trabajo</a>
         <h3>Reportes:</h3>
         <a href="reportes/IngresoReporteMecanico.jsp">Buscar Mecanico</a><br>

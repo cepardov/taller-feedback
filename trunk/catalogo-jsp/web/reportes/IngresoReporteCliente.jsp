@@ -16,7 +16,7 @@
         <tr>
           <td width="168">Ingrese Rut Cliente:</td>
           <td width="415"><label for="txtidcliente"></label>
-          <input type="text" name="txtrut" id="txtidcliente"></td>
+          <input type="text" name="txtrut"></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
