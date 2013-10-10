@@ -14,6 +14,8 @@
         <menu>
         <h1>Crear una recepcion nueva</h1>
         <p><a href="fichaauto/recepcion.jsp">Ir a Recepción</a></p>
+        <p><a href="marca/listadomarca.jsp">Ir a mantenedor de marcas</a></p>
+        <p><a href="modelo/listadomodelo.jsp">Ir a mantenedor de modelos</a></p>
         <h3>Detalle Atención</h3>
         <a href="reportes/IngresoReporteDetalle.jsp">Imprimir Detalle</a><br>
     </center>
