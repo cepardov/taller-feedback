@@ -1,8 +1,3 @@
-/**
- * @Author cepardov
- * @Versión 0
- * @Detalle 
- */
 package models.dao;
 
 import utilidades.DataBaseInstance;
@@ -35,7 +30,6 @@ public class TrabajoDao {
             }
             trabajo = new Trabajo();
             trabajo.setIdtrabajo(result.getInt("idtrabajo"));
-            trabajo.setIdrepuesto(result.getInt("idrepuesto"));
             trabajo.setIdasignacion(result.getInt("idasignacion"));
             trabajo.setObservaciones(result.getString("observaciones"));
             result.close();
@@ -58,7 +52,6 @@ public class TrabajoDao {
             while (result.next()) {
                 Trabajo trabajo = new Trabajo();
                 trabajo.setIdtrabajo(result.getInt("idtrabajo"));
-                trabajo.setIdrepuesto(result.getInt("idrepuesto"));
                 trabajo.setIdasignacion(result.getInt("idasignacion"));
                 trabajo.setObservaciones(result.getString("observaciones"));
                 listaTrabajos.add(trabajo);
@@ -79,11 +72,11 @@ public class TrabajoDao {
         PreparedStatement saveTrabajo;
         try {
             saveTrabajo = getConnection().prepareStatement(
-                 "UPDATE APP.trabajo SET idrepuesto = ?, idasignacion = ?, observaciones = ? WHERE  idtrabajo = ?");
-            saveTrabajo.setInt(1, trabajo.getIdrepuesto());
-            saveTrabajo.setInt(2, trabajo.getIdasignacion());
-            saveTrabajo.setString(3, trabajo.getObservaciones());
-            saveTrabajo.setInt(4, trabajo.getIdtrabajo());
+                 "UPDATE APP.trabajo SET idasignacion = ?, observaciones = ? WHERE  idtrabajo = ?");
+           
+            saveTrabajo.setInt(1, trabajo.getIdasignacion());
+            saveTrabajo.setString(2, trabajo.getObservaciones());
+            saveTrabajo.setInt(3, trabajo.getIdtrabajo());
             saveTrabajo.executeUpdate();
             closeConnection();
         } catch (SQLException se) {

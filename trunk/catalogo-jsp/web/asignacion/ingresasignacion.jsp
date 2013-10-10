@@ -8,6 +8,7 @@
     </head>
     <body>
         <h1>Ingreso de fecha</h1>
+        <p>Debe ingresar la fecha para mostrar las fichas correspondientes al dia de hoy y que no han sido asignadas*</p>
          <form method="post" action="<%= application.getContextPath() %>/asignacion/ingresasignacion_1.jsp">
             <span>Fecha actual</span>
             <input type="text" name="fecha" value=""/></br>
