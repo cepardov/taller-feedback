@@ -15,17 +15,18 @@ public class TrabajoDao {
         return DataBaseInstance.getInstanceConnection();
     }
 
-    public Trabajo findById(int idtrabajo) {
+    public List<Trabajo> findRut(String rut) {
+        List<Trabajo> listaTrabajos = new LinkedList<Trabajo>();
         ResultSet result = null;
-        Trabajo trabajo = null;
         try {
-            String query = "SELECT * FROM APP.trabajo WHERE  idtrabajo = ?";
+            String query = "select f.TIPO,f.OBSERVACIONES,f.ESTADO, f.DESCRIPCION from app.FICHAAUTO f where idficha=(select a.IDFICHA from app.ASIGNACIONTRABAJO a where rut=?);";
             PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1, idtrabajo);
+            stmt.setString(1, rut);
             result = stmt.executeQuery();
             if (!result.next()) {
                 throw new SQLException();
             }
+            Trabajo trabajo = new Trabajo();
             trabajo = new Trabajo();
             trabajo.setIdtrabajo(result.getInt("idtrabajo"));
             trabajo.setIdasignacion(result.getInt("idasignacion"));
@@ -37,7 +38,7 @@ public class TrabajoDao {
             System.err.println("Se ha producido un error de BD.");
             System.err.println(se.getMessage());
         }
-        return trabajo;
+        return listaTrabajos;
     }
      
     public List<Trabajo> findAll() {

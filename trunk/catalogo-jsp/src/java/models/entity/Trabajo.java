@@ -5,7 +5,7 @@ public class Trabajo {
     protected int idtrabajo;
     protected int idasignacion;
     protected String observaciones;
-
+    protected String rut;
     public int getIdtrabajo() {
         return idtrabajo;
     }
@@ -29,4 +29,15 @@ public class Trabajo {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
+
+    public String getRut() {
+        return rut;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+    
+   
+    
 }
