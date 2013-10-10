@@ -10,7 +10,6 @@ package models.entity;
  */
 public class Trabajo {
     protected int idtrabajo;
-    protected int idrepuesto;
     protected int idasignacion;
     protected String observaciones;
 
@@ -20,14 +19,6 @@ public class Trabajo {
 
     public void setIdtrabajo(int idtrabajo) {
         this.idtrabajo = idtrabajo;
-    }
-
-    public int getIdrepuesto() {
-        return idrepuesto;
-    }
-
-    public void setIdrepuesto(int idrepuesto) {
-        this.idrepuesto = idrepuesto;
     }
 
     public int getIdasignacion() {

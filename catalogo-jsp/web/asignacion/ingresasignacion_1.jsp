@@ -27,7 +27,7 @@
                     <td><span>Mecanico designado</span></td>                
                 </tr>
                 <% for(Ficha fi : listadoRecep){   
-
+                       if(fechain.equals(fi.getFecharecep())){;
                 %>
                     <tr>
                         <td><input type="text" name="idficha" value="<%= fi.getIdficha()%>"/></td>
@@ -48,7 +48,8 @@
 
                             </select></td>
                        </tr>
-            <% }%>
+            <% }
+            }%>
             </table>
         </form>
     </body>
