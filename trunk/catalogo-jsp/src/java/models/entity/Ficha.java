@@ -1,6 +1,7 @@
 package models.entity;
 
 public class Ficha {
+    
     protected int idficha;
     protected String patente;
     protected String tipo;
@@ -73,5 +74,4 @@ public class Ficha {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
 }

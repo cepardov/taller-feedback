@@ -1,9 +1,3 @@
-<%-- 
-    Document   : formulario
-    Created on : 26/09/2013, 03:46:47 PM
-    Author     : Unknown
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

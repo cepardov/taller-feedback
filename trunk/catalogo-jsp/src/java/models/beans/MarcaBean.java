@@ -1,5 +1,4 @@
 package models.beans;
-
 import java.util.List;
 import models.dao.MarcaDao;
 import models.entity.Marca;

@@ -1,5 +1,4 @@
 package models.dao;
-
 import utilidades.DataBaseInstance;
 import static utilidades.DataBaseInstance.closeConnection;
 import java.sql.Connection;
@@ -143,20 +142,20 @@ public class MarcaDao {
         }
     }
     
-//    public void update(Marca marca) {
-//        PreparedStatement saveMarca;
-//        try {
-//            saveMarca = getConnection().prepareStatement(
-//                 "UPDATE APP.marca SET nombre = ? WHERE  idmarca = ?");
-//            saveMarca.setString(1, marca.getNombre());
-//            saveMarca.setInt(2, marca.getId());
-//            saveMarca.executeUpdate();
-//            closeConnection();
-//        } catch (SQLException se) {
-//            System.err.println("Se ha producido un error de BD.");
-//            System.err.println(se.getMessage());
-//        }
-//    }
+    public void update(Marca marca) {
+        PreparedStatement saveMarca;
+        try {
+            saveMarca = getConnection().prepareStatement(
+                 "UPDATE APP.marca SET nombre = ? WHERE  idmarca = ?");
+            saveMarca.setString(1, marca.getNombre());
+            saveMarca.setInt(2, marca.getId());
+            saveMarca.executeUpdate();
+            closeConnection();
+        } catch (SQLException se) {
+            System.err.println("Se ha producido un error de BD.");
+            System.err.println(se.getMessage());
+        }
+    }
 
     public void delete(Marca marca) {
         PreparedStatement saveProduct;

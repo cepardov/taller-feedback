@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 26/09/2013, 03:32:39 PM
-    Author     : Unknown
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +7,8 @@
     </head>
     <body>
     <center>
-        <h2>Reportes y Detalles Taller R.R.H.</h2>
+        <h3>Bienvenido al Sistema</h3><br>
+        <h3>Reportes y Detalles Taller R.R.H.</h3>
         <a href="IngresoReporteMecanico.jsp">Detalle Mecanico</a><br>
         <a href="IngresoReporteCliente.jsp">Detalle Cliente</a>
         <br>

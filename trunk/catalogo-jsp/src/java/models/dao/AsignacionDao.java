@@ -3,14 +3,9 @@ package models.dao;
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
-
 import models.entity.Asignacion;
 import utilidades.DataBaseInstance;
 
-/**
- *
- * @author adolf
- */
 public class AsignacionDao {
     
      protected Connection getConnection() {
@@ -48,7 +43,6 @@ public class AsignacionDao {
             System.err.println(se.getMessage());
         }
 
-         
          return vistasignacion;
      }
      
@@ -80,10 +74,8 @@ public class AsignacionDao {
             System.err.println(se.getMessage());
      };
      
-     
      return asignacion;
      }
-     
      
      public void save(Asignacion asignacion)
      {
@@ -101,7 +93,6 @@ public class AsignacionDao {
                 saveAsignacion.setString(4, asignacion.getHora());
                
                 System.out.println("INSERT INTO ....");
-            
 
             saveAsignacion.executeUpdate();
             closeConnection();
@@ -113,7 +104,6 @@ public class AsignacionDao {
             System.err.println(se.getMessage());
         }
      }
-     
      
       public void delete(Asignacion asignacion) {
         PreparedStatement deAsignacion;
@@ -128,10 +118,7 @@ public class AsignacionDao {
             System.err.println(se.getMessage());
         }
         
-        
     }
-     
-     
      
      public void update(Asignacion asignacion)
         {
@@ -152,8 +139,6 @@ public class AsignacionDao {
         System.err.println(se);
         }
         }
-     
-     
      
       protected void closeConnection() {
         DataBaseInstance.closeConnection();

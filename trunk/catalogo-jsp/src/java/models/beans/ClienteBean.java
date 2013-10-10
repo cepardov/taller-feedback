@@ -1,9 +1,4 @@
-/**
- * @Author cepardov
- * @Versión 0
- */
 package models.beans;
-
 import java.util.List;
 import models.dao.ClienteDao;
 import models.entity.Cliente;
@@ -43,4 +38,3 @@ public class ClienteBean extends Cliente {
         clienteDao.delete(this);
     }
 }
-//END FILE

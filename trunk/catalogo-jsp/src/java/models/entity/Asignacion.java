@@ -1,14 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package models.entity;
 
-/**
- *
- * @author adolf
- */
 public class Asignacion {
+    
     protected int idasignacion;
     protected int idficha;
     protected String rutTrab;
@@ -54,10 +47,4 @@ public class Asignacion {
     public void setHora(String hora) {
         this.hora = hora;
     }
-    
-    
-    
-    
-    
-    
 }

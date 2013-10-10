@@ -1,9 +1,4 @@
-/**
- * @Author cepardov
- * @Versión 0
- */
 package models.beans;
-
 import java.util.List;
 import models.dao.TrabajadorDao;
 import models.entity.Trabajador;
@@ -42,4 +37,3 @@ public class TrabajadorBean extends Trabajador {
         trabajadorDao.delete(this);
     }
 }
-//END FILE

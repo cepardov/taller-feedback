@@ -1,5 +1,4 @@
 package utilidades;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,9 +6,7 @@ import java.sql.SQLException;
 public final class DataBaseInstance {
 
     private static Connection conn;
-//    private static String login = "curso";
     private static String login = "root";
-//    private static String password = "javaee";
     private static String password = null;
     private static String url = "jdbc:derby://localhost:1527/tallermecanico";
 
@@ -22,7 +19,6 @@ public final class DataBaseInstance {
             } catch (ClassNotFoundException ex) {
                 System.out.println(ex.getMessage());
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 System.out.println(e.getMessage());
             }
         }

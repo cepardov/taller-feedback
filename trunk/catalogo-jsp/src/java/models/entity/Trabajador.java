@@ -1,10 +1,7 @@
-/**
- * @Author cepardov
- * @Versión 0
- */
 package models.entity;
 
 public class Trabajador {
+    
     protected String rut;
     protected String nombre;
     protected String paterno;
@@ -70,4 +67,3 @@ public class Trabajador {
     }
     
 }
-//END FILE

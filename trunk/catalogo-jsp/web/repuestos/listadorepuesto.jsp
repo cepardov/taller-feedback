@@ -1,8 +1,3 @@
-<%-- 
-    Document   : listadorepuesto
-    Created on : 25-09-2013, 06:08:35 PM
-    Author     : adolf
---%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 

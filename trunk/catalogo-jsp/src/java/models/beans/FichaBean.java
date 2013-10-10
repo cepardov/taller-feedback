@@ -1,5 +1,4 @@
 package models.beans;
-
 import java.util.List;
 import models.dao.FichaDao;
 import models.entity.Ficha;
@@ -33,4 +32,3 @@ public class FichaBean extends Ficha {
         fichaDao.delete(this);
     }
 }
-//END FILE

@@ -1,5 +1,4 @@
 package models.dao;
-
 import utilidades.DataBaseInstance;
 import static utilidades.DataBaseInstance.closeConnection;
 import java.sql.Connection;
@@ -125,7 +124,6 @@ public List<Modelo>findPorMarca(Integer idmarca){
                 saveModelo.setString(1, modelo.getNombre());
                 saveModelo.setInt(2, modelo.getMarca());
                 System.out.println("INSERT INTO ...."+ modelo.getNombre()+" "+ modelo.getMarca());
-            
 
             saveModelo.executeUpdate();
             closeConnection();

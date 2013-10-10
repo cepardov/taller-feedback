@@ -1,5 +1,4 @@
 package models.dao;
-
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -123,7 +122,6 @@ public class ProductoDao {
                 saveProduct.setInt(1, producto.getId());
                 saveProduct.executeUpdate();
             }
-
 
             closeConnection();
         } catch (SQLException se) {

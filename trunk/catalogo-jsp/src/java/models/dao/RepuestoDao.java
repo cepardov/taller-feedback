@@ -1,9 +1,7 @@
 package models.dao;
-
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
-
 import models.entity.Repuesto;
 import utilidades.DataBaseInstance;
 
@@ -59,7 +57,6 @@ public class RepuestoDao {
             if (!result.next()) {
                 throw new SQLException();
             }
-
             
                 repuesto = new Repuesto();
                 repuesto.setIdrepuesto(result.getInt("idrepuesto"));
@@ -124,8 +121,6 @@ public class RepuestoDao {
     System.err.println("Se ha producido un error de BD.");
             System.err.println(se.getMessage());}
     }
-    
-    
     
     public void delete(Repuesto repuesto) {
         PreparedStatement saveProduct;

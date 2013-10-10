@@ -1,9 +1,3 @@
-<%-- 
-    Document   : ingresorepuesto
-    Created on : 25-09-2013, 06:08:16 PM
-    Author     : adolf
---%>
-
 <%@page import="models.entity.Repuesto"%>
 <%@page import="models.beans.RepuestoBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"

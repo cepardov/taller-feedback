@@ -1,5 +1,4 @@
 package models.dao;
-
 import utilidades.DataBaseInstance;
 import static utilidades.DataBaseInstance.closeConnection;
 import java.sql.Connection;
@@ -7,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import models.entity.Trabajo;
@@ -67,7 +65,6 @@ public class TrabajoDao {
         return listaTrabajos;
     }
 
-    
     public void update(Trabajo trabajo) {
         PreparedStatement saveTrabajo;
         try {
@@ -89,4 +86,3 @@ public class TrabajoDao {
         DataBaseInstance.closeConnection();
     }
 }
-//END FILE

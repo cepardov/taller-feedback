@@ -1,5 +1,4 @@
 package models.beans;
-
 import java.util.List;
 import models.dao.ProductoDao;
 import models.entity.Producto;

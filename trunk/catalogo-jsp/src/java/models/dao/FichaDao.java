@@ -1,5 +1,4 @@
 package models.dao;
-
 import utilidades.DataBaseInstance;
 import static utilidades.DataBaseInstance.closeConnection;
 import java.sql.Connection;
@@ -170,4 +169,3 @@ public List<Ficha>findporfecha(String fecha){
         DataBaseInstance.closeConnection();
     }
 }
-//END FILE
