@@ -27,3 +27,17 @@ footer{
 #error{
     color: #ff0000;
 }
+#ayuda{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+}
+form{
+    padding-left: 20%
+}
+#contenido{
+    padding-left: 20%;
+}
+table, td, tr, th{
+    border: 1px solid #6d6d6d;
+    padding: 1px;
+}

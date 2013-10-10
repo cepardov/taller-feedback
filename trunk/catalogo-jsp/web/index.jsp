@@ -14,7 +14,7 @@
     
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title align="center">Taller mecánico</title>
+        <title align="center">Taller mecánico - Feedback</title>
         <link href='http://fonts.googleapis.com/css?family=Ubuntu|Roboto:400,300' rel='stylesheet' type='text/css'>
         <link href="index.css" rel="stylesheet"/>
     </head>
@@ -23,7 +23,7 @@
         <%
         String err1in="";
         if(request.getParameter("err1")!=null){
-        err1in="Usuario y/o Contraseña son incorrectos.";
+        err1in="Usuario y/o Contraseña son incorrectos. Intente nuevamente";
         }
         %>
         <h1>Taller Mecánico "RRH"</h1>

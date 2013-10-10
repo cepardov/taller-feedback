@@ -11,11 +11,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listado de Automoviles</title>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu|Roboto:400,300' rel='stylesheet' type='text/css'>
+        <link href="index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Listado de Automoviles</h3>
+<h1>Listado de Automoviles</h1>
+<div id="contenido">
 <p><a href="<%=request.getContextPath() %>/automovil/ingreso.jsp">Agregar Automovil (+)</a></p>
-<table>
+<table id="listado">
 	<tr>
 		
 		<th>PPU</th>
@@ -44,5 +47,6 @@
 		</tr>
 	<%} %>
 </table>
+</div>
 </body>
 </html>

@@ -6,14 +6,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recepción</title>
+        <title>Recepción Vehículo - Feedback</title>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu|Roboto:400,300' rel='stylesheet' type='text/css'>
+        <link href="index.css" rel="stylesheet"/>
     </head>
     <body>
-        <div align="center">
+        <h1>Pagina de recepcion de automovil</h1>
         <form method="post" action="<%= application.getContextPath() %>/fichaauto/guardar.jsp">
-            <h1>Pagina de recepcion de automovil</h1>
-            <tr><a href="<%= request.getContextPath() %>/automovil/lista.jsp">Selecionar automovil</a></tr>
-            <div align="center">
+            <div id="contenido">
+            <p><label id="ayuda">1.- Seleccione un vehiculo primero</label></p>
+            <p><a href="<%= request.getContextPath() %>/automovil/lista.jsp">Selecionar automovil</a></p>
+            <p><label id="ayuda">2.- Rellene el formulario</label></p>
                 
                 <%
                     String patentein="",rutin="";
@@ -33,10 +36,7 @@
                     <td><input type="text" name="rut2" value="<%=rutin%>"</td>
                 </tr>
 
-
-            </div>
-            <div>
-                <table aling="center">
+                <table>
                     <tr>
                         <td><input type="radio" name="btn1" value="reparacion"/>Reparación</td>
                         <td><input type="radio" name="btn1" value="mantencion"/>Mantención</td>
@@ -49,39 +49,38 @@
                         <td><span>Fecha estimada de entrega</span></td>
                         <td><input type="datetime" name="fechaentrega" value=""/></td>
                     </tr>
-                    <td><span>Descripcion del trabajo</span></td>
-                    <table align="center" border="1">
+                    <td><label id="ayuda">Descripción del trabajo (Seleccione)</label></td>
+                    <table>
                         <tr>
-                            <td>Parachoques<input type="checkbox" name="1" value="on" /></td>
-                            <td>Motor<input type="checkbox" name="2" value="on" /></td>
-                            <td>Sistema de electrico<input type="checkbox" name="3" value="0n" /></td>
+                            <td><input type="checkbox" name="1" value="on" />Parachoques</td>
+                            <td><input type="checkbox" name="2" value="on" />Motor</td>
+                            <td><input type="checkbox" name="3" value="0n" />Sistema de electrico</td>
                         </tr>
                         <tr>
-                            <td>Lado Izquierdo(Lateral)<input type="checkbox" name="4" value="on" /></td>
-                            <td>Cabina<input type="checkbox" name="5" value="on" /></td>
-                            <td>Lado Derecho (lateral)<input type="checkbox" name="6" value="on" /></td>
+                            <td><input type="checkbox" name="4" value="on" />Lado Izquierdo(Lateral)</td>
+                            <td><input type="checkbox" name="5" value="on" />Cabina</td>
+                            <td><input type="checkbox" name="6" value="on" />Lado Derecho (lateral)</td>
                         </tr>
                         <tr>
-                            <td>Lado Izquierdo(trasero)<input type="checkbox" name="7" value="on" /></td>
-                            <td>Maletero<input type="checkbox" name="8" value="on" /></td>
-                            <td>Lado Derecho (trasero)<input type="checkbox" name="9" value="on" /></td>
+                            <td><input type="checkbox" name="7" value="on" />Lado Izquierdo(trasero)</td>
+                            <td><input type="checkbox" name="8" value="on" />Maletero</td>
+                            <td><input type="checkbox" name="9" value="on" />Lado Derecho (trasero)</td>
                         </tr>
                         </table>
                         <br>
-                            <td>Otras descripciones<input type="checkbox" name="10" value="on" /></td>
-                            <td><textarea name="otros" rows="4" cols="20">
+                        <br><input type="checkbox" name="10" value="on" />Otras descripciones (Opcional)</br>
+                            <td><textarea name="otros" rows="4" cols="50">
                                 </textarea></td>
                         </br>
                     <tr>
-                        <td><span>Observaciones</span></td>
+                    <br><span>Observaciones</span></br>
                         <td><textarea name="observaciones" rows="4" cols="50">
                         </textarea></td>
                     </tr>
                     
                 </table>
                 <br><input type="submit" name="guardar" value="Guardar"/>
+                </form>
             </div>
-        </form>
-        </div>
     </body>
 </html>
