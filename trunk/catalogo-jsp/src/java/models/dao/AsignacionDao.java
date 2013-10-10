@@ -91,28 +91,17 @@ public class AsignacionDao {
      PreparedStatement saveAsignacion;
      
      try{
-      if (asignacion.getIdasignacion()== 0) {
+     
                 saveAsignacion = getConnection().prepareStatement(
-                        "INSERT INTO APP.asignaciontrabajo (idasignacion ,idficha,rut,fecha,hora) "
-                        + "VALUES (?, ?, ?, ?, ?)");
-                saveAsignacion.setInt(1, asignacion.getIdasignacion());
-                saveAsignacion.setInt(2, asignacion.getIdficha());
-                saveAsignacion.setString(3, asignacion.getRutTrab());
-                saveAsignacion.setString(4, asignacion.getFecha());
-                saveAsignacion.setString(5, asignacion.getHora());
-               
-                System.out.println("INSERT INTO ....");
-            } else {
-                saveAsignacion = getConnection().prepareStatement(
-                        "UPDATE APP.asignaciontrabajo SET idficha = ?,  rut = ?  fecha = ? hora = ? WHERE  idasignacion = ?");
-                
+                        "INSERT INTO APP.asignaciontrabajo (idficha,rut,fecha,hora) "
+                        + "VALUES (?, ?, ?, ?)");
                 saveAsignacion.setInt(1, asignacion.getIdficha());
                 saveAsignacion.setString(2, asignacion.getRutTrab());
                 saveAsignacion.setString(3, asignacion.getFecha());
                 saveAsignacion.setString(4, asignacion.getHora());
-                saveAsignacion.setInt(5, asignacion.getIdasignacion());
-                
-            }
+               
+                System.out.println("INSERT INTO ....");
+            
 
             saveAsignacion.executeUpdate();
             closeConnection();

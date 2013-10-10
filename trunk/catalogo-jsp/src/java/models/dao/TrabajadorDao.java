@@ -22,13 +22,12 @@ public class TrabajadorDao {
         return DataBaseInstance.getInstanceConnection();
     }
     
-public List<Trabajador>findPorNombre(String nombre){
+public List<Trabajador>findMecanico(){
         List<Trabajador> listaTrabajadors = new ArrayList<Trabajador>();
         ResultSet result = null;
         try {
-            String query = "SELECT * FROM APP.trabajador WHERE nombre LIKE ?";
+            String query = "SELECT * FROM APP.trabajador WHERE cargo='3'";
             PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1,"%"+nombre+"%");
             result = stmt.executeQuery();
             while (result.next()) {
                 Trabajador trabajador = new Trabajador();

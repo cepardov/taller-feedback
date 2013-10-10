@@ -17,15 +17,9 @@ public class FichaBean extends Ficha {
         return fichaDao.findAll();
     }
 
-//    public Ficha findbypatente() {
-//        Ficha ficha = null;
-//        if (patente != null) {
-//            ficha = fichaDao.findPorId();
-//        } else {
-//            ficha = new Ficha();
-//        }
-//        return ficha;
-//    }
+     public List<Ficha> findPorfecha() {
+        return fichaDao.findporfecha(fecharecep);
+    }
 
     public void save() {
         fichaDao.save(this);
