@@ -19,7 +19,7 @@
                     if(request.getParameter("hora")!=null){
                         horain =request.getParameter("hora");
                        }                   
-                %>
+                %> 
                 <jsp:setProperty name="asignacion" property="idficha" value="<%=idfichain%>"/>
                 <jsp:setProperty name="asignacion" property="rutTrab" value="<%=rutin%>"/>
                 <jsp:setProperty name="asignacion" property="fecha" value="<%=fechain%>"/>
