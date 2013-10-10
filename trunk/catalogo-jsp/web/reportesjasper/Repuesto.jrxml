@@ -22,11 +22,11 @@ ORDER BY NOMBRE asc]]>
 	<title>
 		<band height="45" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="3de5e642-f417-4732-ae95-64dcec3b3eaf" x="100" y="0" width="388" height="45"/>
+				<reportElement uuid="3de5e642-f417-4732-ae95-64dcec3b3eaf" x="100" y="0" width="387" height="28"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Verdana" size="24" isBold="true"/>
+					<font fontName="Verdana" size="18" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Listado Partes y Piezas]]></text>
+				<text><![CDATA[Listado Repuestos y Accesorios]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -35,34 +35,37 @@ ORDER BY NOMBRE asc]]>
 			<staticText>
 				<reportElement uuid="89f3a897-622c-4814-9396-9cd4159fc30e" x="0" y="15" width="100" height="20"/>
 				<textElement/>
-				<text><![CDATA[Numero Repuesto]]></text>
+				<text><![CDATA[N° REPUESTO]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="cb9b1818-bec1-47b2-8141-b01f32a1c8f3" x="100" y="15" width="216" height="20"/>
-				<textElement/>
-				<text><![CDATA[Nombre]]></text>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[NOMBRE]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="b109e4f0-e8b1-4ce3-989e-ed08a88df2d7" x="316" y="15" width="256" height="20"/>
-				<textElement/>
-				<text><![CDATA[Descripcion]]></text>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[DESCRIPCIÓN]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="26" splitType="Stretch">
+		<band height="87" splitType="Stretch">
 			<textField>
-				<reportElement uuid="660cc720-d8a5-4b0c-aebf-add73c77d759" x="0" y="0" width="100" height="20"/>
+				<reportElement uuid="660cc720-d8a5-4b0c-aebf-add73c77d759" x="0" y="26" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{REPUESTO_IDREPUESTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="623c5514-23f7-47cc-8d24-f316b7acc32f" x="100" y="0" width="216" height="20"/>
+				<reportElement uuid="623c5514-23f7-47cc-8d24-f316b7acc32f" x="100" y="26" width="216" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{REPUESTO_NOMBRE}]]></textFieldExpression>
 			</textField>
+			<rectangle>
+				<reportElement uuid="50465a9b-9423-4ccf-9746-2af07edf607c" x="327" y="0" width="245" height="68"/>
+			</rectangle>
 			<textField>
-				<reportElement uuid="f546461d-2706-4a4e-b6af-7d806cd0fc16" x="316" y="0" width="256" height="20"/>
+				<reportElement uuid="f546461d-2706-4a4e-b6af-7d806cd0fc16" x="327" y="10" width="235" height="58"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{REPUESTO_DESCRIPCION}]]></textFieldExpression>
 			</textField>

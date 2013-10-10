@@ -11,7 +11,7 @@
 <%@ page import="utilidades.*" %> 
 <%
 DataBaseInstance conexion=new DataBaseInstance();
-File reportFile = new File(application.getRealPath("ReportesJasper/EstadoVehiculos.jasper"));
+File reportFile = new File(application.getRealPath("reportesjasper/EstadoVehiculos.jasper"));
 Map parameters = new HashMap();
 String estado=request.getParameter("estado");
 parameters.put("TIPO",estado); 

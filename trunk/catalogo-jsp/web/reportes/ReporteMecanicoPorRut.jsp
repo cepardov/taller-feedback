@@ -9,12 +9,12 @@
 <%@ page import="java.util.*" %> 
 <%@ page import="java.io.*" %> 
 <%@ page import="utilidades.*" %> 
-<%
+<% 
 DataBaseInstance conexion=new DataBaseInstance();
-File reportFile = new File(application.getRealPath("ReportesJasper/EstadoVehiculos.jasper"));
+File reportFile = new File(application.getRealPath("reportesjasper/Mecanico.jasper"));
 Map parameters = new HashMap();
-String estado=request.getParameter("txttipo");
-parameters.put("TIPO",estado); 
+String rutmecanico=request.getParameter("txtrut");
+parameters.put("RUT",rutmecanico); 
 byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath (), parameters, conexion.getInstanceConnection()); 
 response.setContentType("application/pdf");
 response.setContentLength(bytes.length); ServletOutputStream ouputStream = response.getOutputStream(); 

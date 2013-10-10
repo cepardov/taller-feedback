@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EstadoVehiculos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7041afb4-d03a-4eee-b13a-446b497ea368">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TIPO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     FICHAAUTO."IDFICHA" AS FICHAAUTO_IDFICHA,
+     FICHAAUTO."PATENTE" AS FICHAAUTO_PATENTE,
+     FICHAAUTO."TIPO" AS FICHAAUTO_TIPO,
+     FICHAAUTO."FECHARECEP" AS FICHAAUTO_FECHARECEP,
+     FICHAAUTO."FECHAENTREGA" AS FICHAAUTO_FECHAENTREGA,
+     FICHAAUTO."OBSERVACIONES" AS FICHAAUTO_OBSERVACIONES,
+     FICHAAUTO."ESTADO" AS FICHAAUTO_ESTADO
+FROM
+     "APP"."FICHAAUTO" FICHAAUTO
+WHERE
+     FICHAAUTO."TIPO" = $P{TIPO}]]>
+	</queryString>
+	<field name="FICHAAUTO_IDFICHA" class="java.lang.Integer"/>
+	<field name="FICHAAUTO_PATENTE" class="java.lang.String"/>
+	<field name="FICHAAUTO_TIPO" class="java.lang.String"/>
+	<field name="FICHAAUTO_FECHARECEP" class="java.lang.String"/>
+	<field name="FICHAAUTO_FECHAENTREGA" class="java.lang.String"/>
+	<field name="FICHAAUTO_OBSERVACIONES" class="java.lang.String"/>
+	<field name="FICHAAUTO_ESTADO" class="java.lang.String"/>
+	<title>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="08369f1c-7dda-4638-9003-fb17f5beca76" x="220" y="0" width="115" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Vehículos en]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="ff2bc3b4-472b-43d2-93b2-b28e73118911" x="87" y="46" width="381" height="10"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="4b70d065-c879-4418-8d4a-df3f8faf834b" x="0" y="56" width="555" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="e5acba40-8503-490e-8197-192c6ad05fe0" x="221" y="23" width="112" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_TIPO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="124" splitType="Stretch">
+			<textField>
+				<reportElement uuid="f29c0359-199e-4e63-ad02-12fefdaaffde" x="0" y="30" width="45" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_IDFICHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="449691fd-d55d-46fa-9875-c53a066f431a" x="55" y="30" width="49" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_PATENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="83c56f52-af5a-43cd-94a2-29f538b725f7" x="299" y="30" width="76" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_TIPO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f3898e98-0a86-4443-944b-218976c4ff4f" x="127" y="30" width="73" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_FECHARECEP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="55e77603-5df9-4329-989b-fbf4698af17b" x="211" y="30" width="73" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_FECHAENTREGA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="07a18476-1ed5-4875-93e8-80344ed19068" x="0" y="0" width="44" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[N°FICHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="36d77402-4f1f-4823-907f-07db4f2cb663" x="310" y="0" width="49" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="695c403a-e73a-43a7-99a7-259f8e9b2657" x="417" y="0" width="90" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[OBSERVACIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fb52e374-d26d-4a3f-b54f-5b9e9f1708c8" x="211" y="0" width="73" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA ENTREGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e0df147d-1a43-4115-a59a-d3197cdcc140" x="127" y="0" width="73" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA RECEPCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="48f2c337-5486-4be8-a2da-3a30a38a9772" x="55" y="0" width="50" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PATENTE]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="05909f4f-ca6a-427f-8a7f-74a31cc0735b" x="0" y="110" width="555" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement uuid="89d01ac5-69b4-4048-b594-17f5f13dff1c" x="385" y="25" width="160" height="75"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="50cac8c2-8a66-4982-b635-9e58fd0e5ee2" x="392" y="28" width="145" height="69"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_OBSERVACIONES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

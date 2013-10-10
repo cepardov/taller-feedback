@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Mecanico" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1d567c10-fa43-4736-b918-efa3f363b2bc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="RUT" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     TRABAJADOR."RUT" AS TRABAJADOR_RUT,
+     TRABAJADOR."NOMBRE" AS TRABAJADOR_NOMBRE,
+     TRABAJADOR."CARGO" AS TRABAJADOR_CARGO,
+     TRABAJADOR."PATERNO" AS TRABAJADOR_PATERNO,
+     TRABAJADOR."TELEFONO" AS TRABAJADOR_TELEFONO,
+     TRABAJADOR."MATERNO" AS TRABAJADOR_MATERNO
+FROM
+     "APP"."TRABAJADOR" TRABAJADOR
+WHERE
+     RUT = $P{RUT}]]>
+	</queryString>
+	<field name="TRABAJADOR_RUT" class="java.lang.String"/>
+	<field name="TRABAJADOR_NOMBRE" class="java.lang.String"/>
+	<field name="TRABAJADOR_CARGO" class="java.lang.String"/>
+	<field name="TRABAJADOR_PATERNO" class="java.lang.String"/>
+	<field name="TRABAJADOR_TELEFONO" class="java.lang.Integer"/>
+	<field name="TRABAJADOR_MATERNO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="19ce2aea-97e8-41f9-a9da-cfc9da90074f" x="191" y="0" width="173" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Detalle Mecánico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="86eef469-62e9-4c2f-a561-579c61c1dcf0" x="234" y="52" width="86" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Taller R.R.H]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="ec93578a-8325-4204-8530-a6fb9553447d" x="227" y="0" width="100" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="406" splitType="Stretch">
+			<line>
+				<reportElement uuid="fb3e4510-2103-4223-a735-4d3f3aa0c64d" x="0" y="0" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="80622a2a-2f55-47dc-88b5-32aa258c5505" x="269" y="384" width="278" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Taller Mecanico RRH - Puerto Montt - Los Lagos - Chile]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="27412163-393a-4d8b-abb2-db190d6c7401" x="43" y="108" width="212" height="29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1ad8f6aa-8a41-48a1-b2d1-444254dc3c9e" x="43" y="68" width="212" height="29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2e06d7aa-7bb8-4ef6-a768-87cc9bbc623c" x="43" y="30" width="212" height="29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="fc1f4edb-f58b-42e6-8aa7-e82da8b8b351" x="301" y="30" width="212" height="29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2e1aef96-e1af-411d-ba8d-4f695e1578c3" x="43" y="148" width="212" height="29"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="5133da89-89c6-4622-aeac-cc177f2fa397" x="150" y="35" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TRABAJADOR_RUT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a344877a-c488-448a-9edf-030ca8f7776b" x="149" y="74" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TRABAJADOR_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0dcd4766-86a9-4b73-be8c-0548f25c8800" x="149" y="111" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TRABAJADOR_PATERNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="14ff7a33-99a7-4022-8f80-0e1e8a189a3a" x="149" y="152" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TRABAJADOR_MATERNO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="50236066-0d13-4a4c-8738-9da328e1fa30" x="49" y="74" width="82" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[NOMBRE :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="55d768b8-c7d0-45a3-8446-38c4e7b6e1b4" x="49" y="110" width="82" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PATERNO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4fcd5b83-a744-48f4-b1d0-5b03cde494b8" x="49" y="152" width="82" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[MATERNO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1d3bf25f-0e58-441a-bd1e-9b371bdcadbb" x="50" y="35" width="82" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[RUT :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="62334ff5-6e9a-48ca-909d-4ab2518958e5" x="411" y="35" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TRABAJADOR_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="19672781-14c7-447d-b30c-fc910f4a2ee0" x="301" y="35" width="91" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[TELEFONO :]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="6" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>
