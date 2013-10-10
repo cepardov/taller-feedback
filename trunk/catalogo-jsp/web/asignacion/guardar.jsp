@@ -28,7 +28,7 @@
                 <%
                 asignacion.save();
 
-                response.sendRedirect(request.getContextPath() + "/asignacion/ingresasignacion.jsp?fecha="+fechain);
+                response.sendRedirect(request.getContextPath() + "/asignacion/asignaciontrabajo.jsp");
                 %>
                 
                 
