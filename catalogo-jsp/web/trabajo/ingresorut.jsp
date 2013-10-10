@@ -4,8 +4,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Rut Mecanico</title>
+        <link href="../index.css" rel="stylesheet"/>
+        <link href="../forms.css" rel="stylesheet"/>
     </head>
     <body>
+        <div id="contenido">
         <form name="select" method="post" action="<%= request.getContextPath() %>/trabajo/vistadetrabajos.jsp">
         <h1>Ingreso Rut</h1>
         <p>Debe Ingresar su rut y la fecha para ver sus trabajos</p>
@@ -24,5 +27,8 @@
             
         </table>
          </form>
+        </div>
     </body>
+
 </html>
+
