@@ -10,9 +10,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listado de Modelos</title>
+<link href="../index.css" rel="stylesheet"/>
+        <link href="../forms.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Listado de Modelos</h3>
+<h1>Listado de Modelos</h1>
+<div id="contenido">
 <p><a href="<%=request.getContextPath() %>/modelo/ingresomodelo.jsp">Agregar Modelo (+)</a></p>
 <table>
 	<tr>
@@ -33,5 +36,6 @@
 		</tr>
 	<%} %>
 </table>
+</div>
 </body>
 </html>

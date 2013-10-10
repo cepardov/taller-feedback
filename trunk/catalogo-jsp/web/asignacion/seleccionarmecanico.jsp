@@ -26,9 +26,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Seleccionar mecanico</title>
+        <link href="../index.css" rel="stylesheet"/>
     </head>
     <body>
         <h1>Ficha de seleccion de mecanio</h1>
+        <div id="contenido">
         <form name="select" method="post" action="<%= request.getContextPath() %>/asignacion/guardar.jsp">
         <table>
             <tr>
@@ -53,6 +55,7 @@
       
         </table>
         </form>
+        </div>
     </body>
 </html>
 

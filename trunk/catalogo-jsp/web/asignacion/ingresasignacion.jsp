@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Asignacion de trabajo</title>
         <link href="../index.css" rel="stylesheet"/>
+        <link href="../form.css" rel="stylesheet"/>
     </head>
     <body>
         <h1>Ingreso de fecha</h1>
@@ -13,8 +14,7 @@
         <p>Debe ingresar la fecha para mostrar las fichas correspondientes al dia de hoy y que no han sido asignadas*</p>
          <form method="post" action="<%= application.getContextPath() %>/asignacion/ingresasignacion_1.jsp">
             <span>Fecha actual</span>
-            <input type="text" name="fecha" value=""/></br>
-            <input type="submit" name="guardar" value="Ir"/>
+            <input type="text" name="fecha" value=""/><input type="submit" name="guardar" value="Ir"/></br>
         </form>
         <table>
             <tr>

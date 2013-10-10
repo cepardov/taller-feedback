@@ -14,12 +14,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Formulario edición Trabajadores</title>
+<link href="../index.css" rel="stylesheet"/>
+        <link href="../forms.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Editar Trabajadores</h3>
+<h1>Editar Trabajadores</h1>
 <h5>Solo editar los campos editables...</h5>
 
-
+<div id="contenido">
 <form method="post" action="<%= application.getContextPath() %>/trabajador/updatetrabajador.jsp">
     
     <table border="1">
@@ -59,5 +61,6 @@
         </tbody>
     </table>
 </form>
+</div>
 </body>
 </html>

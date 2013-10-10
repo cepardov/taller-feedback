@@ -11,9 +11,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Listado de Trabajadores</title>
+<link href="../index.css" rel="stylesheet"/>
+        <link href="../forms.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Listado de Trabajadores</h3>
+<h1>Listado de Trabajadores</h1>
+<div id="contenido">
 <p><a href="<%=request.getContextPath() %>/trabajador/ingresotrabajador.jsp">Agregar Trabajador (+)</a></p>
 <table>
 	<tr>
@@ -42,5 +45,6 @@
 		</tr>
 	<%} %>
 </table>
+</div>
 </body>
 </html>

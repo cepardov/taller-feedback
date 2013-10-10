@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="models.beans.*, models.entity.*"%>
-<link href="../index.css" rel="stylesheet"/>
+
 <jsp:useBean id="marca" class="models.beans.MarcaBean" scope="request"></jsp:useBean>
 
 <jsp:setProperty property="id" name="marca" />
@@ -14,14 +14,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Formulario Marca</title>
+<link href="../index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Formulario Marca</h3>
+<h1>Formulario Marca</h1>
 
-
+<div id="contenido">
 <form method="post" action="<%= application.getContextPath() %>/marca/guardarmarca.jsp">
     <input type="hidden" name="id" value="<%=marc.getId()%>"/>
-    <table border="1">
+    <table>
         <tbody>
             <tr>
                 <td><span>Nombre</span></td>
@@ -33,5 +34,6 @@
         </tbody>
     </table>
 </form>
+</div>
 </body>
 </html>

@@ -10,12 +10,14 @@
             <% List<Marca> listadoMarca = cargar.findAll();%>
 <!DOCTYPE html>
 <html>
+    <head>
     <title>Formulario Modelo</title>
+    <link href="../index.css" rel="stylesheet"/>
 </head>
 <body>
-<h3>Formulario Modelo</h3>
+<h1>Formulario Modelo</h1>
 
-
+<div id="contenido">
 <form method="post" action="<%= request.getContextPath() %>/modelo/guardarmodelo.jsp" scope="request">
     <table border="1">
         <tbody>
@@ -41,6 +43,7 @@
         </tbody>
     </table>
 </form>
+</div>
 </body>
 </html>
 </html>
