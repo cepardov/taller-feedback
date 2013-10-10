@@ -17,13 +17,13 @@ public class FichaDao {
         return DataBaseInstance.getInstanceConnection();
     }
     
-public List<Ficha>findPorPatente(String patente){
+public List<Ficha>findporfecha(String fecha){
         List<Ficha> listaFichas = new ArrayList<Ficha>();
         ResultSet result = null;
         try {
-            String query = "SELECT * FROM APP.cliente WHERE patente LIKE ?";
+            String query = "SELECT * FROM APP.fichaauto WHERE fecharecep=?";
             PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1,"%"+patente+"%");
+            stmt.setString(1,fecha);
             result = stmt.executeQuery();
             while (result.next()) {
                 Ficha ficha = new Ficha();
@@ -83,7 +83,7 @@ public List<Ficha>findPorPatente(String patente){
         ResultSet result = null;
         Ficha ficha = null;
         try {
-            String query = "SELECT * FROM APP.ficha WHERE  patente = ?";
+            String query = "SELECT * FROM APP.fichaauto WHERE  patente = ?";
             PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setString(1, id);
             result = stmt.executeQuery();
@@ -114,7 +114,7 @@ public List<Ficha>findPorPatente(String patente){
         PreparedStatement saveFicha;
         try {
             saveFicha = getConnection().prepareStatement(
-                    "INSERT INTO APP.ficha VALUES (?, ?, ?, ?, ?, ?, ?)");
+                    "INSERT INTO APP.fichaauto VALUES (?, ?, ?, ?, ?, ?, ?)");
             saveFicha.setString(1, ficha.getPatente());
             saveFicha.setString(2, ficha.getTipo());
             saveFicha.setString(3, ficha.getFecharecep());
@@ -134,7 +134,7 @@ public List<Ficha>findPorPatente(String patente){
         PreparedStatement saveFicha;
         try {
             saveFicha = getConnection().prepareStatement(
-                 "UPDATE APP.ficha SET patente = ?, tipo = ?, fecharecep = ?, "
+                 "UPDATE APP.fichaauto SET patente = ?, tipo = ?, fecharecep = ?, "
                     + "fechaentrega = ?, observaciones = ?, estado = ?, descripcion = ? WHERE  idficha = ?");
             saveFicha.setString(1, ficha.getPatente());
             saveFicha.setString(2, ficha.getTipo());
@@ -156,7 +156,7 @@ public List<Ficha>findPorPatente(String patente){
         PreparedStatement delFicha;
         try {
             delFicha = getConnection().prepareStatement(
-                    "DELETE FROM APP.ficha WHERE idficha = ?");
+                    "DELETE FROM APP.fichaauto WHERE idficha = ?");
             delFicha.setInt(1, ficha.getIdficha());
             delFicha.executeUpdate();
             closeConnection();

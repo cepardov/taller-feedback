@@ -12,8 +12,8 @@ public class TrabajadorBean extends Trabajador {
     
      private TrabajadorDao trabajadorDao = new TrabajadorDao();
     
-    public List<Trabajador> findPorNombre() {
-        return trabajadorDao.findPorNombre(nombre);
+    public List<Trabajador> findMecanico() {
+        return trabajadorDao.findMecanico();
     }
     
     public List<Trabajador> findAll() {
