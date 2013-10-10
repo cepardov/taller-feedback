@@ -14,9 +14,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Vista de trabajos</title>
+        <link href="../index.css" rel="stylesheet"/>
     </head>
     <body>
         <h1>Formulario de vista de trabajos por rut</h1>
+        <div id="contenido">
         <form name="select" method="post" action="<%= request.getContextPath() %>/asignacion/seleccionarmecanico.jsp">
             <table border="1">
                 <tr>
@@ -37,6 +39,7 @@
             <% }
             %>
             </table>
-        
+        </form>
+        </div>
     </body>
 </html>
