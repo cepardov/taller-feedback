@@ -13,6 +13,6 @@
         <a href="fichaauto/recepcion.jsp">Ir a Recepción</a><br>
         <h3>Detalle Atención</h3>
         <a href="reportes/IngresoReporteDetalle.jsp">Imprimir Detalle</a><br>
-    </center>    <!--Lista recepciones-->
+    </center>
     </body>
 </html>

@@ -29,6 +29,4 @@ public class Transaccion {
     public void setIdrepuesto(int idrepuesto) {
         this.idrepuesto = idrepuesto;
     }
-   
-   
 }
