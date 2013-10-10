@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetalleAtencion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="11a4114b-bc79-4797-af5d-6128acefd450">
 	<property name="ireport.zoom" value="1.1000000000000005"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="340"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="RUT" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -10,6 +10,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="PATENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RUTM" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -42,19 +45,23 @@
      FICHAAUTO."OBSERVACIONES" AS FICHAAUTO_OBSERVACIONES,
      REPUESTO."IDREPUESTO" AS REPUESTO_IDREPUESTO,
      TRABAJO."OBSERVACIONES" AS TRABAJO_OBSERVACIONES,
-     REPUESTO."DESCRIPCION" AS REPUESTO_DESCRIPCION
+     REPUESTO."DESCRIPCION" AS REPUESTO_DESCRIPCION,
+     ASIGNACIONTRABAJO."RUT" AS ASIGNACIONTRABAJO_RUT
 FROM
      "APP"."CLIENTE" CLIENTE INNER JOIN "APP"."AUTOMOVIL" AUTOMOVIL ON CLIENTE."RUT" = AUTOMOVIL."RUT"
      INNER JOIN "APP"."FICHAAUTO" FICHAAUTO ON AUTOMOVIL."PATENTE" = FICHAAUTO."PATENTE"
      INNER JOIN "APP"."MARCA" MARCA ON AUTOMOVIL."IDMARCA" = MARCA."IDMARCA"
      INNER JOIN "APP"."MODELO" MODELO ON AUTOMOVIL."IDMODELO" = MODELO."IDMODELO"
-     AND MARCA."IDMARCA" = MODELO."IDMARCA",
-     "APP"."REPUESTO" REPUESTO INNER JOIN "APP"."TRABAJO" TRABAJO ON REPUESTO."IDREPUESTO" = TRABAJO."IDREPUESTO",
-     "APP"."TRABAJADOR" TRABAJADOR
+     AND MARCA."IDMARCA" = MODELO."IDMARCA"
+     INNER JOIN "APP"."ASIGNACIONTRABAJO" ASIGNACIONTRABAJO ON FICHAAUTO."IDFICHA" = ASIGNACIONTRABAJO."IDFICHA"
+     INNER JOIN "APP"."TRABAJADOR" TRABAJADOR ON ASIGNACIONTRABAJO."RUT" = TRABAJADOR."RUT"
+     INNER JOIN "APP"."TRABAJO" TRABAJO ON ASIGNACIONTRABAJO."IDASIGNACION" = TRABAJO."IDASIGNACION"
+     INNER JOIN "APP"."REPUESTO" REPUESTO ON TRABAJO."IDREPUESTO" = REPUESTO."IDREPUESTO"
 WHERE
      CLIENTE."RUT" = $P{RUT}
  AND FICHAAUTO."FECHARECEP" = $P{FECHA}
- AND FICHAAUTO."PATENTE" = $P{PATENTE}]]>
+ AND FICHAAUTO."PATENTE" = $P{PATENTE}
+ AND ASIGNACIONTRABAJO."RUT"=$P{RUTM}]]>
 	</queryString>
 	<field name="CLIENTE_RUT" class="java.lang.String"/>
 	<field name="CLIENTE_NOMBRE" class="java.lang.String"/>
@@ -85,6 +92,7 @@ WHERE
 	<field name="REPUESTO_IDREPUESTO" class="java.lang.Integer"/>
 	<field name="TRABAJO_OBSERVACIONES" class="java.lang.String"/>
 	<field name="REPUESTO_DESCRIPCION" class="java.lang.String"/>
+	<field name="ASIGNACIONTRABAJO_RUT" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -94,36 +102,36 @@ WHERE
 				<reportElement uuid="342353f7-1aeb-43e5-b84f-bb6eb5503b6e" x="0" y="0" width="572" height="77"/>
 			</rectangle>
 			<staticText>
-				<reportElement uuid="3fa8a043-74d2-419d-ae60-3807c79420ed" x="209" y="0" width="165" height="24"/>
-				<textElement>
-					<font size="17" isBold="true" isUnderline="false"/>
+				<reportElement uuid="3fa8a043-74d2-419d-ae60-3807c79420ed" x="213" y="0" width="147" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Detalle Atención]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="212ae399-3ba8-4619-9cbc-bea15112c42e" x="108" y="34" width="100" height="20"/>
-				<textElement>
+				<reportElement uuid="212ae399-3ba8-4619-9cbc-bea15112c42e" x="75" y="34" width="120" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[Taller R.R.H]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="af817865-074a-4b3d-9c85-7507f732de9b" x="389" y="34" width="100" height="20"/>
-				<textElement>
+				<reportElement uuid="af817865-074a-4b3d-9c85-7507f732de9b" x="376" y="34" width="119" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[Puerto Montt]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="14723393-d2be-400e-9b9b-1d25bb012d69" x="399" y="54" width="100" height="20"/>
-				<textElement>
+				<reportElement uuid="14723393-d2be-400e-9b9b-1d25bb012d69" x="376" y="54" width="119" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[fono:3453443]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="b6771d54-68e0-40ea-bc42-84fde7b28653" x="75" y="54" width="121" height="20"/>
-				<textElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[eltaller@rrh.com]]></text>
@@ -140,7 +148,7 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="563" splitType="Stretch">
+		<band height="645" splitType="Stretch">
 			<rectangle>
 				<reportElement uuid="3e45101a-6fda-412d-9f7c-7b1eb44f2b5b" x="20" y="313" width="175" height="20"/>
 			</rectangle>
@@ -182,7 +190,7 @@ WHERE
 				<text><![CDATA[TELEFONO :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c24a2aed-f6e1-4f78-b328-b397dd48dd27" x="248" y="71" width="51" height="20"/>
+				<reportElement uuid="c24a2aed-f6e1-4f78-b328-b397dd48dd27" x="396" y="71" width="51" height="20"/>
 				<textElement/>
 				<text><![CDATA[EMAIL :]]></text>
 			</staticText>
@@ -217,11 +225,6 @@ WHERE
 				<text><![CDATA[MODELO :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="e1a83d9a-1e1a-495f-a141-864bfb57ab49" x="423" y="136" width="53" height="20"/>
-				<textElement/>
-				<text><![CDATA[TIPO :]]></text>
-			</staticText>
-			<staticText>
 				<reportElement uuid="d94d7c28-a709-425b-932f-4b3de308018b" x="20" y="351" width="100" height="20"/>
 				<textElement/>
 				<text><![CDATA[NUMERO FICHA :]]></text>
@@ -242,7 +245,7 @@ WHERE
 				<text><![CDATA[REPUESTO :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="5f912a27-6e59-43bc-8fd7-451380cf6957" x="19" y="411" width="126" height="25"/>
+				<reportElement uuid="5f912a27-6e59-43bc-8fd7-451380cf6957" x="20" y="454" width="100" height="38"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -269,17 +272,12 @@ WHERE
 				<text><![CDATA[NOMBRE :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="e3eff9b4-f3c9-4e69-becf-4b30cdda3eaa" x="423" y="176" width="76" height="20"/>
-				<textElement/>
-				<text><![CDATA[ID REPUESTO :]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="270b8668-b1bb-41dc-b070-fbbef8a7df88" x="248" y="51" width="35" height="20"/>
+				<reportElement uuid="270b8668-b1bb-41dc-b070-fbbef8a7df88" x="233" y="71" width="35" height="20"/>
 				<textElement/>
 				<text><![CDATA[RUT :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="4724817a-8b8e-443a-a312-dbd3f2e49219" x="19" y="502" width="141" height="25"/>
+				<reportElement uuid="4724817a-8b8e-443a-a312-dbd3f2e49219" x="22" y="542" width="100" height="35"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[DESCRIPCIÓN REPUESTO]]></text>
 			</staticText>
@@ -299,19 +297,19 @@ WHERE
 				<reportElement uuid="50c18772-b930-4f79-b89f-b060af3c2a93" x="1" y="4" width="571" height="1"/>
 			</line>
 			<line>
-				<reportElement uuid="70da3023-7305-4822-8fdd-35597977e607" x="2" y="561" width="571" height="1"/>
+				<reportElement uuid="70da3023-7305-4822-8fdd-35597977e607" x="2" y="607" width="571" height="1"/>
 			</line>
 			<line>
-				<reportElement uuid="670bde6a-c21c-49b2-84b5-6d0034b90e2a" x="2" y="556" width="571" height="1"/>
+				<reportElement uuid="670bde6a-c21c-49b2-84b5-6d0034b90e2a" x="2" y="602" width="571" height="1"/>
 			</line>
 			<line>
-				<reportElement uuid="ca9ff852-93c4-437b-a196-d76983451b03" x="572" y="4" width="2" height="552"/>
+				<reportElement uuid="ca9ff852-93c4-437b-a196-d76983451b03" x="572" y="4" width="2" height="603"/>
 			</line>
 			<line>
-				<reportElement uuid="d2d14193-a968-4b63-b54b-5d18e636b16f" x="1" y="4" width="2" height="552"/>
+				<reportElement uuid="d2d14193-a968-4b63-b54b-5d18e636b16f" x="2" y="4" width="1" height="603"/>
 			</line>
 			<textField>
-				<reportElement uuid="4dedadfb-69ca-4050-abab-abb043f5f59a" x="299" y="51" width="100" height="20"/>
+				<reportElement uuid="4dedadfb-69ca-4050-abab-abb043f5f59a" x="268" y="71" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{CLIENTE_RUT}]]></textFieldExpression>
 			</textField>
@@ -326,17 +324,12 @@ WHERE
 				<textFieldExpression><![CDATA[$F{AUTOMOVIL_PATENTE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="8a26c3e7-6380-44cd-bba7-f876c00529c9" x="145" y="411" width="427" height="48"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{FICHAAUTO_OBSERVACIONES}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement uuid="9c95f61d-fe9c-4f5d-998f-c29254897175" x="145" y="371" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{FICHAAUTO_FECHARECEP}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="8ec92249-3a47-48f1-93de-37d47b915bd5" x="120" y="351" width="125" height="20"/>
+				<reportElement uuid="8ec92249-3a47-48f1-93de-37d47b915bd5" x="148" y="351" width="97" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{FICHAAUTO_IDFICHA}]]></textFieldExpression>
 			</textField>
@@ -351,7 +344,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{TRABAJADOR_NOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="9261c2ed-6200-486f-b7d9-172a61c2253f" x="299" y="71" width="100" height="20"/>
+				<reportElement uuid="9261c2ed-6200-486f-b7d9-172a61c2253f" x="447" y="71" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{CLIENTE_EMAIL}]]></textFieldExpression>
 			</textField>
@@ -376,16 +369,6 @@ WHERE
 				<textFieldExpression><![CDATA[$F{REPUESTO_NOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="a28702ef-e762-42ab-85c0-e1faafc774fa" x="419" y="196" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{REPUESTO_IDREPUESTO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="337682db-0b61-47e6-8ec0-2c8158bb6d79" x="422" y="156" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{FICHAAUTO_TIPO}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement uuid="4cb67347-438b-4eaf-985f-06973f2a7acb" x="322" y="156" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{MARCA_NOMBRE}]]></textFieldExpression>
@@ -401,19 +384,79 @@ WHERE
 				<textFieldExpression><![CDATA[$F{AUTOMOVIL_CILINDRADA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="dea207ad-5873-4c4f-beb4-d9b1da54149f" x="160" y="502" width="412" height="54"/>
+				<reportElement uuid="82a34f50-9105-4dbf-873d-a13e6d026dd1" x="145" y="391" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_FECHAENTREGA}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="0bdda401-cea2-4631-acb7-715e66530c0a" x="443" y="179" width="95" height="40"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="a28702ef-e762-42ab-85c0-e1faafc774fa" x="463" y="199" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{REPUESTO_IDREPUESTO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e3eff9b4-f3c9-4e69-becf-4b30cdda3eaa" x="452" y="184" width="76" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[N° REPUESTO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="80c642aa-c497-44a1-82da-edeb414513b3" x="145" y="526" width="427" height="66"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="dea207ad-5873-4c4f-beb4-d9b1da54149f" x="146" y="526" width="424" height="66"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{REPUESTO_DESCRIPCION}]]></textFieldExpression>
 			</textField>
+			<rectangle>
+				<reportElement uuid="0875f5ed-fa6c-4d78-8631-78253fd0c741" x="145" y="413" width="427" height="58"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="bef4f516-7830-4c38-adb5-b63c3dddf4b2" x="145" y="471" width="427" height="55"/>
+			</rectangle>
 			<textField>
-				<reportElement uuid="7fd8f4e5-d624-4d1b-ba90-a9aacf53d028" x="148" y="459" width="424" height="43"/>
+				<reportElement uuid="7fd8f4e5-d624-4d1b-ba90-a9aacf53d028" x="145" y="471" width="427" height="55"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{TRABAJO_OBSERVACIONES}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="82a34f50-9105-4dbf-873d-a13e6d026dd1" x="145" y="391" width="100" height="20"/>
+				<reportElement uuid="8a26c3e7-6380-44cd-bba7-f876c00529c9" x="146" y="413" width="427" height="58"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{FICHAAUTO_FECHAENTREGA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_OBSERVACIONES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e2aee0f1-2691-496c-9919-e1105d74ca78" x="222" y="277" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TRABAJADOR_PATERNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d00038de-f1ef-44f8-8a1a-9f12871fca25" x="319" y="277" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TRABAJADOR_MATERNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c3222cd6-c00c-4855-a1b8-3485235d954a" x="220" y="51" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CLIENTE_PATERNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4a61ed3e-2432-4407-b647-40664c658286" x="319" y="51" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CLIENTE_MATERNO}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="0264093c-a598-4d78-b7e2-d58ad2592896" x="443" y="130" width="95" height="40"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="e1a83d9a-1e1a-495f-a141-864bfb57ab49" x="464" y="130" width="53" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[TIPO :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="337682db-0b61-47e6-8ec0-2c8158bb6d79" x="446" y="150" width="86" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FICHAAUTO_TIPO}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

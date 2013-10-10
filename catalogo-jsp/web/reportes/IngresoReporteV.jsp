@@ -22,7 +22,7 @@
             <option>Mantencion</option>
             <option>Reparacion</option>
                  </select><td>
-          <td><input type="submit" name="button" id="button" value="Generar Reporte"></td>
+          <td><input type="submit" name="button" id="button" value="Ver Autos"></td>
         </tr>
         
       </table>

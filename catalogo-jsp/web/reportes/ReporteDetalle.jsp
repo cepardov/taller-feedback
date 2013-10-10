@@ -11,7 +11,7 @@
 <%@ page import="utilidades.*" %> 
 <%
 DataBaseInstance conexion=new DataBaseInstance();
-File reportFile = new File(application.getRealPath("ReportesJasper/DetalleAtencion.jasper"));
+File reportFile = new File(application.getRealPath("reportesjasper/DetalleAtencion.jasper"));
 Map parameters = new HashMap();
 String rutcliente=request.getParameter("txtrut");
 String patente=request.getParameter("txtpatente");
